@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-19T05:44:35.000Z</updated>
+  <updated>2016-04-19T05:49:36.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,13 +19,11 @@
     <title></title>
     <link href="http://yoursite.com/2016/04/19/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/"/>
     <id>http://yoursite.com/2016/04/19/实现iOS启动页淡出效果/</id>
-    <published>2016-04-19T05:44:35.000Z</published>
-    <updated>2016-04-19T05:44:35.000Z</updated>
+    <published>2016-04-19T05:49:36.000Z</published>
+    <updated>2016-04-19T05:49:36.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;a href=&quot;#实现iOS启动页淡出效果&quot; class=&quot;headerlink&quot; title=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;/a&gt;实现iOS启动页淡出效果&lt;/h1&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;标签： 干货&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;a href=&quot;#实现iOS启动页淡出效果&quot; class=&quot;headerlink&quot; title=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;/a&gt;实现iOS启动页淡出效果&lt;/h1&gt;&lt;p&gt;标签： 干货&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
 &lt;p&gt;实现：&lt;br&gt;1.在LaunchScreen中将Storyboard ID设置为Launch&lt;br&gt;2.实现方法&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;private func launchAnimation()
@@ -49,7 +47,8 @@ launchview.removeFromSuperview()
     
     <summary type="html">
     
-      &lt;h1 id=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;a href=&quot;#实现iOS启动页淡出效果&quot; class=&quot;headerlink&quot; title=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;/a&gt;实现iOS启动页淡出效果&lt;/h1&gt;
+      &lt;h1 id=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;a href=&quot;#实现iOS启动页淡出效果&quot; class=&quot;headerlink&quot; title=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;/a&gt;实现iOS启动页淡出效果&lt;/h1&gt;&lt;p&gt;标签： 干货&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
     
     </summary>
     
@@ -60,10 +59,10 @@ launchview.removeFromSuperview()
     <title></title>
     <link href="http://yoursite.com/2016/04/19/Git%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2016/04/19/Git的使用/</id>
-    <published>2016-04-19T05:23:45.000Z</published>
-    <updated>2016-04-19T05:23:45.000Z</updated>
+    <published>2016-04-19T05:49:12.000Z</published>
+    <updated>2016-04-19T05:49:12.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;Git的使用&quot;&gt;&lt;a href=&quot;#Git的使用&quot; class=&quot;headerlink&quot; title=&quot;Git的使用&quot;&gt;&lt;/a&gt;Git的使用&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 工具&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;Git的使用&quot;&gt;&lt;a href=&quot;#Git的使用&quot; class=&quot;headerlink&quot; title=&quot;Git的使用&quot;&gt;&lt;/a&gt;Git的使用&lt;/h1&gt;&lt;p&gt;标签： 工具&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;git的安装&quot;&gt;&lt;a href=&quot;#git的安装&quot; class=&quot;headerlink&quot; title=&quot;git的安装&quot;&gt;&lt;/a&gt;git的安装&lt;/h3&gt;&lt;p&gt;先安装homebrew&lt;br&gt;再执行brew install git&lt;/p&gt;
@@ -128,9 +127,56 @@ f  -----强制运行
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Git的使用&quot;&gt;&lt;a href=&quot;#Git的使用&quot; class=&quot;headerlink&quot; title=&quot;Git的使用&quot;&gt;&lt;/a&gt;Git的使用&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 工具&lt;/p&gt;
+      &lt;h1 id=&quot;Git的使用&quot;&gt;&lt;a href=&quot;#Git的使用&quot; class=&quot;headerlink&quot; title=&quot;Git的使用&quot;&gt;&lt;/a&gt;Git的使用&lt;/h1&gt;&lt;p&gt;标签： 工具&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/04/19/%E5%AE%9E%E7%8E%B0%E6%B5%81%E5%8A%A8%E6%95%88%E6%9E%9C%E5%88%92%E5%87%BA%E7%9A%84Tableview/"/>
+    <id>http://yoursite.com/2016/04/19/实现流动效果划出的Tableview/</id>
+    <published>2016-04-19T05:48:32.000Z</published>
+    <updated>2016-04-19T05:48:32.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;实现流动效果划出的Tableview&quot;&gt;&lt;a href=&quot;#实现流动效果划出的Tableview&quot; class=&quot;headerlink&quot; title=&quot;实现流动效果划出的Tableview&quot;&gt;&lt;/a&gt;实现流动效果划出的Tableview&lt;/h1&gt;&lt;p&gt;标签： 干货&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LLXAnimateTableview&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LLXAnimateTableview&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;![动画效果][1]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;主要实现：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func animationTable() {
+
+self.tableView.reloadData()
+
+let cells = tableView.visibleCells
+let tableHeight: CGFloat = tableView.bounds.size.height
+
+for i in cells {
+    let cell: UITableViewCell = i as UITableViewCell
+    cell.transform = CGAffineTransformMakeTranslation(0, tableHeight)
+}
+
+var index = 0
+
+for a in cells {
+    let cell: UITableViewCell = a as UITableViewCell
+    UIView.animateWithDuration(1.0, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+        cell.transform = CGAffineTransformMakeTranslation(0, 0);
+    }, completion: nil)
+
+    index += 1
+}
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后在viewWillAppear中调用它&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;实现流动效果划出的Tableview&quot;&gt;&lt;a href=&quot;#实现流动效果划出的Tableview&quot; class=&quot;headerlink&quot; title=&quot;实现流动效果划出的Tableview&quot;&gt;&lt;/a&gt;实现流动效果划出的Tableview&lt;/h1&gt;&lt;p&gt;标签： 干货&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
     
     </summary>
     
