@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>  · AppleCatKay.Blog</title><meta name="description" content=" - LuLiangXiao"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/2715131950/profile?topnav=1&amp;wvr=6&amp;is_all=1" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/w11p3333?tab=repositories" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title"></h1><div class="post-time">Apr 19, 2016</div><div class="post-content"><h1 id="Swift集成高德地图-修复官方文档错误"><a href="#Swift集成高德地图-修复官方文档错误" class="headerlink" title="Swift集成高德地图-修复官方文档错误"></a>Swift集成高德地图-修复官方文档错误</h1><p>标签： 干货</p>
+<hr>
+<p>估计官方文档很久没更新了，里面好多错的，自己改了下。<br>首先强烈推荐直接用cocoapod装..不然配置会有很多坑<br><a id="more"></a><br>1.集成的两个库 libz.dylib libstdc++6.09.dylib改为libz.tbd、libstdc++6.09.tbd、libc++.tbd<br>2.直接上我改过的代码 亲测可以跑</p>
+<pre><code>import UIKitlet
+APIKey = &quot;bb7276ed1dd269c02137458ce32647b9&quot;
+ class WDMapViewController: UIViewController, MAMapViewDelegate, AMapSearchDelegate {  
+
+//地图
+var mapView:MAMapView?
+//搜索
+var search:AMapSearchAPI?
+//定位
+var currentLocation:CLLocation?
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+
+
+// 配置用户Key
+MAMapServices.sharedServices().apiKey = APIKey
+AMapSearchServices.sharedServices().apiKey = APIKey
+// 初始化MAMapView
+initMapView()
+//初始化搜索
+initSearch()
+
+}
+
+
+
+func initMapView(){
+
+mapView = MAMapView(frame: self.view.bounds)
+
+mapView!.delegate = self
+
+
+let compassX = mapView?.compassOrigin.x
+
+let scaleX = mapView?.scaleOrigin.x
+
+//设置指南针和比例尺的位置
+mapView?.compassOrigin = CGPointMake(compassX!, 21)
+
+mapView?.scaleOrigin = CGPointMake(scaleX!, 21)
+
+mapView?.showsCompass = true
+mapView?.showsScale = true
+
+// 开启定位
+mapView!.showsUserLocation = true
+
+// 设置跟随定位模式，将定位点设置成地图中心点
+mapView!.userTrackingMode = MAUserTrackingMode.Follow
+
+
+//添加视图
+self.view.addSubview(mapView!)
+
+}
+
+
+  // 初始化 AMapSearchAPI
+func initSearch(){
+
+search = AMapSearchAPI()
+search?.delegate = self
+}
+
+// 逆地理编码
+func reverseGeocoding(){
+
+let coordinate = currentLocation?.coordinate
+
+// 构造 AMapReGeocodeSearchRequest 对象，配置查询参数（中心点坐标）
+let regeo: AMapReGeocodeSearchRequest = AMapReGeocodeSearchRequest()
+
+regeo.location = AMapGeoPoint.locationWithLatitude(CGFloat(coordinate!.latitude), longitude: CGFloat(coordinate!.longitude))
+
+
+
+// 进行逆地理编码查询
+self.search!.AMapReGoecodeSearch(regeo)
+
+}
+
+
+
+
+  // 定位回调
+func mapView(mapView: MAMapView!, didUpdateUserLocation userLocation: MAUserLocation!, updatingLocation: Bool) {
+    if updatingLocation {
+        currentLocation = userLocation.location
+    }
+}
+
+// 点击Annoation回调
+func mapView(mapView: MAMapView!, didSelectAnnotationView view: MAAnnotationView!) {
+    // 若点击的是定位标注，则执行逆地理编码
+    if view.annotation.isKindOfClass(MAUserLocation){
+        reverseGeocoding()
+    }
+}
+
+// 逆地理编码回调
+func onReGeocodeSearchDone(request: AMapReGeocodeSearchRequest!, response: AMapReGeocodeSearchResponse!) {
+
+
+if (response.regeocode != nil) {
+
+    var title = response.regeocode.addressComponent.city
+
+        title = response.regeocode.addressComponent.province
+
+    //给定位标注的title和subtitle赋值，在气泡中显示定位点的地址信息
+    mapView?.userLocation.title = title
+    mapView?.userLocation.subtitle = response.regeocode.formattedAddress
+
+}
+
+}
+ }
+</code></pre></div></article></div></section><footer><div class="paginator"><a href="/2016/04/19/ReactiveCocoa官方文档-自翻/" class="prev">PREV</a><a href="/2016/04/19/UI分析利器 Reveal的破解及使用/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2016/04/19/Swift集成高德地图-修复官方文档错误/';
+var disqus_title = '';
+var disqus_url = 'http://yoursite.com/2016/04/19/Swift集成高德地图-修复官方文档错误/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2016 <a href="http://yoursite.com">LuLiangXiao</a>, unless otherwise noted.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
