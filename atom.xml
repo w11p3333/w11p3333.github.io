@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-19T04:29:36.000Z</updated>
+  <updated>2016-04-19T04:49:11.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,26 +16,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
+    <title></title>
     <link href="http://yoursite.com/2016/04/19/hello-world/"/>
     <id>http://yoursite.com/2016/04/19/hello-world/</id>
     <published>2016-04-19T04:29:36.000Z</published>
-    <updated>2016-04-19T04:29:36.000Z</updated>
+    <updated>2016-04-19T04:49:11.000Z</updated>
     
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;CocoaPods及Carthage的使用&quot;&gt;&lt;a href=&quot;#CocoaPods及Carthage的使用&quot; class=&quot;headerlink&quot; title=&quot;CocoaPods及Carthage的使用&quot;&gt;&lt;/a&gt;CocoaPods及Carthage的使用&lt;/h1&gt;&lt;p&gt;作为iOS中最好用的两个依赖管理，是我们必须学会的。使用上来说CocoaPods更加方便，Carthage的侵入性比较低，但是很多库没有，所以我个人还是使用Cocoapods为主。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Cocoapods基于Alcatraz安装CocoaPods报错的问题&quot;&gt;&lt;a href=&quot;#Cocoapods基于Alcatraz安装CocoaPods报错的问题&quot; class=&quot;headerlink&quot; title=&quot;Cocoapods基于Alcatraz安装CocoaPods报错的问题&quot;&gt;&lt;/a&gt;Cocoapods基于Alcatraz安装CocoaPods报错的问题&lt;/h1&gt;&lt;p&gt;用Alcatraz安装CocoaPods，执行install pods命令会报错&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Resolved command path for &amp;quot;pod&amp;quot; is invalid。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;原因：软件云被屏蔽&lt;br&gt;解决方法：把亚马逊的云服务改成国内淘宝源的服务&lt;br&gt;打开Terminal，然后键入以下命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo gem install -n /usr/local/bin cocoa pods
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行完这句如果报告错误&lt;br&gt;这是因为ruby的软件源rubygems.org因为使用亚马逊的云服务，被屏蔽了，需要更新一下ruby的源，过程如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ gem sources -l (查看当前ruby的源)
+$ gem sources --remove https://rubygems.org/ 
+ $ gem sources -a https://ruby.taobao.org/ 
+ $ gem sources -l
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果gem太老，可以尝试用如下命令升级&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gem $ sudo gem update --system
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;升级成功后会提示:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;RubyGems system software updated
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后重新执行安装下载命令&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo gem install cocoapods
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这时候应该没什么问题了接下来进行安装，执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ pod setup
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Terminal会停留在 Setting up CocoaPods master repo 这个状态一段时间,是因为要进行下载安装,而且目录比较大,需要耐心等待一下。看到complete字段就是安装成功了&lt;/p&gt;
+&lt;p&gt;导入框架方法&lt;br&gt;点击Xcode&amp;gt;Product&amp;gt;Cocoapods&amp;gt;create podfile&lt;/p&gt;
+&lt;p&gt;填入想导入的框架&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;platform :ios, &amp;quot;8.0&amp;quot;
+
+use_frameworks!
+pod &amp;quot;AFNetworking&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在执行Install pods就ok了&lt;/p&gt;
+&lt;h1 id=&quot;Carthage&quot;&gt;&lt;a href=&quot;#Carthage&quot; class=&quot;headerlink&quot; title=&quot;Carthage&quot;&gt;&lt;/a&gt;Carthage&lt;/h1&gt;&lt;p&gt;安装&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install carthage
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;使用&lt;br&gt;1.进入项目所在文件夹&lt;br&gt;2.创建一个空的carthage文件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;touch Cartfile
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;3.使用XCode打开文件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;open -a Xcode Cartfile
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;4.编辑Cartfile&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;github &amp;quot;SVProgressHUD/SVProgressHUD&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;5.运行Carthage&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;carthage update
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;6.加载framework&lt;br&gt;    在项目文件夹中找到Carthage/Build/iOS/&lt;br&gt;    将需要的framework加入xcode中的Embedded Binaries&lt;br&gt;或者&lt;br&gt;    在项目中引入依赖的 Framkework，只需要在对应 Target 中的 Build Setting 中的 Framework Search Path 项加入以下路径，Xcode 便会自动搜索目录下的 Framework：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$(SRCROOT)/Carthage/Build/iOS
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;7.导入框架使用吧&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;h1 id=&quot;CocoaPods及Carthage的使用&quot;&gt;&lt;a href=&quot;#CocoaPods及Carthage的使用&quot; class=&quot;headerlink&quot; title=&quot;CocoaPods及Carthage的使用&quot;&gt;&lt;/a&gt;CocoaPods及Carthage的使用&lt;/h1&gt;&lt;p&gt;作为iOS中最好用的两个依赖管理，是我们必须学会的。使用上来说CocoaPods更加方便，Carthage的侵入性比较低，但是很多库没有，所以我个人还是使用Cocoapods为主。&lt;br&gt;
     
     </summary>
     

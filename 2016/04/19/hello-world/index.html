@@ -1,15 +1,45 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Hello World · AppleCatKay.Blog</title><meta name="description" content="Hello World - LuLiangXiao"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/2715131950/profile?topnav=1&amp;wvr=6&amp;is_all=1" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/w11p3333?tab=repositories" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Hello World</h1><div class="post-time">Apr 19, 2016</div><div class="post-content"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-</div></article></div></section><footer><div class="paginator"><a href="/2016/03/31/iOS框架使用/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>  · AppleCatKay.Blog</title><meta name="description" content=" - LuLiangXiao"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/2715131950/profile?topnav=1&amp;wvr=6&amp;is_all=1" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/w11p3333?tab=repositories" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title"></h1><div class="post-time">Apr 19, 2016</div><div class="post-content"><h1 id="CocoaPods及Carthage的使用"><a href="#CocoaPods及Carthage的使用" class="headerlink" title="CocoaPods及Carthage的使用"></a>CocoaPods及Carthage的使用</h1><p>作为iOS中最好用的两个依赖管理，是我们必须学会的。使用上来说CocoaPods更加方便，Carthage的侵入性比较低，但是很多库没有，所以我个人还是使用Cocoapods为主。<br><a id="more"></a></p>
+<h1 id="Cocoapods基于Alcatraz安装CocoaPods报错的问题"><a href="#Cocoapods基于Alcatraz安装CocoaPods报错的问题" class="headerlink" title="Cocoapods基于Alcatraz安装CocoaPods报错的问题"></a>Cocoapods基于Alcatraz安装CocoaPods报错的问题</h1><p>用Alcatraz安装CocoaPods，执行install pods命令会报错</p>
+<pre><code>Resolved command path for &quot;pod&quot; is invalid。
+</code></pre><p>原因：软件云被屏蔽<br>解决方法：把亚马逊的云服务改成国内淘宝源的服务<br>打开Terminal，然后键入以下命令：</p>
+<pre><code>$ sudo gem install -n /usr/local/bin cocoa pods
+</code></pre><p>执行完这句如果报告错误<br>这是因为ruby的软件源rubygems.org因为使用亚马逊的云服务，被屏蔽了，需要更新一下ruby的源，过程如下：</p>
+<pre><code>$ gem sources -l (查看当前ruby的源)
+$ gem sources --remove https://rubygems.org/ 
+ $ gem sources -a https://ruby.taobao.org/ 
+ $ gem sources -l
+</code></pre><p>如果gem太老，可以尝试用如下命令升级</p>
+<pre><code>gem $ sudo gem update --system
+</code></pre><p>升级成功后会提示:</p>
+<pre><code>RubyGems system software updated
+</code></pre><p>然后重新执行安装下载命令</p>
+<pre><code>$ sudo gem install cocoapods
+</code></pre><p>这时候应该没什么问题了接下来进行安装，执行：</p>
+<pre><code>$ pod setup
+</code></pre><p>Terminal会停留在 Setting up CocoaPods master repo 这个状态一段时间,是因为要进行下载安装,而且目录比较大,需要耐心等待一下。看到complete字段就是安装成功了</p>
+<p>导入框架方法<br>点击Xcode&gt;Product&gt;Cocoapods&gt;create podfile</p>
+<p>填入想导入的框架</p>
+<pre><code>platform :ios, &quot;8.0&quot;
+
+use_frameworks!
+pod &quot;AFNetworking&quot;
+</code></pre><p>在执行Install pods就ok了</p>
+<h1 id="Carthage"><a href="#Carthage" class="headerlink" title="Carthage"></a>Carthage</h1><p>安装</p>
+<pre><code>brew install carthage
+</code></pre><p>使用<br>1.进入项目所在文件夹<br>2.创建一个空的carthage文件</p>
+<pre><code>touch Cartfile
+</code></pre><p>3.使用XCode打开文件</p>
+<pre><code>open -a Xcode Cartfile
+</code></pre><p>4.编辑Cartfile</p>
+<pre><code>github &quot;SVProgressHUD/SVProgressHUD&quot;
+</code></pre><p>5.运行Carthage</p>
+<pre><code>carthage update
+</code></pre><p>6.加载framework<br>    在项目文件夹中找到Carthage/Build/iOS/<br>    将需要的framework加入xcode中的Embedded Binaries<br>或者<br>    在项目中引入依赖的 Framkework，只需要在对应 Target 中的 Build Setting 中的 Framework Search Path 项加入以下路径，Xcode 便会自动搜索目录下的 Framework：</p>
+<pre><code>$(SRCROOT)/Carthage/Build/iOS
+</code></pre><p>7.导入框架使用吧</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/03/31/iOS框架使用/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
 var disqus_identifier = '2016/04/19/hello-world/';
-var disqus_title = 'Hello World';
+var disqus_title = '';
 var disqus_url = 'http://yoursite.com/2016/04/19/hello-world/';
 (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
