@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>AppleCatKay.Blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-04-19T04:29:36.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>LuLiangXiao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2016/04/19/hello-world/"/>
+    <id>http://yoursite.com/2016/04/19/hello-world/</id>
+    <published>2016-04-19T04:29:36.000Z</published>
+    <updated>2016-04-19T04:29:36.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/03/31/iOS%E6%A1%86%E6%9E%B6%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2016/03/31/iOS框架使用/</id>
+    <published>2016-03-31T07:31:27.000Z</published>
+    <updated>2016-04-19T02:48:33.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;iOS中一些实用框架的使用&quot;&gt;&lt;a href=&quot;#iOS中一些实用框架的使用&quot; class=&quot;headerlink&quot; title=&quot;iOS中一些实用框架的使用&quot;&gt;&lt;/a&gt;iOS中一些实用框架的使用&lt;/h1&gt;&lt;p&gt;SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;SDCycleScrollView&quot;&gt;&lt;a href=&quot;#SDCycleScrollView&quot; class=&quot;headerlink&quot; title=&quot;SDCycleScrollView&quot;&gt;&lt;/a&gt;SDCycleScrollView&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/gsdios/SDCycleScrollView&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/gsdios/SDCycleScrollView&lt;/a&gt;&lt;br&gt;实现图片轮播框架&lt;br&gt;使用方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let imageGroup = [&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;4&amp;quot;,&amp;quot;5&amp;quot;]
+
+let scrollview = SDCycleScrollView(frame: CGRectMake(0, 0, (UIScreen.mainScreen().bounds.width), 200), imageNamesGroup: imageGroup)
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;RxWebViewController&quot;&gt;&lt;a href=&quot;#RxWebViewController&quot; class=&quot;headerlink&quot; title=&quot;RxWebViewController&quot;&gt;&lt;/a&gt;RxWebViewController&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Roxasora/RxWebViewController&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/Roxasora/RxWebViewController&lt;/a&gt;&lt;br&gt;仿微信效果的webview&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let vc = RxWebViewController(url: url)
+self.navigationController?.pushViewController(vc, animated: true)
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;KGFloatingDrawer&quot;&gt;&lt;a href=&quot;#KGFloatingDrawer&quot; class=&quot;headerlink&quot; title=&quot;KGFloatingDrawer&quot;&gt;&lt;/a&gt;KGFloatingDrawer&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/KyleGoddard/KGFloatingDrawer&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/KyleGoddard/KGFloatingDrawer&lt;/a&gt;&lt;br&gt;实现左右侧边栏框架&lt;/p&gt;
+&lt;p&gt;1.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;privatevar _drawerViewController: KGDrawerViewController?
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var drawerViewController: KGDrawerViewController {  
+get {       
+ if let viewController = _drawerViewController {       
+ return viewController      
+   }          
+
+   returnprepareDrawerViewController()
+}
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;3.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func prepareDrawerViewController() -&amp;gt; KGDrawerViewController {     
+  let drawerViewController = KGDrawerViewController()    
+  drawerViewController.centerViewController = viewControllerForStoryboardId(&amp;quot;center&amp;quot;)
+
+drawerViewController.leftViewController = viewControllerForStoryboardId(&amp;quot;leftvc&amp;quot;)
+
+  drawerViewController.rightViewController = viewControllerForStoryboardId(“rightvc&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;drawerViewController.leftDrawerWidth = CGFloat(150)       
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   //背景图片     &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;       _drawerViewController = drawerViewController      
+return drawerViewController  
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;4.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; private func drawerStoryboard() -&amp;gt; UIStoryboard {   
+let storyboard = UIStoryboard(name: &amp;quot;Main&amp;quot;, bundle: nil)        return storyboard    }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;5.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  private func viewControllerForStoryboardId(storyboardId: String) -&amp;gt; UIViewController {     
+  let viewController: UIViewController = drawerStoryboard().instantiateViewControllerWithIdentifier(storyboardId) as! UIViewController   
+ return viewController
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;最后将&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;window?.rootViewController = drawerViewController
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在想要弹出的方法里&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let appDelegate = UIApplication.sharedApplication().delegateas! AppDelegate     
+   appDelegate.drawerViewController.toggleDrawer(KGDrawerSide.Left, animated: true) { (finished) -&amp;gt; Void            in
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;AFSoundManager&quot;&gt;&lt;a href=&quot;#AFSoundManager&quot; class=&quot;headerlink&quot; title=&quot;AFSoundManager&quot;&gt;&lt;/a&gt;AFSoundManager&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/AlvaroFranco/AFSoundManager&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/AlvaroFranco/AFSoundManager&lt;/a&gt;&lt;br&gt;音乐播放框架&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var player:AFSoundPlayback?
+
+//开始播放音乐 
+
+
+  AFSoundManager.sharedManager().startStreamingRemoteAudioFromURL(musicurl) { (percentage, elapsedTime, timeRemaining, error, finished) in
+
+
+ //进度 percentage
+//  elapsedTime 开始时间
+//  timeRemaining 结束时间
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;暂停方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AFSoundManager.sharedManager().pause()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;重播方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AFSoundManager.sharedManager().resume()
+MJRefresh
+https://github.com/CoderMJLee/MJRefresh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;刷新控件框架&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/// header    var header:MJRefreshNormalHeader{  
+ return (self.tableView.tableHeaderViewas? MJRefreshNormalHeader)!  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   }   &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/**  footer  */ 
+    var footer:MJRefreshFooter{   
+  return (self.tableView.tableFooterViewas? MJRefreshFooter)!
+
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;方法中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func  setUpRefrshControl()    {       
+   /**        上拉刷新        */   
+tableView.tableHeaderView = MJRefreshNormalHeader.init(refreshingBlock: { () -&amp;gt; Voidin            self.footer.endRefreshing()
+
+  self.tableView.reloadData()     
+
+   self.header.endRefreshing()               
+
+      })    
+    header.automaticallyChangeAlpha = true     
+      header.beginRefreshing()    
+   /**        下拉刷新        */         
+     tableView.tableFooterView = MJRefreshAutoNormalFooter.init(refreshingBlock: { () -&amp;gt; Void in      
+  self.header.endRefreshing()  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   self.footer.beginRefreshing()&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; self.tableView.reloadData()                self.footer.endRefreshing()               
+
+ })       
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;YZDisplayViewController&quot;&gt;&lt;a href=&quot;#YZDisplayViewController&quot; class=&quot;headerlink&quot; title=&quot;YZDisplayViewController&quot;&gt;&lt;/a&gt;YZDisplayViewController&lt;/h1&gt;&lt;p&gt;滑动标题栏框架&lt;br&gt;&lt;a href=&quot;https://github.com/iThinkerYZ/YZDisplayViewController&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/iThinkerYZ/YZDisplayViewController&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/**
+ 设置标题样式
+*/
+ func setupTitle()
+{
+
+isShowUnderLine = true
+underLineColor = bgcolor
+isShowTitleGradient = true
+isShowTitleCover = false
+
+titleHeight = 38
+endR = 32 / 255.0
+endG = 142 / 255.0
+endB = 115 / 255.0
+
+  // 是否显示遮盖
+  titleScrollViewColor = UIColor.whiteColor()
+
+  coverColor = UIColor(white: 0.7, alpha: 0.4)
+  coverCornerRadius = 13
+  norColor = UIColor.blackColor()
+  selColor = UIColor.whiteColor()
+   }
+
+
+
+/**
+ 添加子控制器
+ */
+func setupAllControllers()
+{
+ let text = WDTextTableViewController()
+text.title = &amp;quot;糗事&amp;quot;
+addChildViewController(text)
+let picture = WDPictureTableViewController()
+picture.title = &amp;quot;图片&amp;quot;
+addChildViewController(picture)
+let video = WDVideoTableViewController()
+video.title = &amp;quot;视频&amp;quot;
+addChildViewController(video)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;LLXWaterFlow&quot;&gt;&lt;a href=&quot;#LLXWaterFlow&quot; class=&quot;headerlink&quot; title=&quot;LLXWaterFlow&quot;&gt;&lt;/a&gt;LLXWaterFlow&lt;/h1&gt;&lt;p&gt;我写的一个瀑布流的实现&lt;br&gt;&lt;a href=&quot;https://github.com/w11p3333/LLXWaterFlow&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LLXWaterFlow&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;FMDB&quot;&gt;&lt;a href=&quot;#FMDB&quot; class=&quot;headerlink&quot; title=&quot;FMDB&quot;&gt;&lt;/a&gt;FMDB&lt;/h1&gt;&lt;p&gt;不能用cocoa pod导入&lt;br&gt;先从github下好拖进工程里&lt;br&gt;再创建一个桥接文件 swift-brige&lt;br&gt;在设置中添加sqlite3 库&lt;br&gt;在build settings中搜索Bridging Header&lt;br&gt;添加桥接文件的路径（在本工程内的路径）&lt;br&gt;使用FMDatabaseQueue相比FMDatabase是数据安全的，并且不需要打开数据库的流程&lt;/p&gt;
+&lt;h1 id=&quot;masonry&quot;&gt;&lt;a href=&quot;#masonry&quot; class=&quot;headerlink&quot; title=&quot;masonry&quot;&gt;&lt;/a&gt;masonry&lt;/h1&gt;&lt;p&gt;实现方便的代码实现autolayout&lt;br&gt;使用方法&lt;br&gt;   有make remake update三种方法 传进去的参数要加mas_前缀 mas_equalTo 会对参数进行包装 equalTo 不会对参数进行包装&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  //尺寸约束
+  make.size.as_equalTo(CGSizeMake(x,y)); 
+   //位置约束 居中
+make.centerX.mas_equalTo(self.view.centerX);    
+  make.centerY.mas_equalTo(self.view.centerY); 
+   //设置到边的距离      
+    make.right.mas_euqalTo(self.view).offset(20);
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;Parse-for-iOS&quot;&gt;&lt;a href=&quot;#Parse-for-iOS&quot; class=&quot;headerlink&quot; title=&quot;Parse for iOS&quot;&gt;&lt;/a&gt;Parse for iOS&lt;/h1&gt;&lt;p&gt;为ios提供后端&lt;br&gt;用法：&lt;a href=&quot;http://www.mobile-open.com/2015/41095.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.mobile-open.com/2015/41095.html&lt;/a&gt;&lt;br&gt;官网：&lt;br&gt;&lt;a href=&quot;https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;LeanClound&quot;&gt;&lt;a href=&quot;#LeanClound&quot; class=&quot;headerlink&quot; title=&quot;LeanClound&quot;&gt;&lt;/a&gt;LeanClound&lt;/h1&gt;&lt;h1 id=&quot;Realm&quot;&gt;&lt;a href=&quot;#Realm&quot; class=&quot;headerlink&quot; title=&quot;Realm&quot;&gt;&lt;/a&gt;Realm&lt;/h1&gt;&lt;h1 id=&quot;Spring&quot;&gt;&lt;a href=&quot;#Spring&quot; class=&quot;headerlink&quot; title=&quot;Spring&quot;&gt;&lt;/a&gt;Spring&lt;/h1&gt;&lt;p&gt;一些常用的SVProgressHUD/AFN/Alamofire/SDWebImage&lt;br&gt;的使用都比较简单我这里就暂时不写了&lt;/p&gt;
+&lt;p&gt;不定时更新&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;iOS中一些实用框架的使用&quot;&gt;&lt;a href=&quot;#iOS中一些实用框架的使用&quot; class=&quot;headerlink&quot; title=&quot;iOS中一些实用框架的使用&quot;&gt;&lt;/a&gt;iOS中一些实用框架的使用&lt;/h1&gt;&lt;p&gt;SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
