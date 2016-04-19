@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-19T05:49:36.000Z</updated>
+  <updated>2016-04-19T06:08:06.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,205 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/04/19/UI%E5%88%86%E6%9E%90%E5%88%A9%E5%99%A8%20Reveal%E7%9A%84%E7%A0%B4%E8%A7%A3%E5%8F%8A%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2016/04/19/UI分析利器 Reveal的破解及使用/</id>
+    <published>2016-04-19T06:08:06.000Z</published>
+    <updated>2016-04-19T06:08:06.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;UI分析利器-Reveal的破解及使用&quot;&gt;&lt;a href=&quot;#UI分析利器-Reveal的破解及使用&quot; class=&quot;headerlink&quot; title=&quot;UI分析利器 Reveal的破解及使用&quot;&gt;&lt;/a&gt;UI分析利器 Reveal的破解及使用&lt;/h1&gt;&lt;p&gt;标签： 工具&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;话不多说 当然，有能力的还是支持正版&lt;br&gt;&lt;a href=&quot;http://upload-images.jianshu.io/upload_images/1449048-4e7ea3b4f6181571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;下载地址&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://upload-images.jianshu.io/upload_images/1449048-4e7ea3b4f6181571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;破解包&lt;/a&gt;&lt;br&gt;下载完之后将软件运行一次并用Finder拖到应用程序里&lt;br&gt;右键显示包内容，再点击contents&amp;gt;MAC OS&lt;br&gt;将Reveal文件改名，再把解压出来的破解包内容拷进去&lt;br&gt;重新打开软件 破解成功&lt;br&gt;点击window&amp;gt;show Reveal library in Finder&amp;gt;ios&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1449048-4e7ea3b4f6181571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+&lt;p&gt;此时打开了Reveal.framework&lt;br&gt;将framework拖入需要使用Reveal分析的XCode程序里&lt;br&gt;注意一定要勾选copy if needed&lt;br&gt;再点击项目配置 找到Linked Frameworks and Libraries&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1449048-0e6a828ae033accb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+&lt;p&gt; 把Reveal.framework给移除掉&lt;br&gt;再点击Bulid Settings 搜索Other Linker Flags&lt;br&gt;加入如下一行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-ObjC -framework Reveal
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后运行程序，再到Reveal界面中选择你当前运行的模拟器&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1449048-6145315f65f25c26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;br&gt;ok 大功告成&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1449048-dd91f6194005e0c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;UI分析利器-Reveal的破解及使用&quot;&gt;&lt;a href=&quot;#UI分析利器-Reveal的破解及使用&quot; class=&quot;headerlink&quot; title=&quot;UI分析利器 Reveal的破解及使用&quot;&gt;&lt;/a&gt;UI分析利器 Reveal的破解及使用&lt;/h1&gt;&lt;p&gt;标签： 工具&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/04/19/Swift%E4%B8%AD%E7%9A%84%E7%95%8C%E9%9D%A2%E4%BC%A0%E5%80%BC/"/>
+    <id>http://yoursite.com/2016/04/19/Swift中的界面传值/</id>
+    <published>2016-04-19T06:04:26.000Z</published>
+    <updated>2016-04-19T06:04:26.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Swift中的界面传值&quot;&gt;&lt;a href=&quot;#Swift中的界面传值&quot; class=&quot;headerlink&quot; title=&quot;Swift中的界面传值&quot;&gt;&lt;/a&gt;Swift中的界面传值&lt;/h1&gt;&lt;p&gt;标签： 特性&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;正向页面传值-通过代码&quot;&gt;&lt;a href=&quot;#正向页面传值-通过代码&quot; class=&quot;headerlink&quot; title=&quot;正向页面传值-通过代码&quot;&gt;&lt;/a&gt;正向页面传值-通过代码&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;    有A、B两个控制器，A要把文本的里的string传给B 
+     在B中定义一个属性
+       var txtStr
+   //在A要进入B控制器的操作中 
+var secondVC:SecondViewController = SecondViewController() 
+secondVC.txtStr = self.text 
+presentViewController(secondVC , animated: true, completion: nil)
+     //在B中要显示的控件中赋值 
+self.label.text = txtStr
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;正向传值第二种方法&quot;&gt;&lt;a href=&quot;#正向传值第二种方法&quot; class=&quot;headerlink&quot; title=&quot;正向传值第二种方法&quot;&gt;&lt;/a&gt;正向传值第二种方法&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;有A、B两个控制器，A要把文本的里的string传给B
+//在B中定义一个属性
+var txtStr
+//在B中重写init()方法
+init(text:String)
+{
+self.txtStr = text
+super.init(nibName: nil, bundle: nil)
+}
+//在A要进入B控制器的操作中
+var secondVC:SecondViewController = SecondViewController(text:self.text)
+presentViewController(secondVC , animated: true, completion: nil)
+//在B中要显示的控件中赋值
+self.label.text = txtStr
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;正向页面传值第三种方法-通过Storyboard&quot;&gt;&lt;a href=&quot;#正向页面传值第三种方法-通过Storyboard&quot; class=&quot;headerlink&quot; title=&quot;正向页面传值第三种方法-通过Storyboard&quot;&gt;&lt;/a&gt;正向页面传值第三种方法-通过Storyboard&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;有A、B两个控制器，A要把文本的里的string传给B
+两个 View 之间要用 Modal 类型的 Segue 来连接
+//在B中定义一个属性
+var txtStr
+//在A中重写prepareForSegue方法
+  let destVc: secondVC:SecondViewController = segue.destionViewController as! secondVC:SecondViewController
+//将A中的值赋值到B中的属性
+destVc.textStr = self.text
+//在B中要显示的控件中赋值
+ self.label.text = txtStr
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;Delegate反向传值&quot;&gt;&lt;a href=&quot;#Delegate反向传值&quot; class=&quot;headerlink&quot; title=&quot;Delegate反向传值&quot;&gt;&lt;/a&gt;Delegate反向传值&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;谁要传值谁就拥有代理属性
+有A、B两个控制器，A进入B，B再返回A，把文本里的String传给A
+在A中定义一个属性
+var txtStr:String?
+给B定义一个协议
+protocol SecondVcDelegate:NSObjectProtocol
+{
+    func SecondVcGiveTextToFirstVc(text: String)
+
+}
+再给B定义一个delegate 避免循环应用要加上weak
+weak var delegate:SecondVcDelegate?
+在B要跳转回A的时候调用代理
+self.delegate?.SecondVcGiveTextToFirstVc(&amp;quot;test&amp;quot;)
+在A中需要接受值的时候
+let vc = SecondVc()
+vc.delegate = self
+extension FirstVc:delegate:SecondVcDelegate
+{
+    func SecondVcGiveTextToFirstVc(text: String)
+    {
+    txtStr = text
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;NSNotificationCenter传值&quot;&gt;&lt;a href=&quot;#NSNotificationCenter传值&quot; class=&quot;headerlink&quot; title=&quot;NSNotificationCenter传值&quot;&gt;&lt;/a&gt;NSNotificationCenter传值&lt;/h3&gt;&lt;p&gt;第一步 post一个通知&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; let info = [WDPictureWillOpen:pictureTopic!.cdn_img!]
+NSNotificationCenter.defaultCenter().postNotificationName(WDPictureWillOpen, object: self, userInfo: info)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;第二步 接受通知&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WDPictureTableViewController.openPothoBrowser(_:)), name: WDPictureWillOpen, object: nil)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;第三步 实现接受通知的方法并拿到值&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func openPothoBrowser(notify: NSNotification)
+ {
+
+   //一定要拦截
+ guard let urlstr = notify.userInfo![WDPictureWillOpen] as? String  else
+ {
+     return
+ }
+
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;第四步 一定要移除通知&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;     deinit
+{
+ NSNotificationCenter.defaultCenter().removeObserver(self)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;NSUserDefault传值&quot;&gt;&lt;a href=&quot;#NSUserDefault传值&quot; class=&quot;headerlink&quot; title=&quot;NSUserDefault传值&quot;&gt;&lt;/a&gt;NSUserDefault传值&lt;/h3&gt;&lt;pre&gt;&lt;code&gt; 注意：NSUserDefaults是持久化存储 
+//在需要传值的地方      
+NSUserDefaults.standardUserDefaults().setObject(&amp;quot;test&amp;quot;, forKey: &amp;quot;test&amp;quot;) 
+//取出值
+   let str = NSUserDefaults.standardUserDefaults().objectForKey(&amp;quot;test&amp;quot;) print(Str)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;闭包传值&quot;&gt;&lt;a href=&quot;#闭包传值&quot; class=&quot;headerlink&quot; title=&quot;闭包传值&quot;&gt;&lt;/a&gt;闭包传值&lt;/h3&gt;&lt;h3 id=&quot;单例传值&quot;&gt;&lt;a href=&quot;#单例传值&quot; class=&quot;headerlink&quot; title=&quot;单例传值&quot;&gt;&lt;/a&gt;单例传值&lt;/h3&gt;&lt;p&gt;占坑 有空再更&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Swift中的界面传值&quot;&gt;&lt;a href=&quot;#Swift中的界面传值&quot; class=&quot;headerlink&quot; title=&quot;Swift中的界面传值&quot;&gt;&lt;/a&gt;Swift中的界面传值&lt;/h1&gt;&lt;p&gt;标签： 特性&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/04/19/iOS%E4%B8%AD%E7%9A%84%E6%9C%AC%E5%9C%B0%E6%8E%A8%E9%80%81%E4%B8%8E%E8%BF%9C%E7%A8%8B%E6%8E%A8%E9%80%81/"/>
+    <id>http://yoursite.com/2016/04/19/iOS中的本地推送与远程推送/</id>
+    <published>2016-04-19T06:01:41.000Z</published>
+    <updated>2016-04-19T06:01:41.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;iOS中的本地推送与远程推送&quot;&gt;&lt;a href=&quot;#iOS中的本地推送与远程推送&quot; class=&quot;headerlink&quot; title=&quot;iOS中的本地推送与远程推送&quot;&gt;&lt;/a&gt;iOS中的本地推送与远程推送&lt;/h1&gt;&lt;p&gt;标签： 特性&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;本地推送&quot;&gt;&lt;a href=&quot;#本地推送&quot; class=&quot;headerlink&quot; title=&quot;本地推送&quot;&gt;&lt;/a&gt;本地推送&lt;/h3&gt;&lt;p&gt;第一步&lt;br&gt;在AppDelegate中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    //添加本地推送
+   if #available(iOS 8.0, *) {
+let uns =     UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+UIApplication.sharedApplication().registerUserNotificationSettings(uns)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;第二步&lt;br&gt;在需要推送的事件里&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; let localNotification = UILocalNotification()
+//推送的文字内容
+localNotification.alertBody = &amp;quot;你已经完成了一个番茄钟啦&amp;quot;
+//app名字
+if #available(iOS 8.2, *) {
+   localNotification.alertTitle = &amp;quot;Pomodoro&amp;quot;
+} else {
+// Fallback on earlier versions
+}
+//app右上角的红标
+localNotification.applicationIconBadgeNumber = 1
+//通知时的音效
+  localnotification.soundName = &amp;quot;buyao.wav
+  //滑动的事件提示
+  localNotification.alertAction = &amp;quot;输入任务内容&amp;quot;
+
+  //立即发送推送
+    UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果要设置特定时间发送&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; //通知触发时间
+localNotification.fireDate = NSDate(timeInterval: &amp;lt;#T##NSTimeInterval#&amp;gt;, sinceDate: &amp;lt;#T##NSDate#&amp;gt;)
+  //添加推送
+  UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;第三步&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;设置当用户切回app时的操作
+func applicationDidBecomeActive(application: UIApplication) {
+// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+//删除通知
+application.cancelAllLocalNotifications()
+//让角标消失
+application.applicationIconBadgeNumber = 0
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;推送有关的方法&quot;&gt;&lt;a href=&quot;#推送有关的方法&quot; class=&quot;headerlink&quot; title=&quot;推送有关的方法&quot;&gt;&lt;/a&gt;推送有关的方法&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;1.func applicationWillResignActive(application: UIApplication){} 当App既将进入后台、锁屏、有电话进来时会触发此事件
+
+2.func applicationDidEnterBackground(application: UIApplication) {} 当App进入后台时触发此事件
+
+3.func applicationWillEnterForeground(application: UIApplication) {} 当App从后台即将回到前台时触发此事件
+
+4.func applicationDidBecomeActive(application: UIApplication) {}当App变成活动状态时触发此事件
+
+5.func applicationWillTerminate(application: UIApplication) {} 当App退出时触发此方法，一般用于保存
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###远程推送&lt;br&gt;占坑 有空更&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;iOS中的本地推送与远程推送&quot;&gt;&lt;a href=&quot;#iOS中的本地推送与远程推送&quot; class=&quot;headerlink&quot; title=&quot;iOS中的本地推送与远程推送&quot;&gt;&lt;/a&gt;iOS中的本地推送与远程推送&lt;/h1&gt;&lt;p&gt;标签： 特性&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>

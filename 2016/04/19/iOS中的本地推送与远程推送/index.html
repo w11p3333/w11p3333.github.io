@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>  · AppleCatKay.Blog</title><meta name="description" content=" - LuLiangXiao"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/2715131950/profile?topnav=1&amp;wvr=6&amp;is_all=1" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/w11p3333?tab=repositories" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title"></h1><div class="post-time">Apr 19, 2016</div><div class="post-content"><h1 id="iOS中的本地推送与远程推送"><a href="#iOS中的本地推送与远程推送" class="headerlink" title="iOS中的本地推送与远程推送"></a>iOS中的本地推送与远程推送</h1><p>标签： 特性</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h3 id="本地推送"><a href="#本地推送" class="headerlink" title="本地推送"></a>本地推送</h3><p>第一步<br>在AppDelegate中</p>
+<pre><code>    //添加本地推送
+   if #available(iOS 8.0, *) {
+let uns =     UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+UIApplication.sharedApplication().registerUserNotificationSettings(uns)
+}
+</code></pre><p>第二步<br>在需要推送的事件里</p>
+<pre><code> let localNotification = UILocalNotification()
+//推送的文字内容
+localNotification.alertBody = &quot;你已经完成了一个番茄钟啦&quot;
+//app名字
+if #available(iOS 8.2, *) {
+   localNotification.alertTitle = &quot;Pomodoro&quot;
+} else {
+// Fallback on earlier versions
+}
+//app右上角的红标
+localNotification.applicationIconBadgeNumber = 1
+//通知时的音效
+  localnotification.soundName = &quot;buyao.wav
+  //滑动的事件提示
+  localNotification.alertAction = &quot;输入任务内容&quot;
+
+  //立即发送推送
+    UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
+</code></pre><p>如果要设置特定时间发送</p>
+<pre><code> //通知触发时间
+localNotification.fireDate = NSDate(timeInterval: &lt;#T##NSTimeInterval#&gt;, sinceDate: &lt;#T##NSDate#&gt;)
+  //添加推送
+  UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+</code></pre><p>第三步</p>
+<pre><code>设置当用户切回app时的操作
+func applicationDidBecomeActive(application: UIApplication) {
+// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+//删除通知
+application.cancelAllLocalNotifications()
+//让角标消失
+application.applicationIconBadgeNumber = 0
+}
+</code></pre><h3 id="推送有关的方法"><a href="#推送有关的方法" class="headerlink" title="推送有关的方法"></a>推送有关的方法</h3><pre><code>1.func applicationWillResignActive(application: UIApplication){} 当App既将进入后台、锁屏、有电话进来时会触发此事件
+
+2.func applicationDidEnterBackground(application: UIApplication) {} 当App进入后台时触发此事件
+
+3.func applicationWillEnterForeground(application: UIApplication) {} 当App从后台即将回到前台时触发此事件
+
+4.func applicationDidBecomeActive(application: UIApplication) {}当App变成活动状态时触发此事件
+
+5.func applicationWillTerminate(application: UIApplication) {} 当App退出时触发此方法，一般用于保存
+</code></pre><p>###远程推送<br>占坑 有空更</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/04/19/Swift中的界面传值/" class="prev">上一篇</a><a href="/2016/04/19/实现iOS启动页淡出效果/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2016/04/19/iOS中的本地推送与远程推送/';
+var disqus_title = '';
+var disqus_url = 'http://yoursite.com/2016/04/19/iOS中的本地推送与远程推送/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2016 <a href="http://yoursite.com">LuLiangXiao</a>, unless otherwise noted.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
