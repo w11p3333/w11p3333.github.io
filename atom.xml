@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-19T04:49:11.000Z</updated>
+  <updated>2016-04-19T05:20:16.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,103 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/04/19/Git%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2016/04/19/Git的使用/</id>
+    <published>2016-04-19T05:20:16.000Z</published>
+    <updated>2016-04-19T05:20:16.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Git的使用&quot;&gt;&lt;a href=&quot;#Git的使用&quot; class=&quot;headerlink&quot; title=&quot;Git的使用&quot;&gt;&lt;/a&gt;Git的使用&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 工具&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333&lt;/p&gt;
+&lt;h3 id=&quot;git的安装&quot;&gt;&lt;a href=&quot;#git的安装&quot; class=&quot;headerlink&quot; title=&quot;git的安装&quot;&gt;&lt;/a&gt;git的安装&lt;/h3&gt;&lt;p&gt;先安装homebrew&lt;br&gt;再执行brew install git&lt;/p&gt;
+&lt;h3 id=&quot;配置git-ssh&quot;&gt;&lt;a href=&quot;#配置git-ssh&quot; class=&quot;headerlink&quot; title=&quot;配置git ssh&quot;&gt;&lt;/a&gt;配置git ssh&lt;/h3&gt;&lt;p&gt;在终端&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//邮箱不一定是github账号
+ssh-keygen -t rsa -C &amp;quot;yourname@hotmail.com&amp;quot;
+
+//按3个回车，密码为空。
+//获取key
+cat ~/.ssh/id_rsa.pub
+将得到的key在github中ssh key中添加
+//连接github
+ssh -T git@github.com
+//出现Hi w11p3333! You&amp;apos;ve successfully authenticated, but GitHub does not provide shell access.为成功
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###搭建github博客&lt;br&gt;见此文&lt;a href=&quot;http://www.jianshu.com/p/4eaddcbe4d12&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/4eaddcbe4d12&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如发生报错：ERROR Process failed: layout/.DS_Store, 那么进入主题里面layout和_partial目录下，使用删除命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rm-rf.DS_Store
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;本地测试：hexo s&lt;br&gt;退出测试：control + c&lt;br&gt;发布博客：hexo clean &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo d&lt;br&gt;前文：&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;一个项目完整的git流程&quot;&gt;&lt;a href=&quot;#一个项目完整的git流程&quot; class=&quot;headerlink&quot; title=&quot;一个项目完整的git流程&quot;&gt;&lt;/a&gt;一个项目完整的git流程&lt;/h3&gt;&lt;p&gt;在这之前你应该在github上已经创建好仓库了&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;   //注意要先cd到项目目录
+//克隆项目
+git clone https://github.com/GithubName/ProjectName.git
+//更改仓库地址
+git remote add origin       https://github.com/GithubName/ProjectName.git
+//添加项目
+git add -A     // -A是添加全部 只添加修改的话使用git add .
+//提交修改
+git commit -m &amp;quot;edit&amp;quot;
+//如果项目与当地不一致
+git pull  // 如果提示错误了使用  git pull --rebase origin master
+//提交到远程仓库
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;一些常用的命令&quot;&gt;&lt;a href=&quot;#一些常用的命令&quot; class=&quot;headerlink&quot; title=&quot;一些常用的命令&quot;&gt;&lt;/a&gt;一些常用的命令&lt;/h3&gt;&lt;h3 id=&quot;更改远程仓库&quot;&gt;&lt;a href=&quot;#更改远程仓库&quot; class=&quot;headerlink&quot; title=&quot;更改远程仓库&quot;&gt;&lt;/a&gt;更改远程仓库&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;git remote add origin https://github.com/GithubName/ProjectName.git
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;删除远程仓库内所有文件&quot;&gt;&lt;a href=&quot;#删除远程仓库内所有文件&quot; class=&quot;headerlink&quot; title=&quot;删除远程仓库内所有文件&quot;&gt;&lt;/a&gt;删除远程仓库内所有文件&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;cd到项目文件夹
+
+  git rm * -r  
+  git add .
+  git commit -m &amp;quot;clear&amp;quot;
+  git push -u origin master
+回退版本
+ git log   //查看日志 找到对应的hash值
+ git reset --hard f093b6ed512f761a346e2e5c0f00230e448c217c  //改成对应的hash值
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;退出git-log&quot;&gt;&lt;a href=&quot;#退出git-log&quot; class=&quot;headerlink&quot; title=&quot;退出git log&quot;&gt;&lt;/a&gt;退出git log&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;按q
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;修改用户&quot;&gt;&lt;a href=&quot;#修改用户&quot; class=&quot;headerlink&quot; title=&quot;修改用户&quot;&gt;&lt;/a&gt;修改用户&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;[~]$ git config --global user.name &amp;quot;lubin&amp;quot; 
+[~]$ git config --global user.email lubin.z@gmail.com 
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;在readme中添加图片&quot;&gt;&lt;a href=&quot;#在readme中添加图片&quot; class=&quot;headerlink&quot; title=&quot;在readme中添加图片&quot;&gt;&lt;/a&gt;在readme中添加图片&lt;/h3&gt;&lt;p&gt;首先要添加图片到远程仓库里&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;![](https://github.com/yourname/yourProjectname/raw/master/image/pic.png)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;常见的问题&quot;&gt;&lt;a href=&quot;#常见的问题&quot; class=&quot;headerlink&quot; title=&quot;常见的问题&quot;&gt;&lt;/a&gt;常见的问题&lt;/h3&gt;&lt;h3 id=&quot;1-The-following-untracked-working-tree-files-would-be-overwritten-by-checkout和-Please-move-or-remove-them-before-you-can-merge&quot;&gt;&lt;a href=&quot;#1-The-following-untracked-working-tree-files-would-be-overwritten-by-checkout和-Please-move-or-remove-them-before-you-can-merge&quot; class=&quot;headerlink&quot; title=&quot;1.The following untracked working tree files would be overwritten by checkout和 Please move or remove them before you can merge&quot;&gt;&lt;/a&gt;1.The following untracked working tree files would be overwritten by checkout和 Please move or remove them before you can merge&lt;/h3&gt;&lt;p&gt;解决方案&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clean  -d  -fx &amp;quot;&amp;quot;
+其中
+x  -----删除忽略文件已经对git来说不识别的文件
+d  -----删除未被添加到git的路径中的文件
+f  -----强制运行
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;2-remote-origin-already-exists&quot;&gt;&lt;a href=&quot;#2-remote-origin-already-exists&quot; class=&quot;headerlink&quot; title=&quot;2.remote origin already exists&quot;&gt;&lt;/a&gt;2.remote origin already exists&lt;/h3&gt;&lt;p&gt;解决方案&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1、先输入$ git remote rm origin
+
+2、再输入$ git remote add 
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;Not-a-git-repository-or-any-of-the-parent-directories-git&quot;&gt;&lt;a href=&quot;#Not-a-git-repository-or-any-of-the-parent-directories-git&quot; class=&quot;headerlink&quot; title=&quot;Not a git repository (or any of the parent directories): .git&quot;&gt;&lt;/a&gt;Not a git repository (or any of the parent directories): .git&lt;/h3&gt;&lt;p&gt;git init就可以了！ &lt;/p&gt;
+&lt;h3 id=&quot;3-Pull-is-not-possible-because-you-have-unmerged-files&quot;&gt;&lt;a href=&quot;#3-Pull-is-not-possible-because-you-have-unmerged-files&quot; class=&quot;headerlink&quot; title=&quot;3.Pull is not possible because you have unmerged files.&quot;&gt;&lt;/a&gt;3.Pull is not possible because you have unmerged files.&lt;/h3&gt;&lt;p&gt;local文件冲突了,pull会使用git merge导致冲突，需要将冲突的文件resolve掉 &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add -u, git commit       
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Git的使用&quot;&gt;&lt;a href=&quot;#Git的使用&quot; class=&quot;headerlink&quot; title=&quot;Git的使用&quot;&gt;&lt;/a&gt;Git的使用&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 工具&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333&lt;/p&gt;
+&lt;h3 id=&quot;git的安装&quot;&gt;&lt;a href=&quot;#git的安装&quot; class=&quot;headerlink&quot; title=&quot;git的安装&quot;&gt;&lt;/a&gt;git的安装&lt;/h3&gt;&lt;p&gt;先安装homebrew&lt;br&gt;再执行brew install git&lt;/p&gt;
+&lt;h3 id=&quot;配置git-ssh&quot;&gt;&lt;a href=&quot;#配置git-ssh&quot; class=&quot;headerlink&quot; title=&quot;配置git ssh&quot;&gt;&lt;/a&gt;配置git ssh&lt;/h3&gt;&lt;p&gt;在终端&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//邮箱不一定是github账号
+ssh-keygen -t rsa -C &amp;quot;yourname@hotmail.com&amp;quot;
+
+//按3个回车，密码为空。
+//获取key
+cat ~/.ssh/id_rsa.pub
+将得到的key在github中ssh key中添加
+//连接github
+ssh -T git@github.com
+//出现Hi w11p3333! You&amp;apos;ve successfully authenticated, but GitHub does not provide shell access.为成功
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###搭建github博客&lt;br&gt;见此文&lt;a href=&quot;http://www.jianshu.com/p/4eaddcbe4d12&quot;&gt;http://www.jianshu.com/p/4eaddcbe4d12&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如发生报错：ERROR Process failed: layout/.DS_Store, 那么进入主题里面layout和_partial目录下，使用删除命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rm-rf.DS_Store
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;本地测试：hexo s&lt;br&gt;退出测试：control + c&lt;br&gt;发布博客：hexo clean &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo d&lt;br&gt;前文：
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
