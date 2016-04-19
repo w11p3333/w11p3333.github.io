@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-19T05:27:34.000Z</updated>
+  <updated>2016-04-19T05:44:35.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,10 +19,11 @@
     <title></title>
     <link href="http://yoursite.com/2016/04/19/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/"/>
     <id>http://yoursite.com/2016/04/19/实现iOS启动页淡出效果/</id>
-    <published>2016-04-19T05:27:34.000Z</published>
-    <updated>2016-04-19T05:27:34.000Z</updated>
+    <published>2016-04-19T05:44:35.000Z</published>
+    <updated>2016-04-19T05:44:35.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;a href=&quot;#实现iOS启动页淡出效果&quot; class=&quot;headerlink&quot; title=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;/a&gt;实现iOS启动页淡出效果&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 干货&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;a href=&quot;#实现iOS启动页淡出效果&quot; class=&quot;headerlink&quot; title=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;/a&gt;实现iOS启动页淡出效果&lt;/h1&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;标签： 干货&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
@@ -48,9 +49,7 @@ launchview.removeFromSuperview()
     
     <summary type="html">
     
-      &lt;h1 id=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;a href=&quot;#实现iOS启动页淡出效果&quot; class=&quot;headerlink&quot; title=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;/a&gt;实现iOS启动页淡出效果&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 干货&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;先上Dem
+      &lt;h1 id=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;a href=&quot;#实现iOS启动页淡出效果&quot; class=&quot;headerlink&quot; title=&quot;实现iOS启动页淡出效果&quot;&gt;&lt;/a&gt;实现iOS启动页淡出效果&lt;/h1&gt;
     
     </summary>
     
