@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>  · AppleCatKay.Blog</title><meta name="description" content=" - LuLiangXiao"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/2715131950/profile?topnav=1&amp;wvr=6&amp;is_all=1" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/w11p3333?tab=repositories" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title"></h1><div class="post-time">Apr 19, 2016</div><div class="post-content"><h1 id="Git的使用"><a href="#Git的使用" class="headerlink" title="Git的使用"></a>Git的使用</h1><p>标签（空格分隔）： 工具</p>
 <hr>
-<p>网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333</p>
+<p>网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333<br><a id="more"></a></p>
 <h3 id="git的安装"><a href="#git的安装" class="headerlink" title="git的安装"></a>git的安装</h3><p>先安装homebrew<br>再执行brew install git</p>
 <h3 id="配置git-ssh"><a href="#配置git-ssh" class="headerlink" title="配置git ssh"></a>配置git ssh</h3><p>在终端</p>
 <pre><code>//邮箱不一定是github账号
@@ -16,7 +16,7 @@ ssh -T git@github.com
 </code></pre><p>###搭建github博客<br>见此文<a href="http://www.jianshu.com/p/4eaddcbe4d12" target="_blank" rel="external">http://www.jianshu.com/p/4eaddcbe4d12</a></p>
 <p>如发生报错：ERROR Process failed: layout/.DS_Store, 那么进入主题里面layout和_partial目录下，使用删除命令：</p>
 <pre><code>rm-rf.DS_Store
-</code></pre><p>本地测试：hexo s<br>退出测试：control + c<br>发布博客：hexo clean &amp;&amp; hexo g &amp;&amp; hexo d<br>前文：<a id="more"></a></p>
+</code></pre><p>本地测试：hexo s<br>退出测试：control + c<br>发布博客：hexo clean &amp;&amp; hexo g &amp;&amp; hexo d<br>前文：<!--more--></p>
 <h3 id="一个项目完整的git流程"><a href="#一个项目完整的git流程" class="headerlink" title="一个项目完整的git流程"></a>一个项目完整的git流程</h3><p>在这之前你应该在github上已经创建好仓库了</p>
 <pre><code>   //注意要先cd到项目目录
 //克隆项目
@@ -59,7 +59,7 @@ f  -----强制运行
 </code></pre><h3 id="Not-a-git-repository-or-any-of-the-parent-directories-git"><a href="#Not-a-git-repository-or-any-of-the-parent-directories-git" class="headerlink" title="Not a git repository (or any of the parent directories): .git"></a>Not a git repository (or any of the parent directories): .git</h3><p>git init就可以了！ </p>
 <h3 id="3-Pull-is-not-possible-because-you-have-unmerged-files"><a href="#3-Pull-is-not-possible-because-you-have-unmerged-files" class="headerlink" title="3.Pull is not possible because you have unmerged files."></a>3.Pull is not possible because you have unmerged files.</h3><p>local文件冲突了,pull会使用git merge导致冲突，需要将冲突的文件resolve掉 </p>
 <pre><code>git add -u, git commit       
-</code></pre></div></article></div></section><footer><div class="paginator"><a href="/2016/04/19/hello-world/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+</code></pre></div></article></div></section><footer><div class="paginator"><a href="/2016/04/19/hello-world/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
 var disqus_identifier = '2016/04/19/Git的使用/';
 var disqus_title = '';
 var disqus_url = 'http://yoursite.com/2016/04/19/Git的使用/';

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-19T05:20:16.000Z</updated>
+  <updated>2016-04-19T05:23:45.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,12 +19,12 @@
     <title></title>
     <link href="http://yoursite.com/2016/04/19/Git%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2016/04/19/Git的使用/</id>
-    <published>2016-04-19T05:20:16.000Z</published>
-    <updated>2016-04-19T05:20:16.000Z</updated>
+    <published>2016-04-19T05:23:45.000Z</published>
+    <updated>2016-04-19T05:23:45.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;Git的使用&quot;&gt;&lt;a href=&quot;#Git的使用&quot; class=&quot;headerlink&quot; title=&quot;Git的使用&quot;&gt;&lt;/a&gt;Git的使用&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 工具&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333&lt;/p&gt;
+&lt;p&gt;网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;git的安装&quot;&gt;&lt;a href=&quot;#git的安装&quot; class=&quot;headerlink&quot; title=&quot;git的安装&quot;&gt;&lt;/a&gt;git的安装&lt;/h3&gt;&lt;p&gt;先安装homebrew&lt;br&gt;再执行brew install git&lt;/p&gt;
 &lt;h3 id=&quot;配置git-ssh&quot;&gt;&lt;a href=&quot;#配置git-ssh&quot; class=&quot;headerlink&quot; title=&quot;配置git ssh&quot;&gt;&lt;/a&gt;配置git ssh&lt;/h3&gt;&lt;p&gt;在终端&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;//邮箱不一定是github账号
@@ -40,7 +40,7 @@ ssh -T git@github.com
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###搭建github博客&lt;br&gt;见此文&lt;a href=&quot;http://www.jianshu.com/p/4eaddcbe4d12&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/4eaddcbe4d12&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;如发生报错：ERROR Process failed: layout/.DS_Store, 那么进入主题里面layout和_partial目录下，使用删除命令：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;rm-rf.DS_Store
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;本地测试：hexo s&lt;br&gt;退出测试：control + c&lt;br&gt;发布博客：hexo clean &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo d&lt;br&gt;前文：&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;本地测试：hexo s&lt;br&gt;退出测试：control + c&lt;br&gt;发布博客：hexo clean &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo d&lt;br&gt;前文：&lt;!--more--&gt;&lt;/p&gt;
 &lt;h3 id=&quot;一个项目完整的git流程&quot;&gt;&lt;a href=&quot;#一个项目完整的git流程&quot; class=&quot;headerlink&quot; title=&quot;一个项目完整的git流程&quot;&gt;&lt;/a&gt;一个项目完整的git流程&lt;/h3&gt;&lt;p&gt;在这之前你应该在github上已经创建好仓库了&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;   //注意要先cd到项目目录
 //克隆项目
@@ -89,23 +89,7 @@ f  -----强制运行
     
       &lt;h1 id=&quot;Git的使用&quot;&gt;&lt;a href=&quot;#Git的使用&quot; class=&quot;headerlink&quot; title=&quot;Git的使用&quot;&gt;&lt;/a&gt;Git的使用&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 工具&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333&lt;/p&gt;
-&lt;h3 id=&quot;git的安装&quot;&gt;&lt;a href=&quot;#git的安装&quot; class=&quot;headerlink&quot; title=&quot;git的安装&quot;&gt;&lt;/a&gt;git的安装&lt;/h3&gt;&lt;p&gt;先安装homebrew&lt;br&gt;再执行brew install git&lt;/p&gt;
-&lt;h3 id=&quot;配置git-ssh&quot;&gt;&lt;a href=&quot;#配置git-ssh&quot; class=&quot;headerlink&quot; title=&quot;配置git ssh&quot;&gt;&lt;/a&gt;配置git ssh&lt;/h3&gt;&lt;p&gt;在终端&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//邮箱不一定是github账号
-ssh-keygen -t rsa -C &amp;quot;yourname@hotmail.com&amp;quot;
-
-//按3个回车，密码为空。
-//获取key
-cat ~/.ssh/id_rsa.pub
-将得到的key在github中ssh key中添加
-//连接github
-ssh -T git@github.com
-//出现Hi w11p3333! You&amp;apos;ve successfully authenticated, but GitHub does not provide shell access.为成功
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###搭建github博客&lt;br&gt;见此文&lt;a href=&quot;http://www.jianshu.com/p/4eaddcbe4d12&quot;&gt;http://www.jianshu.com/p/4eaddcbe4d12&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;如发生报错：ERROR Process failed: layout/.DS_Store, 那么进入主题里面layout和_partial目录下，使用删除命令：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;rm-rf.DS_Store
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;本地测试：hexo s&lt;br&gt;退出测试：control + c&lt;br&gt;发布博客：hexo clean &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo d&lt;br&gt;前文：
+&lt;p&gt;网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333&lt;br&gt;
     
     </summary>
     
