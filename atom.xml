@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-21T12:41:13.000Z</updated>
+  <updated>2016-04-21T12:44:22.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,12 +19,11 @@
     <title></title>
     <link href="http://yoursite.com/2016/04/21/Swift%E5%BE%AE%E4%BF%A1%E6%91%87%E4%B8%80%E6%91%87%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
     <id>http://yoursite.com/2016/04/21/Swift微信摇一摇的实现/</id>
-    <published>2016-04-21T12:41:13.000Z</published>
-    <updated>2016-04-21T12:41:13.000Z</updated>
+    <published>2016-04-21T12:44:22.000Z</published>
+    <updated>2016-04-21T12:44:22.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;Swift微信摇一摇的实现&quot;&gt;&lt;a href=&quot;#Swift微信摇一摇的实现&quot; class=&quot;headerlink&quot; title=&quot;Swift微信摇一摇的实现&quot;&gt;&lt;/a&gt;Swift微信摇一摇的实现&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 设备SDK&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;先附上demo地址:&lt;br&gt;&lt;a href=&quot;https://github.com/w11p3333/shakeDemo/tree/master&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;demo&lt;/a&gt;&lt;br&gt;iOS自带了识别摇动的功能，实现起来非常简单，只需要&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;先附上demo地址:&lt;br&gt;&lt;a href=&quot;https://github.com/w11p3333/shakeDemo/tree/master&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;demo&lt;/a&gt;&lt;br&gt;iOS自带了识别摇动的功能，实现起来非常简单，只需要&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;  /**
 开启摇动感应
 */
@@ -117,8 +116,7 @@ self.player?.play()
     <summary type="html">
     
       &lt;h1 id=&quot;Swift微信摇一摇的实现&quot;&gt;&lt;a href=&quot;#Swift微信摇一摇的实现&quot; class=&quot;headerlink&quot; title=&quot;Swift微信摇一摇的实现&quot;&gt;&lt;/a&gt;Swift微信摇一摇的实现&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 设备SDK&lt;/p&gt;
-&lt;hr&gt;
-&lt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
     
     </summary>
     
