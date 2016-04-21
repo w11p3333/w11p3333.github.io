@@ -993,10 +993,11 @@ em {
 blockquote {
   margin: 1em 0;
   padding: 1em 0;
-  background: #f8f8f8;
+  background: #000000;
   border: 1px solid #eeeeee;
   border-radius: 3px;
-  /*font-family: "Roboto Slab", serif;*/
+  /*font-family: "Roboto Slab", serif;*
+  /
   font-family:  "Raleway",Verdana,sans-serif,宋体, serif, "Droid Serif", Helvetica Neue, Helvetica, Arial;
   font-weight: lighter;
   font-style: italic;
@@ -1020,14 +1021,15 @@ ul {
   list-style-type: disc; }
 
 code {
-  padding: 2px 4px;
-  background-color: #f8f8f8;
-  color: #d14;
+  padding: 1px 4px;
+  background-color: #eeeeee;
+  color: #008B8B;
   border: none;
-  word-wrap: break-word;
+    word-wrap: break-word;
+  word-break: break-all;
   border-radius: 3px;
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-  font-size: .85em; }
+  font-size: 1.2em; }
 
 
 .date,
