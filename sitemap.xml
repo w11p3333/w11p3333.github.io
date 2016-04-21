@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2016/04/21/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/</loc>
+    
+    <lastmod>2016-04-21T12:45:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2016/04/21/Swift%E5%BE%AE%E4%BF%A1%E6%91%87%E4%B8%80%E6%91%87%E7%9A%84%E5%AE%9E%E7%8E%B0/</loc>
     
     <lastmod>2016-04-21T12:44:22.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://yoursite.com/2016/04/21/Swift%E4%B8%AD%E7%9A%84Realm%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2016-04-21T12:14:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/04/19/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/</loc>
-    
-    <lastmod>2016-04-19T06:50:39.000Z</lastmod>
     
   </url>
   
