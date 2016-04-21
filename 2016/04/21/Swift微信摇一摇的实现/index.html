@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>  · AppleCatKay.Blog</title><meta name="description" content=" - LuLiangXiao"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/w11p3333?tab=repositories" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://weibo.com/2715131950/profile?topnav=1&amp;wvr=6&amp;is_all=1" target="_blank" class="nav-list-link">WEIBO</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title"></h1><div class="post-time">Apr 21, 2016</div><div class="post-content"><h1 id="Swift微信摇一摇的实现"><a href="#Swift微信摇一摇的实现" class="headerlink" title="Swift微信摇一摇的实现"></a>Swift微信摇一摇的实现</h1><p>标签（空格分隔）： 设备SDK</p>
+<hr>
+<p>先附上demo地址:<br><a href="https://github.com/w11p3333/shakeDemo/tree/master" target="_blank" rel="external">demo</a><br>iOS自带了识别摇动的功能，实现起来非常简单，只需要</p>
+<pre><code>  /**
+开启摇动感应
+*/
+UIApplication.sharedApplication().applicationSupportsShakeToEdit = true
+becomeFirstResponder()
+</code></pre><p>然后只需要实现它的三个方法</p>
+<pre><code>  /**
+ 开始摇动
+ */
+override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) 
+
+  /**
+ 取消摇动
+ */
+override func motionCancelled(motion: UIEventSubtype, withEvent event: UIEvent?)
+
+ /**
+ 摇动结束
+ */
+override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?)
+</code></pre><p>了解了方法之后接下来就是我们的实现</p>
+<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>首先我们用xib搭建一个界面，注意上下其实是两张图片，等会就是控制它们的frame实现摇动效果，然后我们导入摇一摇的音效</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1449048-d6b74e5f6685b41b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
+<h3 id="第二步，连线xib并导入AVFoundation框架并遵守AVAudioPlayerDelegate"><a href="#第二步，连线xib并导入AVFoundation框架并遵守AVAudioPlayerDelegate" class="headerlink" title="第二步，连线xib并导入AVFoundation框架并遵守AVAudioPlayerDelegate"></a>第二步，连线xib并导入AVFoundation框架并遵守AVAudioPlayerDelegate</h3><p> import AVFoundation<br>@IBOutlet weak var rockup: UIImageView!<br>@IBOutlet weak var rockdown: UIImageView!</p>
+<p>var player: AVAudioPlayer?</p>
+<h3 id="第三步，实现开始动画"><a href="#第三步，实现开始动画" class="headerlink" title="第三步，实现开始动画"></a>第三步，实现开始动画</h3><p>   /<em>*<br> 开始摇动
+ </em>/<br>override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {</p>
+<pre><code>print(&quot;开始摇动&quot;)
+
+//开始动画
+UIView.animateKeyframesWithDuration(0.5, delay: 0, options: UIViewKeyframeAnimationOptions.BeginFromCurrentState, animations: { () -&gt; Void in
+
+    self.rockup.frame.origin.y -= 80
+    self.rockdown.frame.origin.y += 80
+
+    }, completion: nil)
+/// 设置音效
+let path1 = NSBundle.mainBundle().pathForResource(&quot;rock&quot;, ofType:&quot;mp3&quot;)
+let data1 = NSData(contentsOfFile: path1!)
+self.player = try? AVAudioPlayer(data: data1!)
+self.player?.delegate = self
+self.player?.updateMeters()//更新数据
+self.player?.prepareToPlay()//准备数据
+self.player?.play()
+
+//结束动画
+UIView.animateKeyframesWithDuration(0.5, delay: 1.0, options: UIViewKeyframeAnimationOptions.BeginFromCurrentState, animations: { () -&gt; Void in
+
+    self.rockup.frame.origin.y += 80
+    self.rockdown.frame.origin.y -= 80
+
+    }, completion: nil)
+
+}
+实现取消方法
+
+   /**
+ 取消摇动
+ */
+override func motionCancelled(motion: UIEventSubtype, withEvent event: UIEvent?) {
+
+print(&quot;取消摇动&quot;)
+SVProgressHUD.showErrorWithStatus(&quot;还不够用力哦 请使劲的摇我吧&quot;, maskType: SVProgressHUDMaskType.Black)
+}
+实现结束方法，然后可以在此处实现想要摇一摇实现的功能
+
+ /**
+ 摇动结束
+
+ */
+override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+
+print(&quot;摇动结束&quot;)
+///此处设置摇一摇需要实现的功能
+let nav = UINavigationController(rootViewController: WDLoadNearByTableViewController())
+presentViewController(nav, animated: true, completion: nil)
+
+/// 设置音效
+let path = NSBundle.mainBundle().pathForResource(&quot;rock_end&quot;, ofType:&quot;mp3&quot;)
+let data = NSData(contentsOfFile: path!)
+self.player = try? AVAudioPlayer(data: data!)
+self.player?.delegate = self
+self.player?.updateMeters()//更新数据
+self.player?.prepareToPlay()//准备数据
+self.player?.play()
+}
+</code></pre><p>到此为止一个完整的摇一摇功能就实现了</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/04/21/Swift中的Realm使用/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
+var disqus_identifier = '2016/04/21/Swift微信摇一摇的实现/';
+var disqus_title = '';
+var disqus_url = 'http://yoursite.com/2016/04/21/Swift微信摇一摇的实现/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2016 <a href="http://yoursite.com">LuLiangXiao</a>, unless otherwise noted.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>

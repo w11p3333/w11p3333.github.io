@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2016/04/19/ReactiveCocoa%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3-%E8%87%AA%E7%BF%BB/</loc>
+    <loc>http://yoursite.com/2016/04/21/Swift%E5%BE%AE%E4%BF%A1%E6%91%87%E4%B8%80%E6%91%87%E7%9A%84%E5%AE%9E%E7%8E%B0/</loc>
     
-    <lastmod>2016-04-19T06:18:06.000Z</lastmod>
+    <lastmod>2016-04-21T12:41:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/04/21/Swift%E4%B8%AD%E7%9A%84Realm%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2016-04-21T12:14:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/04/19/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/</loc>
+    
+    <lastmod>2016-04-19T06:50:39.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2016/04/19/Swift%E9%9B%86%E6%88%90%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE-%E4%BF%AE%E5%A4%8D%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E9%94%99%E8%AF%AF/</loc>
     
-    <lastmod>2016-04-19T06:12:04.000Z</lastmod>
+    <lastmod>2016-04-19T06:49:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2016/04/19/ReactiveCocoa%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3-%E8%87%AA%E7%BF%BB/</loc>
+    
+    <lastmod>2016-04-19T06:18:06.000Z</lastmod>
     
   </url>
   
@@ -33,13 +54,6 @@
     <loc>http://yoursite.com/2016/04/19/iOS%E4%B8%AD%E7%9A%84%E6%9C%AC%E5%9C%B0%E6%8E%A8%E9%80%81%E4%B8%8E%E8%BF%9C%E7%A8%8B%E6%8E%A8%E9%80%81/</loc>
     
     <lastmod>2016-04-19T06:01:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2016/04/19/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/</loc>
-    
-    <lastmod>2016-04-19T05:49:36.000Z</lastmod>
     
   </url>
   
