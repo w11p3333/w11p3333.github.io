@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      iOS中实用框架的使用 | AppleCatKay 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="LuLiangXiao">
+    
+    
+
+    <meta name="description" content="SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS中实用框架的使用 | AppleCatKay">
+<meta property="og:url" content="http://yoursite.com/2016/04/11/iOS框架使用/index.html">
+<meta property="og:site_name" content="AppleCatKay">
+<meta property="og:description" content="SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry">
+<meta property="og:updated_time" content="2016-04-21T14:21:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS中实用框架的使用 | AppleCatKay">
+<meta name="twitter:description" content="SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">AppleCatKay</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">iOS中实用框架的使用</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-04-11" class="post-meta__date date">2016-04-11</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry</p>
+<a id="more"></a>
+<h1 id="SDCycleScrollView"><a href="#SDCycleScrollView" class="headerlink" title="SDCycleScrollView"></a>SDCycleScrollView</h1><p><a href="https://github.com/gsdios/SDCycleScrollView" target="_blank" rel="external">https://github.com/gsdios/SDCycleScrollView</a><br>实现图片轮播框架<br>使用方法</p>
+<pre><code>let imageGroup = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;]
+
+let scrollview = SDCycleScrollView(frame: CGRectMake(0, 0, (UIScreen.mainScreen().bounds.width), 200), imageNamesGroup: imageGroup)
+</code></pre><h1 id="RxWebViewController"><a href="#RxWebViewController" class="headerlink" title="RxWebViewController"></a>RxWebViewController</h1><p><a href="https://github.com/Roxasora/RxWebViewController" target="_blank" rel="external">https://github.com/Roxasora/RxWebViewController</a><br>仿微信效果的webview</p>
+<pre><code>let vc = RxWebViewController(url: url)
+self.navigationController?.pushViewController(vc, animated: true)
+</code></pre><h1 id="KGFloatingDrawer"><a href="#KGFloatingDrawer" class="headerlink" title="KGFloatingDrawer"></a>KGFloatingDrawer</h1><p><a href="https://github.com/KyleGoddard/KGFloatingDrawer" target="_blank" rel="external">https://github.com/KyleGoddard/KGFloatingDrawer</a><br>实现左右侧边栏框架</p>
+<p>1.</p>
+<pre><code>privatevar _drawerViewController: KGDrawerViewController?
+</code></pre><p>2.</p>
+<pre><code>var drawerViewController: KGDrawerViewController {  
+get {       
+ if let viewController = _drawerViewController {       
+ return viewController      
+   }          
+
+   returnprepareDrawerViewController()
+}
+  }
+</code></pre><p>3.</p>
+<pre><code>func prepareDrawerViewController() -&gt; KGDrawerViewController {     
+  let drawerViewController = KGDrawerViewController()    
+  drawerViewController.centerViewController = viewControllerForStoryboardId(&quot;center&quot;)
+
+drawerViewController.leftViewController = viewControllerForStoryboardId(&quot;leftvc&quot;)
+
+  drawerViewController.rightViewController = viewControllerForStoryboardId(“rightvc&quot;
+</code></pre><p>)</p>
+<pre><code>drawerViewController.leftDrawerWidth = CGFloat(150)       
+</code></pre><p>   //背景图片     </p>
+<pre><code>       _drawerViewController = drawerViewController      
+return drawerViewController  
+}
+</code></pre><p>4.</p>
+<pre><code> private func drawerStoryboard() -&gt; UIStoryboard {   
+let storyboard = UIStoryboard(name: &quot;Main&quot;, bundle: nil)        return storyboard    }
+</code></pre><p>5.</p>
+<pre><code>  private func viewControllerForStoryboardId(storyboardId: String) -&gt; UIViewController {     
+  let viewController: UIViewController = drawerStoryboard().instantiateViewControllerWithIdentifier(storyboardId) as! UIViewController   
+ return viewController
+}
+</code></pre><p>最后将</p>
+<pre><code>window?.rootViewController = drawerViewController
+</code></pre><p>在想要弹出的方法里</p>
+<pre><code>let appDelegate = UIApplication.sharedApplication().delegateas! AppDelegate     
+   appDelegate.drawerViewController.toggleDrawer(KGDrawerSide.Left, animated: true) { (finished) -&gt; Void            in
+    }
+</code></pre><h1 id="AFSoundManager"><a href="#AFSoundManager" class="headerlink" title="AFSoundManager"></a>AFSoundManager</h1><p><a href="https://github.com/AlvaroFranco/AFSoundManager" target="_blank" rel="external">https://github.com/AlvaroFranco/AFSoundManager</a><br>音乐播放框架</p>
+<pre><code>var player:AFSoundPlayback?
+
+//开始播放音乐 
+
+
+  AFSoundManager.sharedManager().startStreamingRemoteAudioFromURL(musicurl) { (percentage, elapsedTime, timeRemaining, error, finished) in
+
+
+ //进度 percentage
+//  elapsedTime 开始时间
+//  timeRemaining 结束时间
+}
+</code></pre><p>暂停方法</p>
+<pre><code>AFSoundManager.sharedManager().pause()
+</code></pre><p>重播方法</p>
+<pre><code>AFSoundManager.sharedManager().resume()
+MJRefresh
+https://github.com/CoderMJLee/MJRefresh
+</code></pre><p>刷新控件框架</p>
+<pre><code>/// header    var header:MJRefreshNormalHeader{  
+ return (self.tableView.tableHeaderViewas? MJRefreshNormalHeader)!  
+</code></pre><p>   }   </p>
+<pre><code>/**  footer  */ 
+    var footer:MJRefreshFooter{   
+  return (self.tableView.tableFooterViewas? MJRefreshFooter)!
+
+ }
+</code></pre><p>方法中</p>
+<pre><code>func  setUpRefrshControl()    {       
+   /**        上拉刷新        */   
+tableView.tableHeaderView = MJRefreshNormalHeader.init(refreshingBlock: { () -&gt; Voidin            self.footer.endRefreshing()
+
+  self.tableView.reloadData()     
+
+   self.header.endRefreshing()               
+
+      })    
+    header.automaticallyChangeAlpha = true     
+      header.beginRefreshing()    
+   /**        下拉刷新        */         
+     tableView.tableFooterView = MJRefreshAutoNormalFooter.init(refreshingBlock: { () -&gt; Void in      
+  self.header.endRefreshing()  
+</code></pre><p>   self.footer.beginRefreshing()</p>
+<pre><code> self.tableView.reloadData()                self.footer.endRefreshing()               
+
+ })       
+
+}
+</code></pre><h1 id="YZDisplayViewController"><a href="#YZDisplayViewController" class="headerlink" title="YZDisplayViewController"></a>YZDisplayViewController</h1><p>滑动标题栏框架<br><a href="https://github.com/iThinkerYZ/YZDisplayViewController" target="_blank" rel="external">https://github.com/iThinkerYZ/YZDisplayViewController</a></p>
+<pre><code>/**
+ 设置标题样式
+*/
+ func setupTitle()
+{
+
+isShowUnderLine = true
+underLineColor = bgcolor
+isShowTitleGradient = true
+isShowTitleCover = false
+
+titleHeight = 38
+endR = 32 / 255.0
+endG = 142 / 255.0
+endB = 115 / 255.0
+
+  // 是否显示遮盖
+  titleScrollViewColor = UIColor.whiteColor()
+
+  coverColor = UIColor(white: 0.7, alpha: 0.4)
+  coverCornerRadius = 13
+  norColor = UIColor.blackColor()
+  selColor = UIColor.whiteColor()
+   }
+
+
+
+/**
+ 添加子控制器
+ */
+func setupAllControllers()
+{
+ let text = WDTextTableViewController()
+text.title = &quot;糗事&quot;
+addChildViewController(text)
+let picture = WDPictureTableViewController()
+picture.title = &quot;图片&quot;
+addChildViewController(picture)
+let video = WDVideoTableViewController()
+video.title = &quot;视频&quot;
+addChildViewController(video)
+}
+</code></pre><h1 id="LLXWaterFlow"><a href="#LLXWaterFlow" class="headerlink" title="LLXWaterFlow"></a>LLXWaterFlow</h1><p>我写的一个瀑布流的实现<br><a href="https://github.com/w11p3333/LLXWaterFlow" target="_blank" rel="external">https://github.com/w11p3333/LLXWaterFlow</a></p>
+<h1 id="FMDB"><a href="#FMDB" class="headerlink" title="FMDB"></a>FMDB</h1><p>不能用cocoa pod导入<br>先从github下好拖进工程里<br>再创建一个桥接文件 swift-brige<br>在设置中添加sqlite3 库<br>在build settings中搜索Bridging Header<br>添加桥接文件的路径（在本工程内的路径）<br>使用FMDatabaseQueue相比FMDatabase是数据安全的，并且不需要打开数据库的流程</p>
+<h1 id="masonry"><a href="#masonry" class="headerlink" title="masonry"></a>masonry</h1><p>实现方便的代码实现autolayout<br>使用方法<br>   有make remake update三种方法 传进去的参数要加mas_前缀 mas_equalTo 会对参数进行包装 equalTo 不会对参数进行包装</p>
+<pre><code>  //尺寸约束
+  make.size.as_equalTo(CGSizeMake(x,y)); 
+   //位置约束 居中
+make.centerX.mas_equalTo(self.view.centerX);    
+  make.centerY.mas_equalTo(self.view.centerY); 
+   //设置到边的距离      
+    make.right.mas_euqalTo(self.view).offset(20);
+</code></pre><h1 id="Parse-for-iOS"><a href="#Parse-for-iOS" class="headerlink" title="Parse for iOS"></a>Parse for iOS</h1><p>为ios提供后端<br>用法：<a href="http://www.mobile-open.com/2015/41095.html" target="_blank" rel="external">http://www.mobile-open.com/2015/41095.html</a><br>官网：<br><a href="https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061" target="_blank" rel="external">https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061</a></p>
+<h1 id="LeanClound"><a href="#LeanClound" class="headerlink" title="LeanClound"></a>LeanClound</h1><h1 id="Realm"><a href="#Realm" class="headerlink" title="Realm"></a>Realm</h1><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><p>一些常用的SVProgressHUD/AFN/Alamofire/SDWebImage<br>的使用都比较简单我这里就暂时不写了</p>
+<p>不定时更新</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

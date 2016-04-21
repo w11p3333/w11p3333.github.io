@@ -1,5 +1,178 @@
-<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>  · AppleCatKay.Blog</title><meta name="description" content=" - LuLiangXiao"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/w11p3333?tab=repositories" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://weibo.com/2715131950/profile?topnav=1&amp;wvr=6&amp;is_all=1" target="_blank" class="nav-list-link">WEIBO</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title"></h1><div class="post-time">Apr 21, 2016</div><div class="post-content"><h1 id="Swift微信摇一摇的实现"><a href="#Swift微信摇一摇的实现" class="headerlink" title="Swift微信摇一摇的实现"></a>Swift微信摇一摇的实现</h1><p>标签（空格分隔）： 设备SDK</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>先附上demo地址:<br><a href="https://github.com/w11p3333/shakeDemo/tree/master" target="_blank" rel="external">demo</a><br>iOS自带了识别摇动的功能，实现起来非常简单，只需要</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Swift微信摇一摇的实现 | AppleCatKay 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="LuLiangXiao">
+    
+    
+
+    <meta name="description">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift微信摇一摇的实现 | AppleCatKay">
+<meta property="og:url" content="http://yoursite.com/2016/04/21/Swift微信摇一摇的实现/index.html">
+<meta property="og:site_name" content="AppleCatKay">
+<meta property="og:description">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1449048-d6b74e5f6685b41b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-04-21T14:14:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift微信摇一摇的实现 | AppleCatKay">
+<meta name="twitter:description">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1449048-d6b74e5f6685b41b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">AppleCatKay</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Swift微信摇一摇的实现</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-04-21" class="post-meta__date date">2016-04-21</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>先附上demo地址:<br><a href="https://github.com/w11p3333/shakeDemo/tree/master" target="_blank" rel="external">demo</a><br>iOS自带了识别摇动的功能，实现起来非常简单，只需要</p>
 <pre><code>  /**
 开启摇动感应
 */
@@ -87,12 +260,59 @@ self.player?.prepareToPlay()//准备数据
 self.player?.play()
 }
 </code></pre><p>到此为止一个完整的摇一摇功能就实现了</p>
-</div></article></div></section><footer><div class="paginator"><a href="/2016/04/21/实现iOS启动页淡出效果/" class="prev">PREV</a><a href="/2016/04/21/Swift中的Realm使用/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'seansun';
-var disqus_identifier = '2016/04/21/Swift微信摇一摇的实现/';
-var disqus_title = '';
-var disqus_url = 'http://yoursite.com/2016/04/21/Swift微信摇一摇的实现/';
-(function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();</script><script id="dsq-count-scr" src="//seansun.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2016 <a href="http://yoursite.com">LuLiangXiao</a>, unless otherwise noted.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

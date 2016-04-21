@@ -7,7 +7,7 @@
     
 
     <title>
-      实现iOS启动页淡出效果 | AppleCatKay 
+      实现流动效果划出的Tableview | AppleCatKay 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,34 +16,40 @@
     
     
 
-    <meta name="description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
+    <meta name="description" content="先上Demo：https://github.com/w11p3333/LLXAnimateTableview
+![动画效果][1]
+主要实现：
+func animationTable() {
 
-let vc = UIStoryboard(name:">
+self.tableView.reloadData()
+
+let cells = tableView.visibleCells
+let tableHeight: CGFloat = tableView.b">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实现iOS启动页淡出效果 | AppleCatKay">
-<meta property="og:url" content="http://yoursite.com/2016/04/21/实现iOS启动页淡出效果/index.html">
+<meta property="og:title" content="实现流动效果划出的Tableview | AppleCatKay">
+<meta property="og:url" content="http://yoursite.com/2016/04/15/实现流动效果划出的Tableview/index.html">
 <meta property="og:site_name" content="AppleCatKay">
-<meta property="og:description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
+<meta property="og:description" content="先上Demo：https://github.com/w11p3333/LLXAnimateTableview
+![动画效果][1]
+主要实现：
+func animationTable() {
 
-let vc = UIStoryboard(name:">
-<meta property="og:updated_time" content="2016-04-21T14:11:35.000Z">
+self.tableView.reloadData()
+
+let cells = tableView.visibleCells
+let tableHeight: CGFloat = tableView.b">
+<meta property="og:updated_time" content="2016-04-21T14:21:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实现iOS启动页淡出效果 | AppleCatKay">
-<meta name="twitter:description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
+<meta name="twitter:title" content="实现流动效果划出的Tableview | AppleCatKay">
+<meta name="twitter:description" content="先上Demo：https://github.com/w11p3333/LLXAnimateTableview
+![动画效果][1]
+主要实现：
+func animationTable() {
 
-let vc = UIStoryboard(name:">
+self.tableView.reloadData()
+
+let cells = tableView.visibleCells
+let tableHeight: CGFloat = tableView.b">
     
     
     
@@ -167,22 +173,17 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">实现iOS启动页淡出效果</h1>
+    <h1 class="post-title">实现流动效果划出的Tableview</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2016-04-21" class="post-meta__date date">2016-04-21</time> 
+      <time datetime="2016-04-15" class="post-meta__date date">2016-04-15</time> 
 
       <span class="post-meta__tags tags">
 
           
 
-          
-             &#8226; 标签:
-            <font class="tags">
-              <a class="tags-link" href="/tags/干货/">干货</a>
-            </font>
           
 
       </span>
@@ -194,27 +195,33 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <a id="more"></a>
-<p>先上Demo：<a href="https://github.com/w11p3333/LaunchDemo" target="_blank" rel="external">https://github.com/w11p3333/LaunchDemo</a></p>
-<p>思路：将launchScreen作为window的一个addsubview</p>
-<p>实现：<br>1.在LaunchScreen中将Storyboard ID设置为Launch<br>2.实现方法</p>
-<pre><code>private func launchAnimation()
-{
+<p>先上Demo：<a href="https://github.com/w11p3333/LLXAnimateTableview" target="_blank" rel="external">https://github.com/w11p3333/LLXAnimateTableview</a></p>
+<pre><code>![动画效果][1]
+</code></pre><p>主要实现：</p>
+<pre><code>func animationTable() {
 
-let vc = UIStoryboard(name:     &quot;LaunchScreen&quot;, bundle: nil).instantiateViewControllerWithIdentifier(&quot;Launch&quot;)
-let launchview = vc.view
-let delegate =     UIApplication.sharedApplication().delegate
-let mainWindow = delegate?.window
-mainWindow!!.addSubview(launchview)
+self.tableView.reloadData()
 
+let cells = tableView.visibleCells
+let tableHeight: CGFloat = tableView.bounds.size.height
 
-UIView.animateWithDuration(1, delay: 0.5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
-launchview.alpha = 0.0
-launchview.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.5, 1.5, 1.0)
-}) { (finished) in
-launchview.removeFromSuperview()
+for i in cells {
+    let cell: UITableViewCell = i as UITableViewCell
+    cell.transform = CGAffineTransformMakeTranslation(0, tableHeight)
 }
-  }
-</code></pre><div class="tip"><br>   若是应用使用storyboard中加载的，需要在初始界面的viewcontroller的viewDidAppear方法中调用。<br><br>若是应用从代码中加载的，需要在AppDelegate中didFinishLaunchingWithOptions方法中调用<br></div>
+
+var index = 0
+
+for a in cells {
+    let cell: UITableViewCell = a as UITableViewCell
+    UIView.animateWithDuration(1.0, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [], animations: {
+        cell.transform = CGAffineTransformMakeTranslation(0, 0);
+    }, completion: nil)
+
+    index += 1
+}
+    }
+</code></pre><p>然后在viewWillAppear中调用它</p>
 
   </section>
 

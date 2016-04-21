@@ -7,7 +7,7 @@
     
 
     <title>
-      实现iOS启动页淡出效果 | AppleCatKay 
+      iOS中的本地推送与远程推送 | AppleCatKay 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,34 +16,16 @@
     
     
 
-    <meta name="description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
-
-let vc = UIStoryboard(name:">
+    <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实现iOS启动页淡出效果 | AppleCatKay">
-<meta property="og:url" content="http://yoursite.com/2016/04/21/实现iOS启动页淡出效果/index.html">
+<meta property="og:title" content="iOS中的本地推送与远程推送 | AppleCatKay">
+<meta property="og:url" content="http://yoursite.com/2016/04/07/iOS中的本地推送与远程推送/index.html">
 <meta property="og:site_name" content="AppleCatKay">
-<meta property="og:description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
-
-let vc = UIStoryboard(name:">
-<meta property="og:updated_time" content="2016-04-21T14:11:35.000Z">
+<meta property="og:description">
+<meta property="og:updated_time" content="2016-04-21T14:18:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实现iOS启动页淡出效果 | AppleCatKay">
-<meta name="twitter:description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
-
-let vc = UIStoryboard(name:">
+<meta name="twitter:title" content="iOS中的本地推送与远程推送 | AppleCatKay">
+<meta name="twitter:description">
     
     
     
@@ -167,22 +149,17 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">实现iOS启动页淡出效果</h1>
+    <h1 class="post-title">iOS中的本地推送与远程推送</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2016-04-21" class="post-meta__date date">2016-04-21</time> 
+      <time datetime="2016-04-07" class="post-meta__date date">2016-04-07</time> 
 
       <span class="post-meta__tags tags">
 
           
 
-          
-             &#8226; 标签:
-            <font class="tags">
-              <a class="tags-link" href="/tags/干货/">干货</a>
-            </font>
           
 
       </span>
@@ -193,28 +170,55 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <a id="more"></a>
-<p>先上Demo：<a href="https://github.com/w11p3333/LaunchDemo" target="_blank" rel="external">https://github.com/w11p3333/LaunchDemo</a></p>
-<p>思路：将launchScreen作为window的一个addsubview</p>
-<p>实现：<br>1.在LaunchScreen中将Storyboard ID设置为Launch<br>2.实现方法</p>
-<pre><code>private func launchAnimation()
-{
-
-let vc = UIStoryboard(name:     &quot;LaunchScreen&quot;, bundle: nil).instantiateViewControllerWithIdentifier(&quot;Launch&quot;)
-let launchview = vc.view
-let delegate =     UIApplication.sharedApplication().delegate
-let mainWindow = delegate?.window
-mainWindow!!.addSubview(launchview)
-
-
-UIView.animateWithDuration(1, delay: 0.5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
-launchview.alpha = 0.0
-launchview.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.5, 1.5, 1.0)
-}) { (finished) in
-launchview.removeFromSuperview()
+    <h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h3 id="本地推送"><a href="#本地推送" class="headerlink" title="本地推送"></a>本地推送</h3><p>第一步<br>在AppDelegate中</p>
+<pre><code>    //添加本地推送
+   if #available(iOS 8.0, *) {
+let uns =     UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+UIApplication.sharedApplication().registerUserNotificationSettings(uns)
 }
-  }
-</code></pre><div class="tip"><br>   若是应用使用storyboard中加载的，需要在初始界面的viewcontroller的viewDidAppear方法中调用。<br><br>若是应用从代码中加载的，需要在AppDelegate中didFinishLaunchingWithOptions方法中调用<br></div>
+</code></pre><p>第二步<br>在需要推送的事件里</p>
+<pre><code> let localNotification = UILocalNotification()
+//推送的文字内容
+localNotification.alertBody = &quot;你已经完成了一个番茄钟啦&quot;
+//app名字
+if #available(iOS 8.2, *) {
+   localNotification.alertTitle = &quot;Pomodoro&quot;
+} else {
+// Fallback on earlier versions
+}
+//app右上角的红标
+localNotification.applicationIconBadgeNumber = 1
+//通知时的音效
+  localnotification.soundName = &quot;buyao.wav
+  //滑动的事件提示
+  localNotification.alertAction = &quot;输入任务内容&quot;
+
+  //立即发送推送
+    UIApplication.sharedApplication().presentLocalNotificationNow(localNotification)
+</code></pre><p>如果要设置特定时间发送</p>
+<pre><code> //通知触发时间
+localNotification.fireDate = NSDate(timeInterval: &lt;#T##NSTimeInterval#&gt;, sinceDate: &lt;#T##NSDate#&gt;)
+  //添加推送
+  UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+</code></pre><p>第三步</p>
+<pre><code>设置当用户切回app时的操作
+func applicationDidBecomeActive(application: UIApplication) {
+// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+//删除通知
+application.cancelAllLocalNotifications()
+//让角标消失
+application.applicationIconBadgeNumber = 0
+}
+</code></pre><h3 id="推送有关的方法"><a href="#推送有关的方法" class="headerlink" title="推送有关的方法"></a>推送有关的方法</h3><pre><code>1.func applicationWillResignActive(application: UIApplication){} 当App既将进入后台、锁屏、有电话进来时会触发此事件
+
+2.func applicationDidEnterBackground(application: UIApplication) {} 当App进入后台时触发此事件
+
+3.func applicationWillEnterForeground(application: UIApplication) {} 当App从后台即将回到前台时触发此事件
+
+4.func applicationDidBecomeActive(application: UIApplication) {}当App变成活动状态时触发此事件
+
+5.func applicationWillTerminate(application: UIApplication) {} 当App退出时触发此方法，一般用于保存
+</code></pre><p>###远程推送<br>占坑 有空更</p>
 
   </section>
 

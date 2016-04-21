@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Git的使用 | AppleCatKay 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="LuLiangXiao">
+    
+    
+
+    <meta name="description" content="网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git的使用 | AppleCatKay">
+<meta property="og:url" content="http://yoursite.com/2016/04/17/Git的使用/index.html">
+<meta property="og:site_name" content="AppleCatKay">
+<meta property="og:description" content="网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333">
+<meta property="og:updated_time" content="2016-04-21T14:17:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git的使用 | AppleCatKay">
+<meta name="twitter:description" content="网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">AppleCatKay</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Git的使用</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-04-17" class="post-meta__date date">2016-04-17</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>网上关于git命令的使用虽然多，但是太杂而且错误百出，我也是踩了许多坑，总结了下常用的。现在觉得敲git简直不要太爽233333<br><a id="more"></a></p>
+<h3 id="git的安装"><a href="#git的安装" class="headerlink" title="git的安装"></a>git的安装</h3><p>先安装homebrew<br>再执行brew install git</p>
+<h3 id="配置git-ssh"><a href="#配置git-ssh" class="headerlink" title="配置git ssh"></a>配置git ssh</h3><p>在终端</p>
+<pre><code>//邮箱不一定是github账号
+ssh-keygen -t rsa -C &quot;yourname@hotmail.com&quot;
+
+//按3个回车，密码为空。
+//获取key
+cat ~/.ssh/id_rsa.pub
+将得到的key在github中ssh key中添加
+//连接github
+ssh -T git@github.com
+//出现Hi w11p3333! You&apos;ve successfully authenticated, but GitHub does not provide shell access.为成功
+</code></pre><p>###搭建github博客<br>见此文<a href="http://www.jianshu.com/p/4eaddcbe4d12" target="_blank" rel="external">http://www.jianshu.com/p/4eaddcbe4d12</a></p>
+<p>如发生报错：ERROR Process failed: layout/.DS_Store, 那么进入主题里面layout和_partial目录下，使用删除命令：</p>
+<pre><code>rm-rf.DS_Store
+</code></pre><p>本地测试：hexo s<br>退出测试：control + c<br>发布博客：hexo clean &amp;&amp; hexo g &amp;&amp; hexo d<br>前文：<!--more--></p>
+<h3 id="一个项目完整的git流程"><a href="#一个项目完整的git流程" class="headerlink" title="一个项目完整的git流程"></a>一个项目完整的git流程</h3><p>在这之前你应该在github上已经创建好仓库了</p>
+<pre><code>   //注意要先cd到项目目录
+//克隆项目
+git clone https://github.com/GithubName/ProjectName.git
+//更改仓库地址
+git remote add origin       https://github.com/GithubName/ProjectName.git
+//添加项目
+git add -A     // -A是添加全部 只添加修改的话使用git add .
+//提交修改
+git commit -m &quot;edit&quot;
+//如果项目与当地不一致
+git pull  // 如果提示错误了使用  git pull --rebase origin master
+//提交到远程仓库
+git push -u origin master
+</code></pre><h3 id="一些常用的命令"><a href="#一些常用的命令" class="headerlink" title="一些常用的命令"></a>一些常用的命令</h3><h3 id="更改远程仓库"><a href="#更改远程仓库" class="headerlink" title="更改远程仓库"></a>更改远程仓库</h3><pre><code>git remote add origin https://github.com/GithubName/ProjectName.git
+</code></pre><h3 id="删除远程仓库内所有文件"><a href="#删除远程仓库内所有文件" class="headerlink" title="删除远程仓库内所有文件"></a>删除远程仓库内所有文件</h3><pre><code>cd到项目文件夹
+
+  git rm * -r  
+  git add .
+  git commit -m &quot;clear&quot;
+  git push -u origin master
+回退版本
+ git log   //查看日志 找到对应的hash值
+ git reset --hard f093b6ed512f761a346e2e5c0f00230e448c217c  //改成对应的hash值
+</code></pre><h3 id="退出git-log"><a href="#退出git-log" class="headerlink" title="退出git log"></a>退出git log</h3><pre><code>按q
+</code></pre><h3 id="修改用户"><a href="#修改用户" class="headerlink" title="修改用户"></a>修改用户</h3><pre><code>[~]$ git config --global user.name &quot;lubin&quot; 
+[~]$ git config --global user.email lubin.z@gmail.com 
+</code></pre><h3 id="在readme中添加图片"><a href="#在readme中添加图片" class="headerlink" title="在readme中添加图片"></a>在readme中添加图片</h3><p>首先要添加图片到远程仓库里</p>
+<pre><code>![](https://github.com/yourname/yourProjectname/raw/master/image/pic.png)
+</code></pre><h3 id="常见的问题"><a href="#常见的问题" class="headerlink" title="常见的问题"></a>常见的问题</h3><h3 id="1-The-following-untracked-working-tree-files-would-be-overwritten-by-checkout和-Please-move-or-remove-them-before-you-can-merge"><a href="#1-The-following-untracked-working-tree-files-would-be-overwritten-by-checkout和-Please-move-or-remove-them-before-you-can-merge" class="headerlink" title="1.The following untracked working tree files would be overwritten by checkout和 Please move or remove them before you can merge"></a>1.The following untracked working tree files would be overwritten by checkout和 Please move or remove them before you can merge</h3><p>解决方案</p>
+<pre><code>git clean  -d  -fx &quot;&quot;
+其中
+x  -----删除忽略文件已经对git来说不识别的文件
+d  -----删除未被添加到git的路径中的文件
+f  -----强制运行
+</code></pre><h3 id="2-remote-origin-already-exists"><a href="#2-remote-origin-already-exists" class="headerlink" title="2.remote origin already exists"></a>2.remote origin already exists</h3><p>解决方案</p>
+<pre><code>1、先输入$ git remote rm origin
+
+2、再输入$ git remote add 
+</code></pre><h3 id="Not-a-git-repository-or-any-of-the-parent-directories-git"><a href="#Not-a-git-repository-or-any-of-the-parent-directories-git" class="headerlink" title="Not a git repository (or any of the parent directories): .git"></a>Not a git repository (or any of the parent directories): .git</h3><p>git init就可以了！ </p>
+<h3 id="3-Pull-is-not-possible-because-you-have-unmerged-files"><a href="#3-Pull-is-not-possible-because-you-have-unmerged-files" class="headerlink" title="3.Pull is not possible because you have unmerged files."></a>3.Pull is not possible because you have unmerged files.</h3><p>local文件冲突了,pull会使用git merge导致冲突，需要将冲突的文件resolve掉 </p>
+<pre><code>git add -u, git commit       
+</code></pre>
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

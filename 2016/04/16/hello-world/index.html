@@ -7,7 +7,7 @@
     
 
     <title>
-      实现iOS启动页淡出效果 | AppleCatKay 
+      CocoaPods及Carthage的使用 | AppleCatKay 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,34 +16,16 @@
     
     
 
-    <meta name="description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
-
-let vc = UIStoryboard(name:">
+    <meta name="description" content="作为iOS中最好用的两个依赖管理，是我们必须学会的。使用上来说CocoaPods更加方便，Carthage的侵入性比较低，但是很多库没有，所以我个人还是使用Cocoapods为主。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实现iOS启动页淡出效果 | AppleCatKay">
-<meta property="og:url" content="http://yoursite.com/2016/04/21/实现iOS启动页淡出效果/index.html">
+<meta property="og:title" content="CocoaPods及Carthage的使用 | AppleCatKay">
+<meta property="og:url" content="http://yoursite.com/2016/04/16/hello-world/index.html">
 <meta property="og:site_name" content="AppleCatKay">
-<meta property="og:description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
-
-let vc = UIStoryboard(name:">
-<meta property="og:updated_time" content="2016-04-21T14:11:35.000Z">
+<meta property="og:description" content="作为iOS中最好用的两个依赖管理，是我们必须学会的。使用上来说CocoaPods更加方便，Carthage的侵入性比较低，但是很多库没有，所以我个人还是使用Cocoapods为主。">
+<meta property="og:updated_time" content="2016-04-21T14:22:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实现iOS启动页淡出效果 | AppleCatKay">
-<meta name="twitter:description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
-
-let vc = UIStoryboard(name:">
+<meta name="twitter:title" content="CocoaPods及Carthage的使用 | AppleCatKay">
+<meta name="twitter:description" content="作为iOS中最好用的两个依赖管理，是我们必须学会的。使用上来说CocoaPods更加方便，Carthage的侵入性比较低，但是很多库没有，所以我个人还是使用Cocoapods为主。">
     
     
     
@@ -167,22 +149,17 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">实现iOS启动页淡出效果</h1>
+    <h1 class="post-title">CocoaPods及Carthage的使用</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2016-04-21" class="post-meta__date date">2016-04-21</time> 
+      <time datetime="2016-04-16" class="post-meta__date date">2016-04-16</time> 
 
       <span class="post-meta__tags tags">
 
           
 
-          
-             &#8226; 标签:
-            <font class="tags">
-              <a class="tags-link" href="/tags/干货/">干货</a>
-            </font>
           
 
       </span>
@@ -193,28 +170,45 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <a id="more"></a>
-<p>先上Demo：<a href="https://github.com/w11p3333/LaunchDemo" target="_blank" rel="external">https://github.com/w11p3333/LaunchDemo</a></p>
-<p>思路：将launchScreen作为window的一个addsubview</p>
-<p>实现：<br>1.在LaunchScreen中将Storyboard ID设置为Launch<br>2.实现方法</p>
-<pre><code>private func launchAnimation()
-{
+    <p>作为iOS中最好用的两个依赖管理，是我们必须学会的。使用上来说CocoaPods更加方便，Carthage的侵入性比较低，但是很多库没有，所以我个人还是使用Cocoapods为主。<br><a id="more"></a></p>
+<h1 id="Cocoapods基于Alcatraz安装CocoaPods报错的问题"><a href="#Cocoapods基于Alcatraz安装CocoaPods报错的问题" class="headerlink" title="Cocoapods基于Alcatraz安装CocoaPods报错的问题"></a>Cocoapods基于Alcatraz安装CocoaPods报错的问题</h1><p>用Alcatraz安装CocoaPods，执行install pods命令会报错</p>
+<pre><code>Resolved command path for &quot;pod&quot; is invalid。
+</code></pre><p>原因：软件云被屏蔽<br>解决方法：把亚马逊的云服务改成国内淘宝源的服务<br>打开Terminal，然后键入以下命令：</p>
+<pre><code>$ sudo gem install -n /usr/local/bin cocoa pods
+</code></pre><p>执行完这句如果报告错误<br>这是因为ruby的软件源rubygems.org因为使用亚马逊的云服务，被屏蔽了，需要更新一下ruby的源，过程如下：</p>
+<pre><code>$ gem sources -l (查看当前ruby的源)
+$ gem sources --remove https://rubygems.org/ 
+ $ gem sources -a https://ruby.taobao.org/ 
+ $ gem sources -l
+</code></pre><p>如果gem太老，可以尝试用如下命令升级</p>
+<pre><code>gem $ sudo gem update --system
+</code></pre><p>升级成功后会提示:</p>
+<pre><code>RubyGems system software updated
+</code></pre><p>然后重新执行安装下载命令</p>
+<pre><code>$ sudo gem install cocoapods
+</code></pre><p>这时候应该没什么问题了接下来进行安装，执行：</p>
+<pre><code>$ pod setup
+</code></pre><p>Terminal会停留在 Setting up CocoaPods master repo 这个状态一段时间,是因为要进行下载安装,而且目录比较大,需要耐心等待一下。看到complete字段就是安装成功了</p>
+<p>导入框架方法<br>点击Xcode&gt;Product&gt;Cocoapods&gt;create podfile</p>
+<p>填入想导入的框架</p>
+<pre><code>platform :ios, &quot;8.0&quot;
 
-let vc = UIStoryboard(name:     &quot;LaunchScreen&quot;, bundle: nil).instantiateViewControllerWithIdentifier(&quot;Launch&quot;)
-let launchview = vc.view
-let delegate =     UIApplication.sharedApplication().delegate
-let mainWindow = delegate?.window
-mainWindow!!.addSubview(launchview)
-
-
-UIView.animateWithDuration(1, delay: 0.5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
-launchview.alpha = 0.0
-launchview.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.5, 1.5, 1.0)
-}) { (finished) in
-launchview.removeFromSuperview()
-}
-  }
-</code></pre><div class="tip"><br>   若是应用使用storyboard中加载的，需要在初始界面的viewcontroller的viewDidAppear方法中调用。<br><br>若是应用从代码中加载的，需要在AppDelegate中didFinishLaunchingWithOptions方法中调用<br></div>
+use_frameworks!
+pod &quot;AFNetworking&quot;
+</code></pre><p>在执行Install pods就ok了</p>
+<h1 id="Carthage"><a href="#Carthage" class="headerlink" title="Carthage"></a>Carthage</h1><p>安装</p>
+<pre><code>brew install carthage
+</code></pre><p>使用<br>1.进入项目所在文件夹<br>2.创建一个空的carthage文件</p>
+<pre><code>touch Cartfile
+</code></pre><p>3.使用XCode打开文件</p>
+<pre><code>open -a Xcode Cartfile
+</code></pre><p>4.编辑Cartfile</p>
+<pre><code>github &quot;SVProgressHUD/SVProgressHUD&quot;
+</code></pre><p>5.运行Carthage</p>
+<pre><code>carthage update
+</code></pre><p>6.加载framework<br>    在项目文件夹中找到Carthage/Build/iOS/<br>    将需要的framework加入xcode中的Embedded Binaries<br>或者<br>    在项目中引入依赖的 Framkework，只需要在对应 Target 中的 Build Setting 中的 Framework Search Path 项加入以下路径，Xcode 便会自动搜索目录下的 Framework：</p>
+<pre><code>$(SRCROOT)/Carthage/Build/iOS
+</code></pre><p>7.导入框架使用吧</p>
 
   </section>
 

@@ -7,7 +7,7 @@
     
 
     <title>
-      实现iOS启动页淡出效果 | AppleCatKay 
+      標籤: 干货 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,34 +16,15 @@
     
     
 
-    <meta name="description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
-
-let vc = UIStoryboard(name:">
-<meta property="og:type" content="article">
-<meta property="og:title" content="实现iOS启动页淡出效果 | AppleCatKay">
-<meta property="og:url" content="http://yoursite.com/2016/04/21/实现iOS启动页淡出效果/index.html">
+    <meta name="description" content="iOS Coder">
+<meta property="og:type" content="website">
+<meta property="og:title" content="標籤: 干货">
+<meta property="og:url" content="http://yoursite.com/tags/干货/index.html">
 <meta property="og:site_name" content="AppleCatKay">
-<meta property="og:description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
-
-let vc = UIStoryboard(name:">
-<meta property="og:updated_time" content="2016-04-21T14:11:35.000Z">
+<meta property="og:description" content="iOS Coder">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实现iOS启动页淡出效果 | AppleCatKay">
-<meta name="twitter:description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview
-实现：1.在LaunchScreen中将Storyboard ID设置为Launch2.实现方法
-private func launchAnimation()
-{
-
-let vc = UIStoryboard(name:">
+<meta name="twitter:title" content="標籤: 干货">
+<meta name="twitter:description" content="iOS Coder">
     
     
     
@@ -163,66 +144,47 @@ classes that you can use:
         <div class="content-wrapper__inner entry">
             
 
-<article class="post-container post-container--single">
 
-  <header class="post-header">
-    
-    <h1 class="post-title">实现iOS启动页淡出效果</h1>
+  <h1 class="archive-title">標籤: 干货</h1>
+  <hr class="post-list__divider" />
 
-    
 
-    <div class="post-meta">
-      <time datetime="2016-04-21" class="post-meta__date date">2016-04-21</time> 
-
-      <span class="post-meta__tags tags">
-
-          
-
-          
-             &#8226; 标签:
-            <font class="tags">
-              <a class="tags-link" href="/tags/干货/">干货</a>
-            </font>
-          
-
-      </span>
-    </div>
+<div class="main-post-list">
+    <ol class="post-list">
     
     
+    <li>
 
-  </header>
+      <h2 class="post-list__post-title post-title">
+        <a href="/2016/04/21/实现iOS启动页淡出效果/" title="link to 实现iOS启动页淡出效果">实现iOS启动页淡出效果</a>
+      </h2>
 
-  <section id="post-content" class="article-content post">
-    <a id="more"></a>
-<p>先上Demo：<a href="https://github.com/w11p3333/LaunchDemo" target="_blank" rel="external">https://github.com/w11p3333/LaunchDemo</a></p>
-<p>思路：将launchScreen作为window的一个addsubview</p>
-<p>实现：<br>1.在LaunchScreen中将Storyboard ID设置为Launch<br>2.实现方法</p>
-<pre><code>private func launchAnimation()
-{
+      <div class="post-list__meta">
 
-let vc = UIStoryboard(name:     &quot;LaunchScreen&quot;, bundle: nil).instantiateViewControllerWithIdentifier(&quot;Launch&quot;)
-let launchview = vc.view
-let delegate =     UIApplication.sharedApplication().delegate
-let mainWindow = delegate?.window
-mainWindow!!.addSubview(launchview)
+        <time datetime="2016-04-21" class="post-list__meta--date date">2016-04-21</time> 
+      </div>
 
+      <div class="excerpt">
+        
+      </div>
 
-UIView.animateWithDuration(1, delay: 0.5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
-launchview.alpha = 0.0
-launchview.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.5, 1.5, 1.0)
-}) { (finished) in
-launchview.removeFromSuperview()
-}
-  }
-</code></pre><div class="tip"><br>   若是应用使用storyboard中加载的，需要在初始界面的viewcontroller的viewDidAppear方法中调用。<br><br>若是应用从代码中加载的，需要在AppDelegate中didFinishLaunchingWithOptions方法中调用<br></div>
+      <hr class="post-list__divider" />
+    </li>
+    
+  </ol>
 
-  </section>
+  <hr class="post-list__divider " />
 
-  
-  
-</article>
+<nav class="pagination" role="navigation">
+    
+
+    <span class="pagination__page-number"> 1 / 1</span>
+    
+    
+</nav>
 
 
+</div>
             <footer class="footer">
 
     <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
@@ -250,18 +212,6 @@ launchview.removeFromSuperview()
 
 
     
-
-    <script src="/js/awesome-toc.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $.awesome_toc({
-                overlay: true,
-                contentId: "post-content",
-            });
-        });
-    </script>
-
-
     
     
     <!--kill ie6 -->

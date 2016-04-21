@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Swift中的界面传值 | AppleCatKay 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="LuLiangXiao">
+    
+    
+
+    <meta name="description">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift中的界面传值 | AppleCatKay">
+<meta property="og:url" content="http://yoursite.com/2016/03/20/Swift中的界面传值/index.html">
+<meta property="og:site_name" content="AppleCatKay">
+<meta property="og:description">
+<meta property="og:updated_time" content="2016-04-21T14:20:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift中的界面传值 | AppleCatKay">
+<meta name="twitter:description">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">AppleCatKay</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Swift中的界面传值</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-03-20" class="post-meta__date date">2016-03-20</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h3 id="正向页面传值-通过代码"><a href="#正向页面传值-通过代码" class="headerlink" title="正向页面传值-通过代码"></a>正向页面传值-通过代码</h3><pre><code>    有A、B两个控制器，A要把文本的里的string传给B 
+     在B中定义一个属性
+       var txtStr
+   //在A要进入B控制器的操作中 
+var secondVC:SecondViewController = SecondViewController() 
+secondVC.txtStr = self.text 
+presentViewController(secondVC , animated: true, completion: nil)
+     //在B中要显示的控件中赋值 
+self.label.text = txtStr
+</code></pre><h3 id="正向传值第二种方法"><a href="#正向传值第二种方法" class="headerlink" title="正向传值第二种方法"></a>正向传值第二种方法</h3><pre><code>有A、B两个控制器，A要把文本的里的string传给B
+//在B中定义一个属性
+var txtStr
+//在B中重写init()方法
+init(text:String)
+{
+self.txtStr = text
+super.init(nibName: nil, bundle: nil)
+}
+//在A要进入B控制器的操作中
+var secondVC:SecondViewController = SecondViewController(text:self.text)
+presentViewController(secondVC , animated: true, completion: nil)
+//在B中要显示的控件中赋值
+self.label.text = txtStr
+</code></pre><h3 id="正向页面传值第三种方法-通过Storyboard"><a href="#正向页面传值第三种方法-通过Storyboard" class="headerlink" title="正向页面传值第三种方法-通过Storyboard"></a>正向页面传值第三种方法-通过Storyboard</h3><pre><code>有A、B两个控制器，A要把文本的里的string传给B
+两个 View 之间要用 Modal 类型的 Segue 来连接
+//在B中定义一个属性
+var txtStr
+//在A中重写prepareForSegue方法
+  let destVc: secondVC:SecondViewController = segue.destionViewController as! secondVC:SecondViewController
+//将A中的值赋值到B中的属性
+destVc.textStr = self.text
+//在B中要显示的控件中赋值
+ self.label.text = txtStr
+</code></pre><h3 id="Delegate反向传值"><a href="#Delegate反向传值" class="headerlink" title="Delegate反向传值"></a>Delegate反向传值</h3><pre><code>谁要传值谁就拥有代理属性
+有A、B两个控制器，A进入B，B再返回A，把文本里的String传给A
+在A中定义一个属性
+var txtStr:String?
+给B定义一个协议
+protocol SecondVcDelegate:NSObjectProtocol
+{
+    func SecondVcGiveTextToFirstVc(text: String)
+
+}
+再给B定义一个delegate 避免循环应用要加上weak
+weak var delegate:SecondVcDelegate?
+在B要跳转回A的时候调用代理
+self.delegate?.SecondVcGiveTextToFirstVc(&quot;test&quot;)
+在A中需要接受值的时候
+let vc = SecondVc()
+vc.delegate = self
+extension FirstVc:delegate:SecondVcDelegate
+{
+    func SecondVcGiveTextToFirstVc(text: String)
+    {
+    txtStr = text
+    }
+}
+</code></pre><h3 id="NSNotificationCenter传值"><a href="#NSNotificationCenter传值" class="headerlink" title="NSNotificationCenter传值"></a>NSNotificationCenter传值</h3><p>第一步 post一个通知</p>
+<pre><code> let info = [WDPictureWillOpen:pictureTopic!.cdn_img!]
+NSNotificationCenter.defaultCenter().postNotificationName(WDPictureWillOpen, object: self, userInfo: info)
+</code></pre><p>第二步 接受通知</p>
+<pre><code>NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WDPictureTableViewController.openPothoBrowser(_:)), name: WDPictureWillOpen, object: nil)
+</code></pre><p>第三步 实现接受通知的方法并拿到值</p>
+<pre><code>func openPothoBrowser(notify: NSNotification)
+ {
+
+   //一定要拦截
+ guard let urlstr = notify.userInfo![WDPictureWillOpen] as? String  else
+ {
+     return
+ }
+
+ }
+</code></pre><p>第四步 一定要移除通知</p>
+<pre><code>     deinit
+{
+ NSNotificationCenter.defaultCenter().removeObserver(self)
+}
+</code></pre><h3 id="NSUserDefault传值"><a href="#NSUserDefault传值" class="headerlink" title="NSUserDefault传值"></a>NSUserDefault传值</h3><pre><code> 注意：NSUserDefaults是持久化存储 
+//在需要传值的地方      
+NSUserDefaults.standardUserDefaults().setObject(&quot;test&quot;, forKey: &quot;test&quot;) 
+//取出值
+   let str = NSUserDefaults.standardUserDefaults().objectForKey(&quot;test&quot;) print(Str)
+</code></pre><h3 id="闭包传值"><a href="#闭包传值" class="headerlink" title="闭包传值"></a>闭包传值</h3><h3 id="单例传值"><a href="#单例传值" class="headerlink" title="单例传值"></a>单例传值</h3><p>占坑 有空再更</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
