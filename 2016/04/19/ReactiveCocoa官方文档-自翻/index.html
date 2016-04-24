@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/19/ReactiveCocoa官方文档-自翻/index.html">
 <meta property="og:site_name" content="AppleCatKay">
 <meta property="og:description" content="github官方文档,rac很火,看看顺便翻译一下">
-<meta property="og:updated_time" content="2016-04-24T09:29:53.000Z">
+<meta property="og:updated_time" content="2016-04-24T09:32:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactiveCocoa官方文档-自翻">
 <meta name="twitter:description" content="github官方文档,rac很火,看看顺便翻译一下">
@@ -336,7 +336,23 @@ return self.parseJSONResultsFromString(string)
 print(&quot;Search results: \(results)&quot;)
 }
 </code></pre><p>在这里，我们需要观察Next这个事件，它包含我们的结果，并将它们输出到控制台，在这个期间我们可以更新一个表视图或者在屏幕上更新一个控件。</p>
-<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h2 id="节流请求"><a href="#节流请求" class="headerlink" title="节流请求"></a>节流请求</h2><h1 id="Objective-C和Swift"><a href="#Objective-C和Swift" class="headerlink" title="Objective-C和Swift"></a>Objective-C和Swift</h1><p> 虽然RAC是基于Objective-C的一个框架，我们称之为3.0版本，现在所有主要功能的开发主要集中在swift的API接口中。RAC的Objective-C API接口和Swift API接口是完全分开的，但通过一个桥接文件可以转换。这主要用于一个老版本的使用了RAC项目或者还没有改变到Swift的项目。Objective-C的API接口将会继续存在，在可预见的将来也会继续得到技术支持，但不会得到很多的改进，有关使用此API的更多信息，请查看我们的官方文档。我们强烈建议所有的新项目使用Swift API。</p>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>为了解决这个问题，我们需要知道是哪个步骤出了问题。最快的解决方法是在控制台打印它们，然后解决它们。通过这个方法，我们可以有效的解决它们。但是，我们在解决之前可能会重试至少几次。方便的是，有一个重试关键字就是用来方便我们操作的。我们改进过的搜索结果大概看起来是这个样子的：</p>
+<pre><code>.flatMap(.Latest) { (query: String) -&gt; SignalProducer&lt;(NSData, NSURLResponse), NSError&gt; in
+let URLRequest = self.searchRequestWithEscapedQuery(query)
+
+return NSURLSession.sharedSession()
+.rac_dataWithRequest(URLRequest)
+.flatMapError { error in
+print(&quot;Network error occurred: \(error)&quot;)
+return SignalProducer.empty
+}
+}
+</code></pre><h2 id="节流请求"><a href="#节流请求" class="headerlink" title="节流请求"></a>节流请求</h2><p>现在，我们假设你想要在只有用户停止输入的时候才发送搜索请求以节省流量。<br>RAC声明了一个节流阀关键字，我们通过它来实现这个操作。</p>
+<pre><code>let searchStrings = textField.rac_textSignal().toSignalProducer().map {
+    text in text as! String 
+    }.throttle(0.5, onScheduler: QueueScheduler.mainQueueScheduler)
+</code></pre><p>这样可以防止值被发送不到0.5秒的情况下再次发送，所以我们会搜索用户输入的字符串直到用户停止编辑。如果要通过正常的写代码做到这个，代码将会变得难以阅读！在RAC中，我们在事件流之中只需要使用一个时间关键字。</p>
+<h1 id="Objective-C和Swift"><a href="#Objective-C和Swift" class="headerlink" title="Objective-C和Swift"></a>Objective-C和Swift</h1><p> 虽然RAC是基于Objective-C的一个框架，我们称之为3.0版本，现在所有主要功能的开发主要集中在swift的API接口中。RAC的Objective-C API接口和Swift API接口是完全分开的，但通过一个桥接文件可以转换。这主要用于一个老版本的使用了RAC项目或者还没有改变到Swift的项目。Objective-C的API接口将会继续存在，在可预见的将来也会继续得到技术支持，但不会得到很多的改进，有关使用此API的更多信息，请查看我们的官方文档。我们强烈建议所有的新项目使用Swift API。</p>
 <h1 id="关于ReactiveCocoa和Rx的关联？"><a href="#关于ReactiveCocoa和Rx的关联？" class="headerlink" title="关于ReactiveCocoa和Rx的关联？"></a>关于ReactiveCocoa和Rx的关联？</h1><p>  RAC的灵感，影响于微软的Rx库。Rx有很多接口，包括RxSwift，不过RAC不直接提供接口。</p>
 <h2 id="RAC和Rx的不同点在于："><a href="#RAC和Rx的不同点在于：" class="headerlink" title="RAC和Rx的不同点在于："></a>RAC和Rx的不同点在于：</h2><ul>
 <li><p>RAC创建了一个更简单的API接口</p>

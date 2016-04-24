@@ -88,12 +88,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/15/实现流动效果划出的Tableview/index.html">
 <meta property="og:site_name" content="AppleCatKay">
 <meta property="og:description" content="先上Demo：https://github.com/w11p3333/LLXAnimateTableview">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1449048-2b19c0a5e72d99bc.GIF?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2016-04-24T08:09:29.000Z">
+<meta property="og:image" content="http://7xtc17.com2.z0.glb.clouddn.com/flowTableView.gif">
+<meta property="og:updated_time" content="2016-04-24T12:03:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现流动效果划出的Tableview">
 <meta name="twitter:description" content="先上Demo：https://github.com/w11p3333/LLXAnimateTableview">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1449048-2b19c0a5e72d99bc.GIF?imageMogr2/auto-orient/strip">
+<meta name="twitter:image" content="http://7xtc17.com2.z0.glb.clouddn.com/flowTableView.gif">
 
 
 
@@ -291,7 +291,7 @@
       
 
       
-        <p>  <img src="http://upload-images.jianshu.io/upload_images/1449048-2b19c0a5e72d99bc.GIF?imageMogr2/auto-orient/strip" alt="动画效果"><br>  先上Demo：<a href="https://github.com/w11p3333/LLXAnimateTableview" target="_blank" rel="external">https://github.com/w11p3333/LLXAnimateTableview</a><br><a id="more"></a></p>
+        <p>  <img src="http://7xtc17.com2.z0.glb.clouddn.com/flowTableView.gif" alt="动画效果"><br>  先上Demo：<a href="https://github.com/w11p3333/LLXAnimateTableview" target="_blank" rel="external">https://github.com/w11p3333/LLXAnimateTableview</a><br><a id="more"></a></p>
 <p>主要实现：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">animationTable</span><span class="params">()</span></span> &#123;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">let</span> cells = tableView.visibleCells</span><br><span class="line"><span class="keyword">let</span> tableHeight: <span class="type">CGFloat</span> = tableView.bounds.size.height</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> cells &#123;</span><br><span class="line"><span class="keyword">let</span> cell: <span class="type">UITableViewCell</span> = i <span class="keyword">as</span> <span class="type">UITableViewCell</span></span><br><span class="line">cell.transform = <span class="type">CGAffineTransformMakeTranslation</span>(<span class="number">0</span>, tableHeight)</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> index = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> cells &#123;</span><br><span class="line"><span class="keyword">let</span> cell: <span class="type">UITableViewCell</span> = a <span class="keyword">as</span> <span class="type">UITableViewCell</span></span><br><span class="line"><span class="type">UIView</span>.animateWithDuration(<span class="number">1.0</span>, delay: <span class="number">0.05</span> * <span class="type">Double</span>(index), usingSpringWithDamping: <span class="number">0.8</span>, initialSpringVelocity: <span class="number">0</span>, options: [], animations: &#123;</span><br><span class="line">cell.transform = <span class="type">CGAffineTransformMakeTranslation</span>(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br><span class="line">    </span><br><span class="line">index += <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <p>然后在viewWillAppear中调用它</p>
 
