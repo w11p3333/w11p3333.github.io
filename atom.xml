@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-24T07:35:06.000Z</updated>
+  <updated>2016-04-24T07:32:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,34 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>实现iOS启动页淡出效果</title>
-    <link href="http://yoursite.com/2016/04/21/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/"/>
-    <id>http://yoursite.com/2016/04/21/实现iOS启动页淡出效果/</id>
-    <published>2016-04-21T14:08:21.000Z</published>
-    <updated>2016-04-24T07:35:06.000Z</updated>
-    
-    <content type="html">&lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;实现：&lt;br&gt;1.在LaunchScreen中将Storyboard ID设置为Launch&lt;br&gt;2.实现方法&lt;/p&gt;
-&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;launchAnimation&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; vc = &lt;span class=&quot;type&quot;&gt;UIStoryboard&lt;/span&gt;(name:&lt;span class=&quot;string&quot;&gt;&quot;LaunchScreen&quot;&lt;/span&gt;, bundle:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;).instantiateViewControllerWithIdentifier(&lt;span class=&quot;string&quot;&gt;&quot;Launch&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; launchview = vc.view&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; delegate = &lt;span class=&quot;type&quot;&gt;UIApplication&lt;/span&gt;.sharedApplication().delegate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; mainWindow = delegate?.window&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   mainWindow!.addSubview(launchview)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.animateWithDuration(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, delay: &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;, options: &lt;span class=&quot;type&quot;&gt;UIViewAnimationOptions&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;BeginFromCurrentState&lt;/span&gt;, animations: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.alpha = &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.layer.transform = &lt;span class=&quot;type&quot;&gt;CATransform3DScale&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;CATransform3DIdentity&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;) &amp;#123; (finished) &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.removeFromSuperview()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;   若是应用使用storyboard中加载的，需要在初始界面的viewcontroller的viewDidAppear方法中调用。&lt;/p&gt;
-&lt;p&gt;若是应用从代码中加载的，需要在AppDelegate中didFinishLaunchingWithOptions方法中调用&lt;br&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="干货" scheme="http://yoursite.com/tags/%E5%B9%B2%E8%B4%A7/"/>
-    
-  </entry>
   
   <entry>
     <title>Swift微信摇一摇的实现</title>
@@ -72,6 +44,34 @@
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>实现iOS启动页淡出效果</title>
+    <link href="http://yoursite.com/2016/04/21/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/"/>
+    <id>http://yoursite.com/2016/04/21/实现iOS启动页淡出效果/</id>
+    <published>2016-04-21T14:08:21.000Z</published>
+    <updated>2016-04-24T07:35:06.000Z</updated>
+    
+    <content type="html">&lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;实现：&lt;br&gt;1.在LaunchScreen中将Storyboard ID设置为Launch&lt;br&gt;2.实现方法&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;launchAnimation&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; vc = &lt;span class=&quot;type&quot;&gt;UIStoryboard&lt;/span&gt;(name:&lt;span class=&quot;string&quot;&gt;&quot;LaunchScreen&quot;&lt;/span&gt;, bundle:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;).instantiateViewControllerWithIdentifier(&lt;span class=&quot;string&quot;&gt;&quot;Launch&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; launchview = vc.view&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; delegate = &lt;span class=&quot;type&quot;&gt;UIApplication&lt;/span&gt;.sharedApplication().delegate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; mainWindow = delegate?.window&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   mainWindow!.addSubview(launchview)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.animateWithDuration(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, delay: &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;, options: &lt;span class=&quot;type&quot;&gt;UIViewAnimationOptions&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;BeginFromCurrentState&lt;/span&gt;, animations: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.alpha = &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.layer.transform = &lt;span class=&quot;type&quot;&gt;CATransform3DScale&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;CATransform3DIdentity&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;) &amp;#123; (finished) &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.removeFromSuperview()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;   若是应用使用storyboard中加载的，需要在初始界面的viewcontroller的viewDidAppear方法中调用。&lt;/p&gt;
+&lt;p&gt;若是应用从代码中加载的，需要在AppDelegate中didFinishLaunchingWithOptions方法中调用&lt;br&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="干货" scheme="http://yoursite.com/tags/%E5%B9%B2%E8%B4%A7/"/>
     
   </entry>
   
@@ -150,90 +150,75 @@ return &amp;quot;StatusID&amp;quot;
     <link href="http://yoursite.com/2016/04/19/ReactiveCocoa%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3-%E8%87%AA%E7%BF%BB/"/>
     <id>http://yoursite.com/2016/04/19/ReactiveCocoa官方文档-自翻/</id>
     <published>2016-04-18T16:00:00.000Z</published>
-    <updated>2016-04-21T14:15:24.000Z</updated>
+    <updated>2016-04-24T08:48:06.000Z</updated>
     
-    <content type="html">&lt;p&gt;标签： 翻译&lt;br&gt;水平很烂 学习顺便自己翻着玩的&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;ReactiveCocoa（RAC）是一个基于Cocoa框架的函数响应式编程技术，它提供了一种如何将标准的动作与事件处理逻辑替换为发送事件流的信号的接口。&lt;/p&gt;
-&lt;ol&gt;
+    <content type="html">&lt;p&gt;github官方文档,rac很火,看看顺便翻译一下&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;ReactiveCocoa（RAC）是一个基于Cocoa框架的函数响应式编程技术，它提供了一种如何将标准的动作与事件处理逻辑替换为发送事件流的信号的接口。&quot;&gt;&lt;a href=&quot;#ReactiveCocoa（RAC）是一个基于Cocoa框架的函数响应式编程技术，它提供了一种如何将标准的动作与事件处理逻辑替换为发送事件流的信号的接口。&quot; class=&quot;headerlink&quot; title=&quot;ReactiveCocoa（RAC）是一个基于Cocoa框架的函数响应式编程技术，它提供了一种如何将标准的动作与事件处理逻辑替换为发送事件流的信号的接口。&quot;&gt;&lt;/a&gt;ReactiveCocoa（RAC）是一个基于Cocoa框架的函数响应式编程技术，它提供了一种如何将标准的动作与事件处理逻辑替换为发送事件流的信号的接口。&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;介绍&lt;/li&gt;
 &lt;li&gt;例子：在线搜索&lt;/li&gt;
 &lt;li&gt;Objective-C和Swift&lt;/li&gt;
-&lt;li&gt;ReacitveCocoa与Rx的关联&lt;br&gt;5.入门&lt;br&gt;如果你对于函数响应式编程或者ReactiveCocoa是什么已经比较熟悉，你可以查看我们的文档文件夹，以了解更多关于它的工作方式的详细信息。然后直接进入我们的文档，以了解更多关于细节的说明。&lt;br&gt;如果您有疑问，请查看GitHub issues和Stack overflow是否已经有相关的答案了，如果没有，您可以免费的向我们提问。&lt;h1 id=&quot;兼容性&quot;&gt;&lt;a href=&quot;#兼容性&quot; class=&quot;headerlink&quot; title=&quot;兼容性&quot;&gt;&lt;/a&gt;兼容性&lt;/h1&gt;文档中显示RAC4已经支持到了Swift 2.1.x，关于Swift 1.2的文档支持都在RAC3中。&lt;br&gt;非常感谢Rheinfabrik对于ReactiveCocoa 3发展上的慷慨赞助。&lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;ReactiveCocoa的灵感来源于函数响应式编程，我们代替了随时可以改变的可变变量。RAC提供了一种“事件流”，通过signal和signalProduce这两个类型来表示，它们随着时间的推移发送值。&lt;br&gt;事件流包含了所有的对异步和事件的处理，包括常见的模式：&lt;br&gt;委托方法&lt;br&gt;回调blocks&lt;br&gt;通知&lt;br&gt;控制动作和响应链事件&lt;br&gt;future and promises&lt;br&gt;键值观察（kvo）&lt;/li&gt;
+&lt;li&gt;ReacitveCocoa与Rx的关联&lt;/li&gt;
+&lt;li&gt;入门&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你对于函数响应式编程或者什么是ReactiveCocoa已经比较熟悉，你可以查看我们的文件夹，以了解更多关于它的工作方式的详细信息。然后直接进入我们的文档，以了解更多关于细节的说明。&lt;/p&gt;
+&lt;p&gt;  如果您有疑问，请查看GitHub（一个知名的开源项目社区）中的讨论或者Stack overFlow（一个知名的IT问题交流社区）是否已经有相关的答案了，如果没有，您可以免费的向我们提问。&lt;/p&gt;
+&lt;h1 id=&quot;兼容性&quot;&gt;&lt;a href=&quot;#兼容性&quot; class=&quot;headerlink&quot; title=&quot;兼容性&quot;&gt;&lt;/a&gt;兼容性&lt;/h1&gt;&lt;p&gt;   文档中说明RAC4已经支持到了Swift 2.1.x，关于Swift 1.2的文档支持说明都在RAC3文件夹中。非常感谢Rheinfabrik对于RAC 3发展上的慷慨赞助。&lt;/p&gt;
+&lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;p&gt;  RAC的灵感来源于函数响应式编程，RAC提供了一种“事件流”来代替了随便可以百变的可变变量，它通过信号和信号生产者这两个类型来表示，它们随着时间的推移发送一个值。事件流中包含了所有的对异步和事件的处理，其中包括了一下常见的模式： &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;委托方法&lt;/li&gt;
+&lt;li&gt;回调&lt;/li&gt;
+&lt;li&gt;通知&lt;/li&gt;
+&lt;li&gt;控制动作和响应链事件&lt;/li&gt;
+&lt;li&gt;并发编程&lt;/li&gt;
+&lt;li&gt;键值观察&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因为以上的所有这些不同的机制可以以同样的方式来代表，所以我们很简单的用链式编程以声明方式链将它们结合在一起。有关RAC概念的更多信息，请参见我们的框架概述。&lt;/p&gt;
+&lt;h1 id=&quot;例子：在线搜索&quot;&gt;&lt;a href=&quot;#例子：在线搜索&quot; class=&quot;headerlink&quot; title=&quot;例子：在线搜索&quot;&gt;&lt;/a&gt;例子：在线搜索&lt;/h1&gt;&lt;p&gt;  比方说，你有一个文本字段，用户键入内容，你想要使用网络请求搜索查询。&lt;br&gt;观察文本编辑&lt;br&gt;  第一步是观察编辑文本字段，RAC中扩展的UITextField专门为此而使用,这给了我们一个能够发送字符串类型的信号生产者。：&lt;/p&gt;
+&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;let searchStrings = textField.rac_textSignal()    .toSignalProducer().map &amp;#123; &lt;span class=&quot;built_in&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;! String &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;发送网络请求&quot;&gt;&lt;a href=&quot;#发送网络请求&quot; class=&quot;headerlink&quot; title=&quot;发送网络请求&quot;&gt;&lt;/a&gt;发送网络请求&lt;/h2&gt;&lt;p&gt;  获得了这个字符串之后，我们想要发送一个网络请求，幸运的是，RAC同样提供了一个NSURLSession扩展来实现：这个过程将会把我们发送的字符串得到的搜索结果转换成接受到的数组，它将在主线程中被执行（得益于主线程调度）。&lt;/p&gt;
+&lt;p&gt;  另外，flatMap是确保最后的唯一一个搜索被执行的关键。如果用户在搜索中改变了输入字符，它会在取消之前再创建一个新的搜索，想象一下如果我们正常的写这些代码需要多大的工程吧！&lt;/p&gt;
+&lt;h2 id=&quot;接受结果&quot;&gt;&lt;a href=&quot;#接受结果&quot; class=&quot;headerlink&quot; title=&quot;接受结果&quot;&gt;&lt;/a&gt;接受结果&lt;/h2&gt;&lt;p&gt;  上述代码实际上还并没有被执行，因为生产者必须点击开始以获得结果（当结果不需要获得时可以避免运作），这是非常容易实现的：在这里，我们需要观察Next这个事件，它包含我们的结果，并将它们输出到控制台，在这个期间我们可以更新一个表视图或者在屏幕上更新一个控件。&lt;/p&gt;
+&lt;h2 id=&quot;错误处理&quot;&gt;&lt;a href=&quot;#错误处理&quot; class=&quot;headerlink&quot; title=&quot;错误处理&quot;&gt;&lt;/a&gt;错误处理&lt;/h2&gt;&lt;p&gt;  在迄今为止的这个例子中，出现任何的网络错误都将产生一个失败事件，它将会终止事件流。不幸的是，这样的话我们接下来的搜索都不会被执行。&lt;/p&gt;
+&lt;p&gt;  为了解决这个问题，我们需要知道是哪个步骤出了问题。最快的解决方法是在控制台打印它们，然后解决它们。通过这个方法，我们可以有效的解决它们。但是，我们在解决之前可能会重试至少几次。方便的是，有一个重试关键字就是用来方便我们操作的。我们改进过的搜索结果大概看起来是这个样子的：&lt;/p&gt;
+&lt;figure class=&quot;highlight lasso&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; searchResults = searchStrings    .flatMap(.Latest) &amp;#123; (query: &lt;span class=&quot;built_in&quot;&gt;String&lt;/span&gt;) -&amp;gt; SignalProducer&amp;lt;(NSData, NSURLResponse), NSError&amp;gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;        &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; URLRequest = &lt;span class=&quot;built_in&quot;&gt;self&lt;/span&gt;.searchRequestWithEscapedQuery(query)        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; NSURLSession.sharedSession()            .rac_dataWithRequest(URLRequest)            .retry(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)            .flatMapError &amp;#123; error &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;                print(&lt;span class=&quot;string&quot;&gt;&quot;Network error occurred: \(error)&quot;&lt;/span&gt;)                &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; SignalProducer.empty            &amp;#125;    &amp;#125;    .&lt;span class=&quot;built_in&quot;&gt;map&lt;/span&gt; &amp;#123; (&lt;span class=&quot;built_in&quot;&gt;data&lt;/span&gt;, URLResponse) -&amp;gt; &lt;span class=&quot;built_in&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;        &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt; = &lt;span class=&quot;built_in&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;data&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;data&lt;/span&gt;, encoding: NSUTF8StringEncoding)!        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;self&lt;/span&gt;.parseJSONResultsFromString(&lt;span class=&quot;built_in&quot;&gt;string&lt;/span&gt;)    &amp;#125;    .observeOn(UIScheduler())&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;节流请求&quot;&gt;&lt;a href=&quot;#节流请求&quot; class=&quot;headerlink&quot; title=&quot;节流请求&quot;&gt;&lt;/a&gt;节流请求&lt;/h2&gt;&lt;p&gt;  现在，我们假设你想要在只有用户停止输入的时候才发送搜索请求以节省流量。&lt;br&gt;RAC声明了一个节流阀关键字，我们通过它来实现这个操作。这样可以防止值被发送不到0.5秒的情况下再次发送，所以我们会搜索用户输入的字符串直到用户停止编辑。如果要通过正常的写代码做到这个，代码将会变得难以阅读！在RAC中，我们在事件流之中只需要使用一个时间关键字。&lt;/p&gt;
+&lt;h1 id=&quot;Objective-C和Swift&quot;&gt;&lt;a href=&quot;#Objective-C和Swift&quot; class=&quot;headerlink&quot; title=&quot;Objective-C和Swift&quot;&gt;&lt;/a&gt;Objective-C和Swift&lt;/h1&gt;&lt;p&gt; 虽然RAC是基于Objective-C的一个框架，我们称之为3.0版本，现在所有主要功能的开发主要集中在swift的API接口中。RAC的Objective-C API接口和Swift API接口是完全分开的，但通过一个桥接文件可以转换。这主要用于一个老版本的使用了RAC项目或者还没有改变到Swift的项目。Objective-C的API接口将会继续存在，在可预见的将来也会继续得到技术支持，但不会得到很多的改进，有关使用此API的更多信息，请查看我们的官方文档。我们强烈建议所有的新项目使用Swift API。&lt;/p&gt;
+&lt;h1 id=&quot;关于ReactiveCocoa和Rx的关联？&quot;&gt;&lt;a href=&quot;#关于ReactiveCocoa和Rx的关联？&quot; class=&quot;headerlink&quot; title=&quot;关于ReactiveCocoa和Rx的关联？&quot;&gt;&lt;/a&gt;关于ReactiveCocoa和Rx的关联？&lt;/h1&gt;&lt;p&gt;  RAC的灵感，影响于微软的Rx库。Rx有很多接口，包括RxSwift，不过RAC不直接提供接口。&lt;/p&gt;
+&lt;h2 id=&quot;RAC和Rx的不同点在于：&quot;&gt;&lt;a href=&quot;#RAC和Rx的不同点在于：&quot; class=&quot;headerlink&quot; title=&quot;RAC和Rx的不同点在于：&quot;&gt;&lt;/a&gt;RAC和Rx的不同点在于：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;RAC创建了一个更简单的API接口&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;RAC解决了令人困惑的常见问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;RAC更加适配Cocoa&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;下文就会说明他们中的一些具体的差异。&lt;/p&gt;
+&lt;h2 id=&quot;命名&quot;&gt;&lt;a href=&quot;#命名&quot; class=&quot;headerlink&quot; title=&quot;命名&quot;&gt;&lt;/a&gt;命名&lt;/h2&gt;&lt;p&gt;在大多数Rx的版本中，流通常被称为观察者，也就是.NET中的枚举类型。另外的，大多数Rx.net的操作符命名规则来源于LINQ，使用了类似数据库里的关键字Select和Where等。RAC关注于适配Swift中的命名规则，新增了新的术语类似map、filter。其他新的命名来源于Haskell和Elm语言（信号一词的来源）。&lt;/p&gt;
+&lt;h2 id=&quot;信号和信号产生者（“热”和“冷”观察形态）&quot;&gt;&lt;a href=&quot;#信号和信号产生者（“热”和“冷”观察形态）&quot; class=&quot;headerlink&quot; title=&quot;信号和信号产生者（“热”和“冷”观察形态）&quot;&gt;&lt;/a&gt;信号和信号产生者（“热”和“冷”观察形态）&lt;/h2&gt;&lt;p&gt;Rx中让人困惑的最多的问题之一就是“热”，“冷”，“温”的观察形态。&lt;/p&gt;
+&lt;p&gt;简短来说，我们可以通过C#中的一个方法或者函数来形容它：告诉订阅（观察者），iobservable将涉及的副作用是非常重要的。如果它会产生副作用，也不可能不回家告诉每个订阅它是否有副作用，或是否只有第一个订阅者会产生副作用。&lt;/p&gt;
+&lt;p&gt;虽然这个例子是人为造成的，但是它展示了一个真实的普遍的问题，它会使得代码变得非常难以一目了然的来解决问题。RAC 3.0 已经通过使用信号和信号生产者类型区别副作用来独立的解决了这个问题，虽然因为这样我们需要多了解另外一个类型，但是它提高了代码的清晰度，并有助于传达意图。换句话说，RAC的改变虽然简单，但是并不容易。&lt;br&gt;类型错误&lt;br&gt;当信号和信号制造者在RAC中产生错误时，系统必须给出一个错误类型。举个例子，Signal&lt;int，nserror&gt;会传一个带有错误值的NSError类型。更重要的是，RAC中的特殊类型NOERROR可以保证一个事件流不允许发送失败，这消除了很多由于意外产生的错误。在Rx系统的类型中，事件流只能只能观察它们的值，而不能观察错误的值，所以在Rx中这是不能实现的。&lt;/int，nserror&gt;&lt;/p&gt;
+&lt;h2 id=&quot;UI编程&quot;&gt;&lt;a href=&quot;#UI编程&quot; class=&quot;headerlink&quot; title=&quot;UI编程&quot;&gt;&lt;/a&gt;UI编程&lt;/h2&gt;&lt;p&gt;很多人不知道怎么使用Rx，虽然使用Rx在UI编程是很常见的，它有几个特点，针对特定的情况下。RAC在ReactiveUI中获得了许多的灵感，包括灵感的基础。不像ReactiveUI，不幸的是不能在UI编程中使得Rx使用起来更加友好，ReactiveCocoa已专门为此多次改进，这意味着我们跟Rx的不同之处也越来越多。&lt;/p&gt;
+&lt;h1 id=&quot;入门&quot;&gt;&lt;a href=&quot;#入门&quot; class=&quot;headerlink&quot; title=&quot;入门&quot;&gt;&lt;/a&gt;入门&lt;/h1&gt;&lt;p&gt;RAC支持OS X 10.9+,iOS 8.0+， watchOS 2.0，和tvOS 9.0。在你的应用中添加RAC。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;添加RAC作为子模块到你的应用程序中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;在RAC文件夹中运行脚本&lt;/li&gt;
+&lt;li&gt;将RAC的工程文件或者Carthage/Checkouts/Result工程文件添加到你的应用程序的工程或者工作空间。&lt;/li&gt;
+&lt;li&gt;在你的应用程序的设置中的“常规”选项卡中，添加ReactiveCocoa.framework和Result.Framework库。&lt;/li&gt;
+&lt;li&gt;如果你的应用程序中不存在任何Swift代码，你应该设置EMBEDDED_CONTENT_CONTAINS-SWIFT为yes。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;因为所有这些不同的机制可以以同样的方式为代表，所以我们很简单的用绝缘套管代码以声明方式链结合在一起。&lt;br&gt;有关ReactiveCocoa概念的更多信息，请参见框架概述。&lt;/p&gt;
-&lt;h1 id=&quot;例子：在线搜索&quot;&gt;&lt;a href=&quot;#例子：在线搜索&quot; class=&quot;headerlink&quot; title=&quot;例子：在线搜索&quot;&gt;&lt;/a&gt;例子：在线搜索&lt;/h1&gt;&lt;p&gt;比方说，你有一个文本字段，用用户键入内容，你想要使用网络请求搜索查询。&lt;br&gt;观察文本编辑&lt;br&gt;第一步是观察编辑文本字段，RAC中扩张的UITextField专门为此而使用&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;let searchStrings = textField.rac_textSignal()
-.toSignalProducer()
-.map { text in text as! String }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这给了我们一个能够发送字符串类型的信号生产者。&lt;/p&gt;
-&lt;h1 id=&quot;发送网络请求&quot;&gt;&lt;a href=&quot;#发送网络请求&quot; class=&quot;headerlink&quot; title=&quot;发送网络请求&quot;&gt;&lt;/a&gt;发送网络请求&lt;/h1&gt;&lt;p&gt;获得了这个字符串，我们想要发送一个网络请求，幸运的，RAC同样提供了一个NSURLSession扩展来实现：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; let searchResults = searchStrings
-.flatMap(.Latest) { (query: String) -&amp;gt; SignalProducer&amp;lt;(NSData, NSURLResponse), NSError&amp;gt; in
-    let URLRequest = self.searchRequestWithEscapedQuery(query)
-    return NSURLSession.sharedSession().rac_dataWithRequest(URLRequest)
-}
-.map { (data, URLResponse) -&amp;gt; String in
-    let string = String(data: data, encoding: NSUTF8StringEncoding)!
-    return self.parseJSONResultsFromString(string)
-}
-.observeOn(UIScheduler())
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个过程将会把我们发送的字符串得到的搜索结果转换成接受到的数组，它将在主线程中被执行（得益于UIScheduler）。&lt;br&gt;另外，flatMap（.Latest）确保最后的唯一一个搜索被执行。如果用户在搜索中改变了输入字符，它会在取消之前再创建一个新的搜索，想象一下如果我们手写这些代码需要多大的工程吧！&lt;br&gt;接受结果&lt;br&gt;这实际上并没有被执行，因为生产者必须点击开始以获得结果（当结果不被使用时可以避免工作），这是非常容易的：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;searchResults.startWithNext { results in
-print(&amp;quot;Search results: (results)&amp;quot;)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在这里，我们需要观察Next这个事件，它包含我们的结果，并将它们输出到控制台，在这个期间我们可以更新一个表视图或者更新在屏幕上更新一个控件。&lt;/p&gt;
-&lt;h1 id=&quot;错误处理&quot;&gt;&lt;a href=&quot;#错误处理&quot; class=&quot;headerlink&quot; title=&quot;错误处理&quot;&gt;&lt;/a&gt;错误处理&lt;/h1&gt;&lt;p&gt;在迄今为止的这个例子中，出现任何的网络鼓掌都将产生一个失败事件，它将会终止事件流。不幸的是，这样的话我们接下来的搜索都不会被执行。&lt;br&gt;为了解决这个问题，我们需要知道是哪个步骤出了问题。最快的解决方法是打印它们，然后解决它们。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; .flatMap(.Latest) { (query: String) -&amp;gt; SignalProducer&amp;lt;(NSData, NSURLResponse), NSError&amp;gt; in
-let URLRequest = self.searchRequestWithEscapedQuery(query)
-
-return NSURLSession.sharedSession()
-    .rac_dataWithRequest(URLRequest)
-    .flatMapError { error in
-        print(&amp;quot;Network error occurred: \(error)&amp;quot;)
-        return SignalProducer.empty
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;通过使用空的失败事件流，我们可以有效的解决它们。&lt;br&gt;但是，我们在解决之前可能会重试至少几次。方便的是，有一个retry关键字就是用来方便我们操作的。&lt;br&gt;我们改进过的searchResults大概看起来是这个样子的：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;let searchResults = searchStrings
-.flatMap(.Latest) { (query: String) -&amp;gt; SignalProducer&amp;lt;(NSData, NSURLResponse), NSError&amp;gt; in
-    let URLRequest = self.searchRequestWithEscapedQuery(query)
-
-return NSURLSession.sharedSession()
-    .rac_dataWithRequest(URLRequest)
-    .retry(2)
-    .flatMapError { error in
-        print(&amp;quot;Network error occurred: \(error)&amp;quot;)
-        return SignalProducer.empty
-    }
-}
-.map { (data, URLResponse) -&amp;gt; String in
-let string = String(data: data, encoding: NSUTF8StringEncoding)!
-return self.parseJSONResultsFromString(string)
-}
-.observeOn(UIScheduler())
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;节流请求&quot;&gt;&lt;a href=&quot;#节流请求&quot; class=&quot;headerlink&quot; title=&quot;节流请求&quot;&gt;&lt;/a&gt;节流请求&lt;/h1&gt;&lt;p&gt;现在，我们假设你想要在只有用户停止输入的时候发送搜索请求以节省流量。&lt;br&gt;ReactiveCocoa声明了一个关键字throttle，我们通过它来实现这个操作。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;let searchStrings = textField.rac_textSignal()
-.toSignalProducer()
-.map { text in text as! String }
-.throttle(0.5, onScheduler: QueueScheduler.mainQueueScheduler)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样可以防止值被发送不到0.5秒的情况下再次发送，所以我们会搜索用户输入的字符串直到用户停止编辑。&lt;br&gt;如果要通过手写代码做到这个，代码将变得难以阅读！在ReactiveCocoa中，我们可以只使用一个time关键字在我们的事件流之中。&lt;/p&gt;
-&lt;h1 id=&quot;Objective-C和Swift&quot;&gt;&lt;a href=&quot;#Objective-C和Swift&quot; class=&quot;headerlink&quot; title=&quot;Objective-C和Swift&quot;&gt;&lt;/a&gt;Objective-C和Swift&lt;/h1&gt;&lt;p&gt;虽然ReactiveCocoa是基于Objective-C的一个框架，我们称之为3.0版本，现在所有主要功能的开发主要集中在swift的API接口中。&lt;br&gt;RAC的Objective-C API和Swift API是完全分开的，但通过一个桥接文件可以转换。这主要用于一个老的ReactiveCocoa项目或者没有改变到Swift的项目。&lt;br&gt;Objec-C的API将会继续存在，在可预见的将来也会继续得到技术支持，但不会得到很多的改进，有关使用此API的更多信息，请查看我们的官方文档。&lt;br&gt;我们强烈建议所有的新项目使用Swift API。&lt;/p&gt;
-&lt;h1 id=&quot;关于ReactiveCocoa和Rx的关联？&quot;&gt;&lt;a href=&quot;#关于ReactiveCocoa和Rx的关联？&quot; class=&quot;headerlink&quot; title=&quot;关于ReactiveCocoa和Rx的关联？&quot;&gt;&lt;/a&gt;关于ReactiveCocoa和Rx的关联？&lt;/h1&gt;&lt;p&gt;ReactiveCocoa的灵感，以及被影响于微软的Reactive Extension（Rx）库。&lt;br&gt;Rx有很多接口，包括RxSwift，不过ReactiveCocoa不直接提供接口。&lt;/p&gt;
-&lt;h1 id=&quot;RAC和Rx的不同点在于：&quot;&gt;&lt;a href=&quot;#RAC和Rx的不同点在于：&quot; class=&quot;headerlink&quot; title=&quot;RAC和Rx的不同点在于：&quot;&gt;&lt;/a&gt;RAC和Rx的不同点在于：&lt;/h1&gt;&lt;p&gt;创建了一个更简单的API&lt;br&gt;解决了令人困惑的常见问题&lt;br&gt;更加适配Cocoa&lt;br&gt;以下就是他们具体的一些差异。&lt;/p&gt;
-&lt;h1 id=&quot;命名&quot;&gt;&lt;a href=&quot;#命名&quot; class=&quot;headerlink&quot; title=&quot;命名&quot;&gt;&lt;/a&gt;命名&lt;/h1&gt;&lt;p&gt;在大多数Rx的版本中，流通常被称为观察者，也就是.NET中的Enumerable类型。另外的，大多数Rx.net的操作符命名规则来源于LINQ，使用了类似数据库里的关键字Select和Where等。&lt;br&gt;RAC关注于适配Swift中的命名规则，新增了新的术语类似map、filter。其他新的命名来源于Haskell和Elm语言（信号一词的来源）。&lt;/p&gt;
-&lt;h1 id=&quot;信号和信号产生者（“热”和“冷”观察形态）&quot;&gt;&lt;a href=&quot;#信号和信号产生者（“热”和“冷”观察形态）&quot; class=&quot;headerlink&quot; title=&quot;信号和信号产生者（“热”和“冷”观察形态）&quot;&gt;&lt;/a&gt;信号和信号产生者（“热”和“冷”观察形态）&lt;/h1&gt;&lt;p&gt;Rx中让人困惑的最多的问题之一就是“热”，“冷”，“温”的观察形态。&lt;br&gt;简短来说，通过C#中的一个方法或者函数来形容：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;IObservable&amp;lt;string&amp;gt; Search(string query)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;告诉订阅（观察者），iobservable将涉及的副作用是非常重要的。如果它会产生副作用，也不可能告诉每个订阅是否有副作用，或是否只有第一个订阅。&lt;br&gt;虽然这个例子是人为的，但是它展示了一个真实的普遍的问题，使得它非常难以一目了然的接收代码。&lt;br&gt;ReactiveCocoa 3.0 已经通过使用Signal和SignalProducer类型区别副作用来独立的解决了这个问题，虽然因为这样我们需要了解另外一个类型，但是它提高了代码的清晰度，并有助于传达意图。&lt;br&gt;换句话说，ReactiveCocoa的改变虽然简单，但是并不容易。&lt;/p&gt;
-&lt;h1 id=&quot;类型错误&quot;&gt;&lt;a href=&quot;#类型错误&quot; class=&quot;headerlink&quot; title=&quot;类型错误&quot;&gt;&lt;/a&gt;类型错误&lt;/h1&gt;&lt;p&gt;当信号和信号制造者在ReactiveCocoa中产生错误，系统必须给出错误类型。举个例子，Signal&lt;int，nserror&gt;会传一个带有错误值的NSError类型。&lt;br&gt;更重要的是，RAC中的特殊类型可以NOERROR可以保证一个事件流不允许发送失败，这消除了很多由于意外产生的错误。&lt;br&gt;在Rx系统的类型中，事件流只能只能观察它们的值，而不能观察错误的值，所以在Rx中这是不能实现的。&lt;/int，nserror&gt;&lt;/p&gt;
-&lt;h1 id=&quot;UI编程&quot;&gt;&lt;a href=&quot;#UI编程&quot; class=&quot;headerlink&quot; title=&quot;UI编程&quot;&gt;&lt;/a&gt;UI编程&lt;/h1&gt;&lt;p&gt;很多人不知道怎么使用Rx，虽然使用Rx在UI编程是很常见的，它有几个特点，针对特定的情况下。&lt;br&gt;RAC在ReactiveUI中取得了许多的灵感，包括行动的基础。&lt;br&gt;不像ReactiveUI，不幸的是不能在UI编程中使得Rx使用起来更加友好，ReactiveCocoa已专门为此多次改进，这意味着我们跟Rx的不同之处也越来越多。&lt;/p&gt;
-&lt;h1 id=&quot;入门&quot;&gt;&lt;a href=&quot;#入门&quot; class=&quot;headerlink&quot; title=&quot;入门&quot;&gt;&lt;/a&gt;入门&lt;/h1&gt;&lt;p&gt;ReactiveCocoa支持OS X 10.9+,iOS 8.0+， watchOS 2.0，和tvOS 9.0.&lt;br&gt;在你的应用中添加RAC。&lt;/p&gt;
-&lt;p&gt;添加ReactiveCocoa作为子模块到你的应用程序中。&lt;br&gt;在ReactiveCocoa文件夹中运行脚本&lt;br&gt;将ReactiveCocoa.xcodeproj和Carthage/Checkouts/Result.xcodeproj到你的应用程序的工程或者工作空间。&lt;br&gt;在你的应用程序的设置中的“常规”选项卡中，添加ReactiveCocoa.framework和Result。Framework的库。&lt;br&gt;如果你的应用程序不存在任何Swift代码，你应该设置EMBEDDED_CONTENT_CONTAINS-SWIFT为yes。&lt;br&gt;或者如果你使用Carthage的话，那就更简单了，添加到你的Cartfile：&lt;br&gt;github “ReactiveCocoa/ReactiveCocoa”&lt;br&gt;确保在”Linked Frameworks”和”copy frameworks”选项中添加了ReactiveCocoa和Result.framework.&lt;br&gt;如果你更喜欢用CocoaPods，还有一些慷慨贡献的第三方podspecs。&lt;br&gt;当你设置你的工程的时候，看看ReactiCocoa框架概念的概述，并研究一下我们官方给出的使用例子。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;或者如果你使用Carthage的话，那就更简单了，添加到你的Cartfile：github “ReactiveCocoa/ReactiveCocoa”。确保在”Linked Frameworks”和”copy frameworks”选项中添加了ReactiveCocoa和Result.framework.。如果你更喜欢用CocoaPods，还有一些慷慨贡献的第三方podspecs。当你设置你的工程的时候，看看RAC框架概念的概述，并研究一下我们官方给出的使用例子。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;标签： 翻译&lt;br&gt;水平很烂 学习顺便自己翻着玩的&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+      &lt;p&gt;github官方文档,rac很火,看看顺便翻译一下&lt;/p&gt;
     
     </summary>
     
@@ -366,168 +351,41 @@ pod &amp;quot;AFNetworking&amp;quot;
     <link href="http://yoursite.com/2016/04/11/iOS%E6%A1%86%E6%9E%B6%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2016/04/11/iOS框架使用/</id>
     <published>2016-04-10T16:00:00.000Z</published>
-    <updated>2016-04-21T14:21:49.000Z</updated>
+    <updated>2016-04-24T08:35:11.000Z</updated>
     
-    <content type="html">&lt;p&gt;SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry&lt;/p&gt;
+    <content type="html">&lt;p&gt;介绍一些我常用但是不是很热门的框架：JASON、SwiftyGif&lt;br&gt;SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;SDCycleScrollView&quot;&gt;&lt;a href=&quot;#SDCycleScrollView&quot; class=&quot;headerlink&quot; title=&quot;SDCycleScrollView&quot;&gt;&lt;/a&gt;SDCycleScrollView&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/gsdios/SDCycleScrollView&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/gsdios/SDCycleScrollView&lt;/a&gt;&lt;br&gt;实现图片轮播框架&lt;br&gt;使用方法&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;let imageGroup = [&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;4&amp;quot;,&amp;quot;5&amp;quot;]
-
-let scrollview = SDCycleScrollView(frame: CGRectMake(0, 0, (UIScreen.mainScreen().bounds.width), 200), imageNamesGroup: imageGroup)
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;RxWebViewController&quot;&gt;&lt;a href=&quot;#RxWebViewController&quot; class=&quot;headerlink&quot; title=&quot;RxWebViewController&quot;&gt;&lt;/a&gt;RxWebViewController&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Roxasora/RxWebViewController&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/Roxasora/RxWebViewController&lt;/a&gt;&lt;br&gt;仿微信效果的webview&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;let vc = RxWebViewController(url: url)
-self.navigationController?.pushViewController(vc, animated: true)
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;KGFloatingDrawer&quot;&gt;&lt;a href=&quot;#KGFloatingDrawer&quot; class=&quot;headerlink&quot; title=&quot;KGFloatingDrawer&quot;&gt;&lt;/a&gt;KGFloatingDrawer&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/KyleGoddard/KGFloatingDrawer&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/KyleGoddard/KGFloatingDrawer&lt;/a&gt;&lt;br&gt;实现左右侧边栏框架&lt;/p&gt;
-&lt;p&gt;1.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;privatevar _drawerViewController: KGDrawerViewController?
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var drawerViewController: KGDrawerViewController {  
-get {       
- if let viewController = _drawerViewController {       
- return viewController      
-   }          
-
-   returnprepareDrawerViewController()
-}
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;3.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func prepareDrawerViewController() -&amp;gt; KGDrawerViewController {     
-  let drawerViewController = KGDrawerViewController()    
-  drawerViewController.centerViewController = viewControllerForStoryboardId(&amp;quot;center&amp;quot;)
-
-drawerViewController.leftViewController = viewControllerForStoryboardId(&amp;quot;leftvc&amp;quot;)
-
-  drawerViewController.rightViewController = viewControllerForStoryboardId(“rightvc&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;drawerViewController.leftDrawerWidth = CGFloat(150)       
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   //背景图片     &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;       _drawerViewController = drawerViewController      
-return drawerViewController  
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;4.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; private func drawerStoryboard() -&amp;gt; UIStoryboard {   
-let storyboard = UIStoryboard(name: &amp;quot;Main&amp;quot;, bundle: nil)        return storyboard    }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;5.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  private func viewControllerForStoryboardId(storyboardId: String) -&amp;gt; UIViewController {     
-  let viewController: UIViewController = drawerStoryboard().instantiateViewControllerWithIdentifier(storyboardId) as! UIViewController   
- return viewController
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;最后将&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;window?.rootViewController = drawerViewController
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在想要弹出的方法里&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;let appDelegate = UIApplication.sharedApplication().delegateas! AppDelegate     
-   appDelegate.drawerViewController.toggleDrawer(KGDrawerSide.Left, animated: true) { (finished) -&amp;gt; Void            in
-    }
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;AFSoundManager&quot;&gt;&lt;a href=&quot;#AFSoundManager&quot; class=&quot;headerlink&quot; title=&quot;AFSoundManager&quot;&gt;&lt;/a&gt;AFSoundManager&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/AlvaroFranco/AFSoundManager&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/AlvaroFranco/AFSoundManager&lt;/a&gt;&lt;br&gt;音乐播放框架&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var player:AFSoundPlayback?
-
-//开始播放音乐 
-
-
-  AFSoundManager.sharedManager().startStreamingRemoteAudioFromURL(musicurl) { (percentage, elapsedTime, timeRemaining, error, finished) in
-
-
- //进度 percentage
-//  elapsedTime 开始时间
-//  timeRemaining 结束时间
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;暂停方法&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;AFSoundManager.sharedManager().pause()
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;重播方法&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;AFSoundManager.sharedManager().resume()
-MJRefresh
-https://github.com/CoderMJLee/MJRefresh
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;刷新控件框架&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;/// header    var header:MJRefreshNormalHeader{  
- return (self.tableView.tableHeaderViewas? MJRefreshNormalHeader)!  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   }   &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;/**  footer  */ 
-    var footer:MJRefreshFooter{   
-  return (self.tableView.tableFooterViewas? MJRefreshFooter)!
-
- }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;方法中&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func  setUpRefrshControl()    {       
-   /**        上拉刷新        */   
-tableView.tableHeaderView = MJRefreshNormalHeader.init(refreshingBlock: { () -&amp;gt; Voidin            self.footer.endRefreshing()
-
-  self.tableView.reloadData()     
-
-   self.header.endRefreshing()               
-
-      })    
-    header.automaticallyChangeAlpha = true     
-      header.beginRefreshing()    
-   /**        下拉刷新        */         
-     tableView.tableFooterView = MJRefreshAutoNormalFooter.init(refreshingBlock: { () -&amp;gt; Void in      
-  self.header.endRefreshing()  
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   self.footer.beginRefreshing()&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; self.tableView.reloadData()                self.footer.endRefreshing()               
-
- })       
-
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;YZDisplayViewController&quot;&gt;&lt;a href=&quot;#YZDisplayViewController&quot; class=&quot;headerlink&quot; title=&quot;YZDisplayViewController&quot;&gt;&lt;/a&gt;YZDisplayViewController&lt;/h1&gt;&lt;p&gt;滑动标题栏框架&lt;br&gt;&lt;a href=&quot;https://github.com/iThinkerYZ/YZDisplayViewController&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/iThinkerYZ/YZDisplayViewController&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;/**
- 设置标题样式
-*/
- func setupTitle()
-{
-
-isShowUnderLine = true
-underLineColor = bgcolor
-isShowTitleGradient = true
-isShowTitleCover = false
-
-titleHeight = 38
-endR = 32 / 255.0
-endG = 142 / 255.0
-endB = 115 / 255.0
-
-  // 是否显示遮盖
-  titleScrollViewColor = UIColor.whiteColor()
-
-  coverColor = UIColor(white: 0.7, alpha: 0.4)
-  coverCornerRadius = 13
-  norColor = UIColor.blackColor()
-  selColor = UIColor.whiteColor()
-   }
-
-
-
-/**
- 添加子控制器
- */
-func setupAllControllers()
-{
- let text = WDTextTableViewController()
-text.title = &amp;quot;糗事&amp;quot;
-addChildViewController(text)
-let picture = WDPictureTableViewController()
-picture.title = &amp;quot;图片&amp;quot;
-addChildViewController(picture)
-let video = WDVideoTableViewController()
-video.title = &amp;quot;视频&amp;quot;
-addChildViewController(video)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;LLXWaterFlow&quot;&gt;&lt;a href=&quot;#LLXWaterFlow&quot; class=&quot;headerlink&quot; title=&quot;LLXWaterFlow&quot;&gt;&lt;/a&gt;LLXWaterFlow&lt;/h1&gt;&lt;p&gt;我写的一个瀑布流的实现&lt;br&gt;&lt;a href=&quot;https://github.com/w11p3333/LLXWaterFlow&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LLXWaterFlow&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;SDCycleScrollView&quot;&gt;&lt;a href=&quot;#SDCycleScrollView&quot; class=&quot;headerlink&quot; title=&quot;SDCycleScrollView&quot;&gt;&lt;/a&gt;SDCycleScrollView&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/gsdios/SDCycleScrollView&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/gsdios/SDCycleScrollView&lt;/a&gt;&lt;br&gt;实现图片轮播框架&lt;br&gt;使用方法&lt;br&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; imageGroup = [&lt;span class=&quot;string&quot;&gt;&quot;1&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;2&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;3&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;4&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;5&quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; scrollview = &lt;span class=&quot;type&quot;&gt;SDCycleScrollView&lt;/span&gt;(frame: &lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, (&lt;span class=&quot;type&quot;&gt;UIScreen&lt;/span&gt;.mainScreen().bounds.width), &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;), imageNamesGroup: imageGroup)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&quot;RxWebViewController&quot;&gt;&lt;a href=&quot;#RxWebViewController&quot; class=&quot;headerlink&quot; title=&quot;RxWebViewController&quot;&gt;&lt;/a&gt;RxWebViewController&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Roxasora/RxWebViewController&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/Roxasora/RxWebViewController&lt;/a&gt;&lt;br&gt;仿微信效果的webview&lt;br&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; vc = &lt;span class=&quot;type&quot;&gt;RxWebViewController&lt;/span&gt;(url: url)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.navigationController?.pushViewController(vc, animated: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h1 id=&quot;KGFloatingDrawer&quot;&gt;&lt;a href=&quot;#KGFloatingDrawer&quot; class=&quot;headerlink&quot; title=&quot;KGFloatingDrawer&quot;&gt;&lt;/a&gt;KGFloatingDrawer&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/KyleGoddard/KGFloatingDrawer&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/KyleGoddard/KGFloatingDrawer&lt;/a&gt;&lt;br&gt;实现左右侧边栏框架&lt;/p&gt;
+&lt;h4 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1.&quot;&gt;&lt;/a&gt;1.&lt;/h4&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;privatevar _drawerViewController: &lt;span class=&quot;type&quot;&gt;KGDrawerViewController&lt;/span&gt;?&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;2&quot;&gt;&lt;a href=&quot;#2&quot; class=&quot;headerlink&quot; title=&quot;2.&quot;&gt;&lt;/a&gt;2.&lt;/h4&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; drawerViewController: &lt;span class=&quot;type&quot;&gt;KGDrawerViewController&lt;/span&gt; &amp;#123;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;get&lt;/span&gt; &amp;#123;       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; viewController = _drawerViewController &amp;#123;       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; viewController      &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;          &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;returnprepareDrawerViewController()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;3&quot;&gt;&lt;a href=&quot;#3&quot; class=&quot;headerlink&quot; title=&quot;3.&quot;&gt;&lt;/a&gt;3.&lt;/h4&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;func prepareDrawerViewController() -&amp;gt; KGDrawerViewController &amp;#123;     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;let drawerViewController = KGDrawerViewController()    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;drawerViewController.centerViewController = viewControllerForStoryboardId(&quot;center&quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;drawerViewController.leftViewController = viewControllerForStoryboardId(&quot;leftvc&quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;drawerViewController.rightViewController = viewControllerForStoryboardId(“rightvc&quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;drawerViewController.leftDrawerWidth = CGFloat(150)       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//背景图片     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;_drawerViewController = drawerViewController      &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;return drawerViewController  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;4&quot;&gt;&lt;a href=&quot;#4&quot; class=&quot;headerlink&quot; title=&quot;4.&quot;&gt;&lt;/a&gt;4.&lt;/h4&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;drawerStoryboard&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt; -&amp;gt; &lt;span class=&quot;type&quot;&gt;UIStoryboard&lt;/span&gt; &amp;#123;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; storyboard = &lt;span class=&quot;type&quot;&gt;UIStoryboard&lt;/span&gt;(name: &lt;span class=&quot;string&quot;&gt;&quot;Main&quot;&lt;/span&gt;, bundle: &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;)        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; storyboard    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;5&quot;&gt;&lt;a href=&quot;#5&quot; class=&quot;headerlink&quot; title=&quot;5.&quot;&gt;&lt;/a&gt;5.&lt;/h4&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;viewControllerForStoryboardId&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(storyboardId: String)&lt;/span&gt;&lt;/span&gt; -&amp;gt; &lt;span class=&quot;type&quot;&gt;UIViewController&lt;/span&gt; &amp;#123;     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; viewController: &lt;span class=&quot;type&quot;&gt;UIViewController&lt;/span&gt; = drawerStoryboard().instantiateViewControllerWithIdentifier(storyboardId) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;! &lt;span class=&quot;type&quot;&gt;UIViewController&lt;/span&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; viewController&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;最后将&quot;&gt;&lt;a href=&quot;#最后将&quot; class=&quot;headerlink&quot; title=&quot;最后将&quot;&gt;&lt;/a&gt;最后将&lt;/h4&gt;&lt;figure class=&quot;highlight coffeescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;?.rootViewController = drawerViewController&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;在想要弹出的方法里&quot;&gt;&lt;a href=&quot;#在想要弹出的方法里&quot; class=&quot;headerlink&quot; title=&quot;在想要弹出的方法里&quot;&gt;&lt;/a&gt;在想要弹出的方法里&lt;/h4&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; appDelegate = &lt;span class=&quot;type&quot;&gt;UIApplication&lt;/span&gt;.sharedApplication().delegateas! &lt;span class=&quot;type&quot;&gt;AppDelegate&lt;/span&gt;     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;appDelegate.drawerViewController.toggleDrawer(&lt;span class=&quot;type&quot;&gt;KGDrawerSide&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;Left&lt;/span&gt;, animated: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;) &amp;#123; (finished) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Void&lt;/span&gt;            &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;AFSoundManager&quot;&gt;&lt;a href=&quot;#AFSoundManager&quot; class=&quot;headerlink&quot; title=&quot;AFSoundManager&quot;&gt;&lt;/a&gt;AFSoundManager&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/AlvaroFranco/AFSoundManager&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/AlvaroFranco/AFSoundManager&lt;/a&gt;&lt;br&gt;音乐播放框架&lt;br&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; player:&lt;span class=&quot;type&quot;&gt;AFSoundPlayback&lt;/span&gt;?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//开始播放音乐 &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;type&quot;&gt;AFSoundManager&lt;/span&gt;.sharedManager().startStreamingRemoteAudioFromURL(musicurl) &amp;#123; (percentage, elapsedTime, timeRemaining, error, finished) &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//进度 percentage&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  elapsedTime 开始时间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  timeRemaining 结束时间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;暂停方法&quot;&gt;&lt;a href=&quot;#暂停方法&quot; class=&quot;headerlink&quot; title=&quot;暂停方法&quot;&gt;&lt;/a&gt;暂停方法&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;AFSoundManager.sharedManager().pause()
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;重播方法&quot;&gt;&lt;a href=&quot;#重播方法&quot; class=&quot;headerlink&quot; title=&quot;重播方法&quot;&gt;&lt;/a&gt;重播方法&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;AFSoundManager.sharedManager().resume()
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;MJRefresh&quot;&gt;&lt;a href=&quot;#MJRefresh&quot; class=&quot;headerlink&quot; title=&quot;MJRefresh&quot;&gt;&lt;/a&gt;MJRefresh&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/CoderMJLee/MJRefresh&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/CoderMJLee/MJRefresh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;刷新控件框架&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/// header    var header:MJRefreshNormalHeader&amp;#123;  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.tableView.tableHeaderViewas? &lt;span class=&quot;type&quot;&gt;MJRefreshNormalHeader&lt;/span&gt;)!  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**  footer  */&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; footer:&lt;span class=&quot;type&quot;&gt;MJRefreshFooter&lt;/span&gt;&amp;#123;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.tableView.tableFooterViewas? &lt;span class=&quot;type&quot;&gt;MJRefreshFooter&lt;/span&gt;)!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;方法中&quot;&gt;&lt;a href=&quot;#方法中&quot; class=&quot;headerlink&quot; title=&quot;方法中&quot;&gt;&lt;/a&gt;方法中&lt;/h4&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt;  &lt;span class=&quot;title&quot;&gt;setUpRefrshControl&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;    &amp;#123;       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**        上拉刷新        */&lt;/span&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tableView.tableHeaderView = &lt;span class=&quot;type&quot;&gt;MJRefreshNormalHeader&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;init&lt;/span&gt;(refreshingBlock: &amp;#123; () -&amp;gt; &lt;span class=&quot;type&quot;&gt;Voidin&lt;/span&gt;            &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footer.endRefreshing()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.tableView.reloadData()     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.header.endRefreshing()               &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header.automaticallyChangeAlpha = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header.beginRefreshing()    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**        下拉刷新        */&lt;/span&gt;         &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tableView.tableFooterView = &lt;span class=&quot;type&quot;&gt;MJRefreshAutoNormalFooter&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;init&lt;/span&gt;(refreshingBlock: &amp;#123; () -&amp;gt; &lt;span class=&quot;type&quot;&gt;Void&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;      &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.header.endRefreshing()  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footer.beginRefreshing()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.tableView.reloadData()                &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.footer.endRefreshing()               &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)       &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;YZDisplayViewController&quot;&gt;&lt;a href=&quot;#YZDisplayViewController&quot; class=&quot;headerlink&quot; title=&quot;YZDisplayViewController&quot;&gt;&lt;/a&gt;YZDisplayViewController&lt;/h1&gt;&lt;p&gt;滑动标题栏框架&lt;br&gt;&lt;a href=&quot;https://github.com/iThinkerYZ/YZDisplayViewController&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/iThinkerYZ/YZDisplayViewController&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;设置标题样式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;setupTitle&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isShowUnderLine = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;underLineColor = bgcolor&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isShowTitleGradient = &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;isShowTitleCover = &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;titleHeight = &lt;span class=&quot;number&quot;&gt;38&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;endR = &lt;span class=&quot;number&quot;&gt;32&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;255.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;endG = &lt;span class=&quot;number&quot;&gt;142&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;255.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;endB = &lt;span class=&quot;number&quot;&gt;115&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;255.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 是否显示遮盖&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;titleScrollViewColor = &lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt;.whiteColor()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;coverColor = &lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt;(white: &lt;span class=&quot;number&quot;&gt;0.7&lt;/span&gt;, alpha: &lt;span class=&quot;number&quot;&gt;0.4&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;coverCornerRadius = &lt;span class=&quot;number&quot;&gt;13&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;norColor = &lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt;.blackColor()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;selColor = &lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt;.whiteColor()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;添加子控制器&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;setupAllControllers&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; text = &lt;span class=&quot;type&quot;&gt;WDTextTableViewController&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;text.title = &lt;span class=&quot;string&quot;&gt;&quot;糗事&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;addChildViewController(text)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; picture = &lt;span class=&quot;type&quot;&gt;WDPictureTableViewController&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;picture.title = &lt;span class=&quot;string&quot;&gt;&quot;图片&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;addChildViewController(picture)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; video = &lt;span class=&quot;type&quot;&gt;WDVideoTableViewController&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;video.title = &lt;span class=&quot;string&quot;&gt;&quot;视频&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;addChildViewController(video)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h1 id=&quot;FMDB&quot;&gt;&lt;a href=&quot;#FMDB&quot; class=&quot;headerlink&quot; title=&quot;FMDB&quot;&gt;&lt;/a&gt;FMDB&lt;/h1&gt;&lt;p&gt;不能用cocoa pod导入&lt;br&gt;先从github下好拖进工程里&lt;br&gt;再创建一个桥接文件 swift-brige&lt;br&gt;在设置中添加sqlite3 库&lt;br&gt;在build settings中搜索Bridging Header&lt;br&gt;添加桥接文件的路径（在本工程内的路径）&lt;br&gt;使用FMDatabaseQueue相比FMDatabase是数据安全的，并且不需要打开数据库的流程&lt;/p&gt;
-&lt;h1 id=&quot;masonry&quot;&gt;&lt;a href=&quot;#masonry&quot; class=&quot;headerlink&quot; title=&quot;masonry&quot;&gt;&lt;/a&gt;masonry&lt;/h1&gt;&lt;p&gt;实现方便的代码实现autolayout&lt;br&gt;使用方法&lt;br&gt;   有make remake update三种方法 传进去的参数要加mas_前缀 mas_equalTo 会对参数进行包装 equalTo 不会对参数进行包装&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  //尺寸约束
-  make.size.as_equalTo(CGSizeMake(x,y)); 
-   //位置约束 居中
-make.centerX.mas_equalTo(self.view.centerX);    
-  make.centerY.mas_equalTo(self.view.centerY); 
-   //设置到边的距离      
-    make.right.mas_euqalTo(self.view).offset(20);
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;Parse-for-iOS&quot;&gt;&lt;a href=&quot;#Parse-for-iOS&quot; class=&quot;headerlink&quot; title=&quot;Parse for iOS&quot;&gt;&lt;/a&gt;Parse for iOS&lt;/h1&gt;&lt;p&gt;为ios提供后端&lt;br&gt;用法：&lt;a href=&quot;http://www.mobile-open.com/2015/41095.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.mobile-open.com/2015/41095.html&lt;/a&gt;&lt;br&gt;官网：&lt;br&gt;&lt;a href=&quot;https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;LeanClound&quot;&gt;&lt;a href=&quot;#LeanClound&quot; class=&quot;headerlink&quot; title=&quot;LeanClound&quot;&gt;&lt;/a&gt;LeanClound&lt;/h1&gt;&lt;h1 id=&quot;Realm&quot;&gt;&lt;a href=&quot;#Realm&quot; class=&quot;headerlink&quot; title=&quot;Realm&quot;&gt;&lt;/a&gt;Realm&lt;/h1&gt;&lt;h1 id=&quot;Spring&quot;&gt;&lt;a href=&quot;#Spring&quot; class=&quot;headerlink&quot; title=&quot;Spring&quot;&gt;&lt;/a&gt;Spring&lt;/h1&gt;&lt;p&gt;一些常用的SVProgressHUD/AFN/Alamofire/SDWebImage&lt;br&gt;的使用都比较简单我这里就暂时不写了&lt;/p&gt;
+&lt;h1 id=&quot;masonry&quot;&gt;&lt;a href=&quot;#masonry&quot; class=&quot;headerlink&quot; title=&quot;masonry&quot;&gt;&lt;/a&gt;masonry&lt;/h1&gt;&lt;p&gt;实现方便的代码实现autolayout&lt;br&gt;使用方法&lt;br&gt;有make remake update三种方法 传进去的参数要加mas_前缀 mas_equalTo 会对参数进行包装 equalTo 不会对参数进行包装&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//尺寸约束&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make.size.as_equalTo(&lt;span class=&quot;type&quot;&gt;CGSizeMake&lt;/span&gt;(x,y)); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//位置约束 居中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make.centerX.mas_equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.centerX);    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make.centerY.mas_equalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.centerY); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//设置到边的距离      &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make.&lt;span class=&quot;keyword&quot;&gt;right&lt;/span&gt;.mas_euqalTo(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view).offset(&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;#&lt;/p&gt;
+&lt;h1 id=&quot;Parse-for-iOS&quot;&gt;&lt;a href=&quot;#Parse-for-iOS&quot; class=&quot;headerlink&quot; title=&quot;Parse for iOS&quot;&gt;&lt;/a&gt;Parse for iOS&lt;/h1&gt;&lt;p&gt;为ios提供后端&lt;br&gt;用法：&lt;a href=&quot;http://www.mobile-open.com/2015/41095.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.mobile-open.com/2015/41095.html&lt;/a&gt;&lt;br&gt;官网：&lt;br&gt;&lt;a href=&quot;https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;LeanClound&quot;&gt;&lt;a href=&quot;#LeanClound&quot; class=&quot;headerlink&quot; title=&quot;LeanClound&quot;&gt;&lt;/a&gt;LeanClound&lt;/h1&gt;&lt;h1 id=&quot;Realm&quot;&gt;&lt;a href=&quot;#Realm&quot; class=&quot;headerlink&quot; title=&quot;Realm&quot;&gt;&lt;/a&gt;Realm&lt;/h1&gt;&lt;h1 id=&quot;Spring&quot;&gt;&lt;a href=&quot;#Spring&quot; class=&quot;headerlink&quot; title=&quot;Spring&quot;&gt;&lt;/a&gt;Spring&lt;/h1&gt;&lt;h1 id=&quot;SwiftyGif&quot;&gt;&lt;a href=&quot;#SwiftyGif&quot; class=&quot;headerlink&quot; title=&quot;SwiftyGif&quot;&gt;&lt;/a&gt;SwiftyGif&lt;/h1&gt;&lt;h1 id=&quot;JASON&quot;&gt;&lt;a href=&quot;#JASON&quot; class=&quot;headerlink&quot; title=&quot;JASON&quot;&gt;&lt;/a&gt;JASON&lt;/h1&gt;&lt;p&gt;一些常用的SVProgressHUD/AFN/Alamofire/SDWebImage&lt;br&gt;的使用都比较简单我这里就暂时不写了&lt;/p&gt;
 &lt;p&gt;不定时更新&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry&lt;/p&gt;
+      &lt;p&gt;介绍一些我常用但是不是很热门的框架：JASON、SwiftyGif&lt;br&gt;SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry&lt;/p&gt;
     
     </summary>
     
@@ -564,9 +422,9 @@ make.centerX.mas_equalTo(self.view.centerX);
     <link href="http://yoursite.com/2016/03/28/UI%E5%88%86%E6%9E%90%E5%88%A9%E5%99%A8%20Reveal%E7%9A%84%E7%A0%B4%E8%A7%A3%E5%8F%8A%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2016/03/28/UI分析利器 Reveal的破解及使用/</id>
     <published>2016-03-27T16:00:00.000Z</published>
-    <updated>2016-04-21T14:19:23.000Z</updated>
+    <updated>2016-04-24T08:20:28.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;话不多说 当然，有能力的还是支持正版&lt;br&gt;&lt;a href=&quot;http://upload-images.jianshu.io/upload_images/1449048-4e7ea3b4f6181571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;下载地址&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://upload-images.jianshu.io/upload_images/1449048-4e7ea3b4f6181571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;破解包&lt;/a&gt;&lt;br&gt;下载完之后将软件运行一次并用Finder拖到应用程序里&lt;br&gt;右键显示包内容，再点击contents&amp;gt;MAC OS&lt;br&gt;将Reveal文件改名，再把解压出来的破解包内容拷进去&lt;br&gt;重新打开软件 破解成功&lt;br&gt;点击window&amp;gt;show Reveal library in Finder&amp;gt;ios&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;话不多说 当然，有能力的还是支持正版&lt;br&gt;&lt;a href=&quot;http://revealapp.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;下载地址&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://pan.baidu.com/s/1bnc5wwn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;破解包&lt;/a&gt;&lt;br&gt;下载完之后将软件运行一次并用Finder拖到应用程序里&lt;br&gt;右键显示包内容，再点击contents&amp;gt;MAC OS&lt;br&gt;将Reveal文件改名，再把解压出来的破解包内容拷进去&lt;br&gt;重新打开软件 破解成功&lt;br&gt;点击window&amp;gt;show Reveal library in Finder&amp;gt;ios&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1449048-4e7ea3b4f6181571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
 &lt;p&gt;此时打开了Reveal.framework&lt;br&gt;将framework拖入需要使用Reveal分析的XCode程序里&lt;br&gt;注意一定要勾选copy if needed&lt;br&gt;再点击项目配置 找到Linked Frameworks and Libraries&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1449048-0e6a828ae033accb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
 &lt;p&gt; 把Reveal.framework给移除掉&lt;br&gt;再点击Bulid Settings 搜索Other Linker Flags&lt;br&gt;加入如下一行&lt;/p&gt;
@@ -588,92 +446,18 @@ make.centerX.mas_equalTo(self.view.centerX);
     <link href="http://yoursite.com/2016/03/20/Swift%E4%B8%AD%E7%9A%84%E7%95%8C%E9%9D%A2%E4%BC%A0%E5%80%BC/"/>
     <id>http://yoursite.com/2016/03/20/Swift中的界面传值/</id>
     <published>2016-03-19T16:00:00.000Z</published>
-    <updated>2016-04-21T14:20:23.000Z</updated>
+    <updated>2016-04-24T08:26:10.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;正向页面传值-通过代码&quot;&gt;&lt;a href=&quot;#正向页面传值-通过代码&quot; class=&quot;headerlink&quot; title=&quot;正向页面传值-通过代码&quot;&gt;&lt;/a&gt;正向页面传值-通过代码&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;    有A、B两个控制器，A要把文本的里的string传给B 
-     在B中定义一个属性
-       var txtStr
-   //在A要进入B控制器的操作中 
-var secondVC:SecondViewController = SecondViewController() 
-secondVC.txtStr = self.text 
-presentViewController(secondVC , animated: true, completion: nil)
-     //在B中要显示的控件中赋值 
-self.label.text = txtStr
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;正向传值第二种方法&quot;&gt;&lt;a href=&quot;#正向传值第二种方法&quot; class=&quot;headerlink&quot; title=&quot;正向传值第二种方法&quot;&gt;&lt;/a&gt;正向传值第二种方法&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;有A、B两个控制器，A要把文本的里的string传给B
-//在B中定义一个属性
-var txtStr
-//在B中重写init()方法
-init(text:String)
-{
-self.txtStr = text
-super.init(nibName: nil, bundle: nil)
-}
-//在A要进入B控制器的操作中
-var secondVC:SecondViewController = SecondViewController(text:self.text)
-presentViewController(secondVC , animated: true, completion: nil)
-//在B中要显示的控件中赋值
-self.label.text = txtStr
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;正向页面传值第三种方法-通过Storyboard&quot;&gt;&lt;a href=&quot;#正向页面传值第三种方法-通过Storyboard&quot; class=&quot;headerlink&quot; title=&quot;正向页面传值第三种方法-通过Storyboard&quot;&gt;&lt;/a&gt;正向页面传值第三种方法-通过Storyboard&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;有A、B两个控制器，A要把文本的里的string传给B
-两个 View 之间要用 Modal 类型的 Segue 来连接
-//在B中定义一个属性
-var txtStr
-//在A中重写prepareForSegue方法
-  let destVc: secondVC:SecondViewController = segue.destionViewController as! secondVC:SecondViewController
-//将A中的值赋值到B中的属性
-destVc.textStr = self.text
-//在B中要显示的控件中赋值
- self.label.text = txtStr
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;Delegate反向传值&quot;&gt;&lt;a href=&quot;#Delegate反向传值&quot; class=&quot;headerlink&quot; title=&quot;Delegate反向传值&quot;&gt;&lt;/a&gt;Delegate反向传值&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;谁要传值谁就拥有代理属性
-有A、B两个控制器，A进入B，B再返回A，把文本里的String传给A
-在A中定义一个属性
-var txtStr:String?
-给B定义一个协议
-protocol SecondVcDelegate:NSObjectProtocol
-{
-    func SecondVcGiveTextToFirstVc(text: String)
-
-}
-再给B定义一个delegate 避免循环应用要加上weak
-weak var delegate:SecondVcDelegate?
-在B要跳转回A的时候调用代理
-self.delegate?.SecondVcGiveTextToFirstVc(&amp;quot;test&amp;quot;)
-在A中需要接受值的时候
-let vc = SecondVc()
-vc.delegate = self
-extension FirstVc:delegate:SecondVcDelegate
-{
-    func SecondVcGiveTextToFirstVc(text: String)
-    {
-    txtStr = text
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;NSNotificationCenter传值&quot;&gt;&lt;a href=&quot;#NSNotificationCenter传值&quot; class=&quot;headerlink&quot; title=&quot;NSNotificationCenter传值&quot;&gt;&lt;/a&gt;NSNotificationCenter传值&lt;/h3&gt;&lt;p&gt;第一步 post一个通知&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; let info = [WDPictureWillOpen:pictureTopic!.cdn_img!]
-NSNotificationCenter.defaultCenter().postNotificationName(WDPictureWillOpen, object: self, userInfo: info)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;第二步 接受通知&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(WDPictureTableViewController.openPothoBrowser(_:)), name: WDPictureWillOpen, object: nil)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;第三步 实现接受通知的方法并拿到值&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;func openPothoBrowser(notify: NSNotification)
- {
-
-   //一定要拦截
- guard let urlstr = notify.userInfo![WDPictureWillOpen] as? String  else
- {
-     return
- }
-
- }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;第四步 一定要移除通知&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;     deinit
-{
- NSNotificationCenter.defaultCenter().removeObserver(self)
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;NSUserDefault传值&quot;&gt;&lt;a href=&quot;#NSUserDefault传值&quot; class=&quot;headerlink&quot; title=&quot;NSUserDefault传值&quot;&gt;&lt;/a&gt;NSUserDefault传值&lt;/h3&gt;&lt;pre&gt;&lt;code&gt; 注意：NSUserDefaults是持久化存储 
-//在需要传值的地方      
-NSUserDefaults.standardUserDefaults().setObject(&amp;quot;test&amp;quot;, forKey: &amp;quot;test&amp;quot;) 
-//取出值
-   let str = NSUserDefaults.standardUserDefaults().objectForKey(&amp;quot;test&amp;quot;) print(Str)
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;闭包传值&quot;&gt;&lt;a href=&quot;#闭包传值&quot; class=&quot;headerlink&quot; title=&quot;闭包传值&quot;&gt;&lt;/a&gt;闭包传值&lt;/h3&gt;&lt;h3 id=&quot;单例传值&quot;&gt;&lt;a href=&quot;#单例传值&quot; class=&quot;headerlink&quot; title=&quot;单例传值&quot;&gt;&lt;/a&gt;单例传值&lt;/h3&gt;&lt;p&gt;占坑 有空再更&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;正向页面传值-通过代码&quot;&gt;&lt;a href=&quot;#正向页面传值-通过代码&quot; class=&quot;headerlink&quot; title=&quot;正向页面传值-通过代码&quot;&gt;&lt;/a&gt;正向页面传值-通过代码&lt;/h3&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;有A、B两个控制器，A要把文本的里的string传给B &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;在B中定义一个属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;var&lt;/span&gt; txtStr&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//在A要进入B控制器的操作中 &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;var&lt;/span&gt; secondVC:SecondViewController = SecondViewController() &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;secondVC&lt;span class=&quot;selector-class&quot;&gt;.txtStr&lt;/span&gt; = self&lt;span class=&quot;selector-class&quot;&gt;.text&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;presentViewController&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(secondVC , animated: true, completion: nil)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//在B中要显示的控件中赋值 &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.label&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.text&lt;/span&gt; = txtStr&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;正向传值第二种方法&quot;&gt;&lt;a href=&quot;#正向传值第二种方法&quot; class=&quot;headerlink&quot; title=&quot;正向传值第二种方法&quot;&gt;&lt;/a&gt;正向传值第二种方法&lt;/h3&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;有A、B两个控制器，A要把文本的里的string传给B&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//在B中定义一个属性&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;var&lt;/span&gt; txtStr&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//在B中重写init()方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(text:String)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.txtStr&lt;/span&gt; = text&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;super.init(nibName: nil, bundle: nil)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//在A要进入B控制器的操作中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;var&lt;/span&gt; secondVC:SecondViewController = SecondViewController(text:self.text)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;presentViewController&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(secondVC , animated: true, completion: nil)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//在B中要显示的控件中赋值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;self&lt;span class=&quot;selector-class&quot;&gt;.label&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.text&lt;/span&gt; = txtStr&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;正向页面传值第三种方法-通过Storyboard&quot;&gt;&lt;a href=&quot;#正向页面传值第三种方法-通过Storyboard&quot; class=&quot;headerlink&quot; title=&quot;正向页面传值第三种方法-通过Storyboard&quot;&gt;&lt;/a&gt;正向页面传值第三种方法-通过Storyboard&lt;/h3&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;有A、B两个控制器，A要把文本的里的string传给B&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;两个 View 之间要用 Modal 类型的 Segue 来连接&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//在B中定义一个属性&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;var&lt;/span&gt; txtStr&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//在A中重写prepareForSegue方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  let destVc: secondVC:SecondViewController = segue&lt;span class=&quot;selector-class&quot;&gt;.destionViewController&lt;/span&gt; as! secondVC:SecondViewController&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//将A中的值赋值到B中的属性&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;destVc&lt;span class=&quot;selector-class&quot;&gt;.textStr&lt;/span&gt; = self&lt;span class=&quot;selector-class&quot;&gt;.text&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//在B中要显示的控件中赋值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; self&lt;span class=&quot;selector-class&quot;&gt;.label&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.text&lt;/span&gt; = txtStr&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Delegate反向传值&quot;&gt;&lt;a href=&quot;#Delegate反向传值&quot; class=&quot;headerlink&quot; title=&quot;Delegate反向传值&quot;&gt;&lt;/a&gt;Delegate反向传值&lt;/h3&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;谁要传值谁就拥有代理属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;有&lt;span class=&quot;type&quot;&gt;A&lt;/span&gt;、&lt;span class=&quot;type&quot;&gt;B&lt;/span&gt;两个控制器，&lt;span class=&quot;type&quot;&gt;A&lt;/span&gt;进入&lt;span class=&quot;type&quot;&gt;B&lt;/span&gt;，&lt;span class=&quot;type&quot;&gt;B&lt;/span&gt;再返回&lt;span class=&quot;type&quot;&gt;A&lt;/span&gt;，把文本里的&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;传给&lt;span class=&quot;type&quot;&gt;A&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;在&lt;span class=&quot;type&quot;&gt;A&lt;/span&gt;中定义一个属性&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; txtStr:&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;给&lt;span class=&quot;type&quot;&gt;B&lt;/span&gt;定义一个协议&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;protocol&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SecondVcDelegate&lt;/span&gt;:&lt;span class=&quot;title&quot;&gt;NSObjectProtocol&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SecondVcGiveTextToFirstVc&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(text: String)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;再给&lt;span class=&quot;type&quot;&gt;B&lt;/span&gt;定义一个delegate 避免循环应用要加上&lt;span class=&quot;keyword&quot;&gt;weak&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;weak&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; delegate:&lt;span class=&quot;type&quot;&gt;SecondVcDelegate&lt;/span&gt;?&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;在&lt;span class=&quot;type&quot;&gt;B&lt;/span&gt;要跳转回&lt;span class=&quot;type&quot;&gt;A&lt;/span&gt;的时候调用代理&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.delegate?.&lt;span class=&quot;type&quot;&gt;SecondVcGiveTextToFirstVc&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;在&lt;span class=&quot;type&quot;&gt;A&lt;/span&gt;中需要接受值的时候&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; vc = &lt;span class=&quot;type&quot;&gt;SecondVc&lt;/span&gt;()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vc.delegate = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;FirstVc&lt;/span&gt;:&lt;span class=&quot;title&quot;&gt;delegate&lt;/span&gt;:&lt;span class=&quot;title&quot;&gt;SecondVcDelegate&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SecondVcGiveTextToFirstVc&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(text: String)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;txtStr = text&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;NSNotificationCenter传值&quot;&gt;&lt;a href=&quot;#NSNotificationCenter传值&quot; class=&quot;headerlink&quot; title=&quot;NSNotificationCenter传值&quot;&gt;&lt;/a&gt;NSNotificationCenter传值&lt;/h3&gt;&lt;h4 id=&quot;第一步-post一个通知&quot;&gt;&lt;a href=&quot;#第一步-post一个通知&quot; class=&quot;headerlink&quot; title=&quot;第一步 post一个通知&quot;&gt;&lt;/a&gt;第一步 post一个通知&lt;/h4&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; info = [&lt;span class=&quot;type&quot;&gt;WDPictureWillOpen&lt;/span&gt;:pictureTopic!.cdn_img!]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;type&quot;&gt;NSNotificationCenter&lt;/span&gt;.defaultCenter().postNotificationName(&lt;span class=&quot;type&quot;&gt;WDPictureWillOpen&lt;/span&gt;, object: &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, userInfo: info)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;第二步-接受通知&quot;&gt;&lt;a href=&quot;#第二步-接受通知&quot; class=&quot;headerlink&quot; title=&quot;第二步 接受通知&quot;&gt;&lt;/a&gt;第二步 接受通知&lt;/h4&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;type&quot;&gt;NSNotificationCenter&lt;/span&gt;.defaultCenter().addObserver(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, selector:#selector(&lt;span class=&quot;type&quot;&gt;WDPictureTableViewController&lt;/span&gt;.openPothoBrowser(&lt;span class=&quot;number&quot;&gt;_&lt;/span&gt;:)), name: &lt;span class=&quot;type&quot;&gt;WDPictureWillOpen&lt;/span&gt;, object: &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;第三步-实现接受通知的方法并拿到值&quot;&gt;&lt;a href=&quot;#第三步-实现接受通知的方法并拿到值&quot; class=&quot;headerlink&quot; title=&quot;第三步 实现接受通知的方法并拿到值&quot;&gt;&lt;/a&gt;第三步 实现接受通知的方法并拿到值&lt;/h4&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;openPothoBrowser&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(notify: NSNotification)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//一定要拦截&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;guard&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; urlstr = notify.userInfo![&lt;span class=&quot;type&quot;&gt;WDPictureWillOpen&lt;/span&gt;] &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;? &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;  &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;第四步-一定要移除通知&quot;&gt;&lt;a href=&quot;#第四步-一定要移除通知&quot; class=&quot;headerlink&quot; title=&quot;第四步 一定要移除通知&quot;&gt;&lt;/a&gt;第四步 一定要移除通知&lt;/h4&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;deinit&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;type&quot;&gt;NSNotificationCenter&lt;/span&gt;.defaultCenter().removeObserver(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```      &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;### &lt;span class=&quot;type&quot;&gt;NSUserDefault&lt;/span&gt;传值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;注意：&lt;span class=&quot;type&quot;&gt;NSUserDefaults&lt;/span&gt;是持久化存储&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;//在需要传值的地方&lt;br&gt;NSUserDefaults.standardUserDefaults().setObject(“test”, forKey: “test”)&lt;br&gt;//取出值&lt;br&gt;let str = NSUserDefaults.standardUserDefaults().objectForKey(“test”) print(Str)&lt;br&gt;```       &lt;/p&gt;
+&lt;h3 id=&quot;闭包传值&quot;&gt;&lt;a href=&quot;#闭包传值&quot; class=&quot;headerlink&quot; title=&quot;闭包传值&quot;&gt;&lt;/a&gt;闭包传值&lt;/h3&gt;&lt;h3 id=&quot;单例传值&quot;&gt;&lt;a href=&quot;#单例传值&quot; class=&quot;headerlink&quot; title=&quot;单例传值&quot;&gt;&lt;/a&gt;单例传值&lt;/h3&gt;&lt;p&gt;占坑 有空再更&lt;/p&gt;
 </content>
     
     <summary type="html">

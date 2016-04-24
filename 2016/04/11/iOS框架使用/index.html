@@ -82,16 +82,16 @@
 
 
 
-<meta name="description" content="SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry">
+<meta name="description" content="介绍一些我常用但是不是很热门的框架：JASON、SwiftyGifSDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS中实用框架的使用">
 <meta property="og:url" content="http://yoursite.com/2016/04/11/iOS框架使用/index.html">
 <meta property="og:site_name" content="AppleCatKay">
-<meta property="og:description" content="SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry">
-<meta property="og:updated_time" content="2016-04-21T14:21:49.000Z">
+<meta property="og:description" content="介绍一些我常用但是不是很热门的框架：JASON、SwiftyGifSDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry">
+<meta property="og:updated_time" content="2016-04-24T08:35:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS中实用框架的使用">
-<meta name="twitter:description" content="SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry">
+<meta name="twitter:description" content="介绍一些我常用但是不是很热门的框架：JASON、SwiftyGifSDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry">
 
 
 
@@ -289,160 +289,33 @@
       
 
       
-        <p>SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry</p>
+        <p>介绍一些我常用但是不是很热门的框架：JASON、SwiftyGif<br>SDCycleScrollView、RxWebViewController、KGFloatingDrawer、AFSoundManager、YZDisplayViewController、FMDB、masonry</p>
 <a id="more"></a>
-<h1 id="SDCycleScrollView"><a href="#SDCycleScrollView" class="headerlink" title="SDCycleScrollView"></a>SDCycleScrollView</h1><p><a href="https://github.com/gsdios/SDCycleScrollView" target="_blank" rel="external">https://github.com/gsdios/SDCycleScrollView</a><br>实现图片轮播框架<br>使用方法</p>
-<pre><code>let imageGroup = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;]
-
-let scrollview = SDCycleScrollView(frame: CGRectMake(0, 0, (UIScreen.mainScreen().bounds.width), 200), imageNamesGroup: imageGroup)
-</code></pre><h1 id="RxWebViewController"><a href="#RxWebViewController" class="headerlink" title="RxWebViewController"></a>RxWebViewController</h1><p><a href="https://github.com/Roxasora/RxWebViewController" target="_blank" rel="external">https://github.com/Roxasora/RxWebViewController</a><br>仿微信效果的webview</p>
-<pre><code>let vc = RxWebViewController(url: url)
-self.navigationController?.pushViewController(vc, animated: true)
-</code></pre><h1 id="KGFloatingDrawer"><a href="#KGFloatingDrawer" class="headerlink" title="KGFloatingDrawer"></a>KGFloatingDrawer</h1><p><a href="https://github.com/KyleGoddard/KGFloatingDrawer" target="_blank" rel="external">https://github.com/KyleGoddard/KGFloatingDrawer</a><br>实现左右侧边栏框架</p>
-<p>1.</p>
-<pre><code>privatevar _drawerViewController: KGDrawerViewController?
-</code></pre><p>2.</p>
-<pre><code>var drawerViewController: KGDrawerViewController {  
-get {       
- if let viewController = _drawerViewController {       
- return viewController      
-   }          
-
-   returnprepareDrawerViewController()
-}
-  }
-</code></pre><p>3.</p>
-<pre><code>func prepareDrawerViewController() -&gt; KGDrawerViewController {     
-  let drawerViewController = KGDrawerViewController()    
-  drawerViewController.centerViewController = viewControllerForStoryboardId(&quot;center&quot;)
-
-drawerViewController.leftViewController = viewControllerForStoryboardId(&quot;leftvc&quot;)
-
-  drawerViewController.rightViewController = viewControllerForStoryboardId(“rightvc&quot;
-</code></pre><p>)</p>
-<pre><code>drawerViewController.leftDrawerWidth = CGFloat(150)       
-</code></pre><p>   //背景图片     </p>
-<pre><code>       _drawerViewController = drawerViewController      
-return drawerViewController  
-}
-</code></pre><p>4.</p>
-<pre><code> private func drawerStoryboard() -&gt; UIStoryboard {   
-let storyboard = UIStoryboard(name: &quot;Main&quot;, bundle: nil)        return storyboard    }
-</code></pre><p>5.</p>
-<pre><code>  private func viewControllerForStoryboardId(storyboardId: String) -&gt; UIViewController {     
-  let viewController: UIViewController = drawerStoryboard().instantiateViewControllerWithIdentifier(storyboardId) as! UIViewController   
- return viewController
-}
-</code></pre><p>最后将</p>
-<pre><code>window?.rootViewController = drawerViewController
-</code></pre><p>在想要弹出的方法里</p>
-<pre><code>let appDelegate = UIApplication.sharedApplication().delegateas! AppDelegate     
-   appDelegate.drawerViewController.toggleDrawer(KGDrawerSide.Left, animated: true) { (finished) -&gt; Void            in
-    }
-</code></pre><h1 id="AFSoundManager"><a href="#AFSoundManager" class="headerlink" title="AFSoundManager"></a>AFSoundManager</h1><p><a href="https://github.com/AlvaroFranco/AFSoundManager" target="_blank" rel="external">https://github.com/AlvaroFranco/AFSoundManager</a><br>音乐播放框架</p>
-<pre><code>var player:AFSoundPlayback?
-
-//开始播放音乐 
-
-
-  AFSoundManager.sharedManager().startStreamingRemoteAudioFromURL(musicurl) { (percentage, elapsedTime, timeRemaining, error, finished) in
-
-
- //进度 percentage
-//  elapsedTime 开始时间
-//  timeRemaining 结束时间
-}
-</code></pre><p>暂停方法</p>
-<pre><code>AFSoundManager.sharedManager().pause()
-</code></pre><p>重播方法</p>
-<pre><code>AFSoundManager.sharedManager().resume()
-MJRefresh
-https://github.com/CoderMJLee/MJRefresh
-</code></pre><p>刷新控件框架</p>
-<pre><code>/// header    var header:MJRefreshNormalHeader{  
- return (self.tableView.tableHeaderViewas? MJRefreshNormalHeader)!  
-</code></pre><p>   }   </p>
-<pre><code>/**  footer  */ 
-    var footer:MJRefreshFooter{   
-  return (self.tableView.tableFooterViewas? MJRefreshFooter)!
-
- }
-</code></pre><p>方法中</p>
-<pre><code>func  setUpRefrshControl()    {       
-   /**        上拉刷新        */   
-tableView.tableHeaderView = MJRefreshNormalHeader.init(refreshingBlock: { () -&gt; Voidin            self.footer.endRefreshing()
-
-  self.tableView.reloadData()     
-
-   self.header.endRefreshing()               
-
-      })    
-    header.automaticallyChangeAlpha = true     
-      header.beginRefreshing()    
-   /**        下拉刷新        */         
-     tableView.tableFooterView = MJRefreshAutoNormalFooter.init(refreshingBlock: { () -&gt; Void in      
-  self.header.endRefreshing()  
-</code></pre><p>   self.footer.beginRefreshing()</p>
-<pre><code> self.tableView.reloadData()                self.footer.endRefreshing()               
-
- })       
-
-}
-</code></pre><h1 id="YZDisplayViewController"><a href="#YZDisplayViewController" class="headerlink" title="YZDisplayViewController"></a>YZDisplayViewController</h1><p>滑动标题栏框架<br><a href="https://github.com/iThinkerYZ/YZDisplayViewController" target="_blank" rel="external">https://github.com/iThinkerYZ/YZDisplayViewController</a></p>
-<pre><code>/**
- 设置标题样式
-*/
- func setupTitle()
-{
-
-isShowUnderLine = true
-underLineColor = bgcolor
-isShowTitleGradient = true
-isShowTitleCover = false
-
-titleHeight = 38
-endR = 32 / 255.0
-endG = 142 / 255.0
-endB = 115 / 255.0
-
-  // 是否显示遮盖
-  titleScrollViewColor = UIColor.whiteColor()
-
-  coverColor = UIColor(white: 0.7, alpha: 0.4)
-  coverCornerRadius = 13
-  norColor = UIColor.blackColor()
-  selColor = UIColor.whiteColor()
-   }
-
-
-
-/**
- 添加子控制器
- */
-func setupAllControllers()
-{
- let text = WDTextTableViewController()
-text.title = &quot;糗事&quot;
-addChildViewController(text)
-let picture = WDPictureTableViewController()
-picture.title = &quot;图片&quot;
-addChildViewController(picture)
-let video = WDVideoTableViewController()
-video.title = &quot;视频&quot;
-addChildViewController(video)
-}
-</code></pre><h1 id="LLXWaterFlow"><a href="#LLXWaterFlow" class="headerlink" title="LLXWaterFlow"></a>LLXWaterFlow</h1><p>我写的一个瀑布流的实现<br><a href="https://github.com/w11p3333/LLXWaterFlow" target="_blank" rel="external">https://github.com/w11p3333/LLXWaterFlow</a></p>
+<h1 id="SDCycleScrollView"><a href="#SDCycleScrollView" class="headerlink" title="SDCycleScrollView"></a>SDCycleScrollView</h1><p><a href="https://github.com/gsdios/SDCycleScrollView" target="_blank" rel="external">https://github.com/gsdios/SDCycleScrollView</a><br>实现图片轮播框架<br>使用方法<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> imageGroup = [<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> scrollview = <span class="type">SDCycleScrollView</span>(frame: <span class="type">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, (<span class="type">UIScreen</span>.mainScreen().bounds.width), <span class="number">200</span>), imageNamesGroup: imageGroup)</span><br></pre></td></tr></table></figure></p>
+<h1 id="RxWebViewController"><a href="#RxWebViewController" class="headerlink" title="RxWebViewController"></a>RxWebViewController</h1><p><a href="https://github.com/Roxasora/RxWebViewController" target="_blank" rel="external">https://github.com/Roxasora/RxWebViewController</a><br>仿微信效果的webview<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vc = <span class="type">RxWebViewController</span>(url: url)</span><br><span class="line"><span class="keyword">self</span>.navigationController?.pushViewController(vc, animated: <span class="literal">true</span>)</span><br></pre></td></tr></table></figure></p>
+<h1 id="KGFloatingDrawer"><a href="#KGFloatingDrawer" class="headerlink" title="KGFloatingDrawer"></a>KGFloatingDrawer</h1><p><a href="https://github.com/KyleGoddard/KGFloatingDrawer" target="_blank" rel="external">https://github.com/KyleGoddard/KGFloatingDrawer</a><br>实现左右侧边栏框架</p>
+<h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">privatevar _drawerViewController: <span class="type">KGDrawerViewController</span>?</span><br></pre></td></tr></table></figure>
+<h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> drawerViewController: <span class="type">KGDrawerViewController</span> &#123;  </span><br><span class="line"><span class="keyword">get</span> &#123;       </span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> viewController = _drawerViewController &#123;       </span><br><span class="line"><span class="keyword">return</span> viewController      </span><br><span class="line">&#125;          </span><br><span class="line"></span><br><span class="line">returnprepareDrawerViewController()</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">func prepareDrawerViewController() -&gt; KGDrawerViewController &#123;     </span><br><span class="line">let drawerViewController = KGDrawerViewController()    </span><br><span class="line">drawerViewController.centerViewController = viewControllerForStoryboardId("center")</span><br><span class="line"></span><br><span class="line">drawerViewController.leftViewController = viewControllerForStoryboardId("leftvc")</span><br><span class="line"></span><br><span class="line">drawerViewController.rightViewController = viewControllerForStoryboardId(“rightvc"</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">drawerViewController.leftDrawerWidth = CGFloat(150)       </span><br><span class="line">//背景图片     </span><br><span class="line"></span><br><span class="line">_drawerViewController = drawerViewController      </span><br><span class="line">return drawerViewController  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">drawerStoryboard</span><span class="params">()</span></span> -&gt; <span class="type">UIStoryboard</span> &#123;   </span><br><span class="line"><span class="keyword">let</span> storyboard = <span class="type">UIStoryboard</span>(name: <span class="string">"Main"</span>, bundle: <span class="literal">nil</span>)        <span class="keyword">return</span> storyboard    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">viewControllerForStoryboardId</span><span class="params">(storyboardId: String)</span></span> -&gt; <span class="type">UIViewController</span> &#123;     </span><br><span class="line"><span class="keyword">let</span> viewController: <span class="type">UIViewController</span> = drawerStoryboard().instantiateViewControllerWithIdentifier(storyboardId) <span class="keyword">as</span>! <span class="type">UIViewController</span>   </span><br><span class="line"><span class="keyword">return</span> viewController</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="最后将"><a href="#最后将" class="headerlink" title="最后将"></a>最后将</h4><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>?.rootViewController = drawerViewController</span><br></pre></td></tr></table></figure>
+<h4 id="在想要弹出的方法里"><a href="#在想要弹出的方法里" class="headerlink" title="在想要弹出的方法里"></a>在想要弹出的方法里</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> appDelegate = <span class="type">UIApplication</span>.sharedApplication().delegateas! <span class="type">AppDelegate</span>     </span><br><span class="line">appDelegate.drawerViewController.toggleDrawer(<span class="type">KGDrawerSide</span>.<span class="type">Left</span>, animated: <span class="literal">true</span>) &#123; (finished) -&gt; <span class="type">Void</span>            <span class="keyword">in</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="AFSoundManager"><a href="#AFSoundManager" class="headerlink" title="AFSoundManager"></a>AFSoundManager</h1><p><a href="https://github.com/AlvaroFranco/AFSoundManager" target="_blank" rel="external">https://github.com/AlvaroFranco/AFSoundManager</a><br>音乐播放框架<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> player:<span class="type">AFSoundPlayback</span>?</span><br><span class="line"></span><br><span class="line"><span class="comment">//开始播放音乐 </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">AFSoundManager</span>.sharedManager().startStreamingRemoteAudioFromURL(musicurl) &#123; (percentage, elapsedTime, timeRemaining, error, finished) <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//进度 percentage</span></span><br><span class="line"><span class="comment">//  elapsedTime 开始时间</span></span><br><span class="line"><span class="comment">//  timeRemaining 结束时间</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="暂停方法"><a href="#暂停方法" class="headerlink" title="暂停方法"></a>暂停方法</h3><pre><code>AFSoundManager.sharedManager().pause()
+</code></pre><h3 id="重播方法"><a href="#重播方法" class="headerlink" title="重播方法"></a>重播方法</h3><pre><code>AFSoundManager.sharedManager().resume()
+</code></pre><h1 id="MJRefresh"><a href="#MJRefresh" class="headerlink" title="MJRefresh"></a>MJRefresh</h1><p><a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">https://github.com/CoderMJLee/MJRefresh</a></p>
+<p>刷新控件框架</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// header    var header:MJRefreshNormalHeader&#123;  </span></span><br><span class="line"><span class="keyword">return</span> (<span class="keyword">self</span>.tableView.tableHeaderViewas? <span class="type">MJRefreshNormalHeader</span>)!  </span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line"><span class="comment">/**  footer  */</span> </span><br><span class="line"><span class="keyword">var</span> footer:<span class="type">MJRefreshFooter</span>&#123;   </span><br><span class="line"><span class="keyword">return</span> (<span class="keyword">self</span>.tableView.tableFooterViewas? <span class="type">MJRefreshFooter</span>)!</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法中"><a href="#方法中" class="headerlink" title="方法中"></a>方法中</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span>  <span class="title">setUpRefrshControl</span><span class="params">()</span></span>    &#123;       </span><br><span class="line"><span class="comment">/**        上拉刷新        */</span>   </span><br><span class="line">tableView.tableHeaderView = <span class="type">MJRefreshNormalHeader</span>.<span class="keyword">init</span>(refreshingBlock: &#123; () -&gt; <span class="type">Voidin</span>            <span class="keyword">self</span>.footer.endRefreshing()</span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span>.tableView.reloadData()     </span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span>.header.endRefreshing()               </span><br><span class="line"></span><br><span class="line">&#125;)    </span><br><span class="line">header.automaticallyChangeAlpha = <span class="literal">true</span>     </span><br><span class="line">header.beginRefreshing()    </span><br><span class="line"><span class="comment">/**        下拉刷新        */</span>         </span><br><span class="line">tableView.tableFooterView = <span class="type">MJRefreshAutoNormalFooter</span>.<span class="keyword">init</span>(refreshingBlock: &#123; () -&gt; <span class="type">Void</span> <span class="keyword">in</span>      </span><br><span class="line"><span class="keyword">self</span>.header.endRefreshing()  </span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span>.footer.beginRefreshing()</span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span>.tableView.reloadData()                <span class="keyword">self</span>.footer.endRefreshing()               </span><br><span class="line"></span><br><span class="line">&#125;)       </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="YZDisplayViewController"><a href="#YZDisplayViewController" class="headerlink" title="YZDisplayViewController"></a>YZDisplayViewController</h1><p>滑动标题栏框架<br><a href="https://github.com/iThinkerYZ/YZDisplayViewController" target="_blank" rel="external">https://github.com/iThinkerYZ/YZDisplayViewController</a></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">设置标题样式</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setupTitle</span><span class="params">()</span></span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">isShowUnderLine = <span class="literal">true</span></span><br><span class="line">underLineColor = bgcolor</span><br><span class="line">isShowTitleGradient = <span class="literal">true</span></span><br><span class="line">isShowTitleCover = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">titleHeight = <span class="number">38</span></span><br><span class="line">endR = <span class="number">32</span> / <span class="number">255.0</span></span><br><span class="line">endG = <span class="number">142</span> / <span class="number">255.0</span></span><br><span class="line">endB = <span class="number">115</span> / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否显示遮盖</span></span><br><span class="line">titleScrollViewColor = <span class="type">UIColor</span>.whiteColor()</span><br><span class="line"></span><br><span class="line">coverColor = <span class="type">UIColor</span>(white: <span class="number">0.7</span>, alpha: <span class="number">0.4</span>)</span><br><span class="line">coverCornerRadius = <span class="number">13</span></span><br><span class="line">norColor = <span class="type">UIColor</span>.blackColor()</span><br><span class="line">selColor = <span class="type">UIColor</span>.whiteColor()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line">添加子控制器</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setupAllControllers</span><span class="params">()</span></span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">let</span> text = <span class="type">WDTextTableViewController</span>()</span><br><span class="line">text.title = <span class="string">"糗事"</span></span><br><span class="line">addChildViewController(text)</span><br><span class="line"><span class="keyword">let</span> picture = <span class="type">WDPictureTableViewController</span>()</span><br><span class="line">picture.title = <span class="string">"图片"</span></span><br><span class="line">addChildViewController(picture)</span><br><span class="line"><span class="keyword">let</span> video = <span class="type">WDVideoTableViewController</span>()</span><br><span class="line">video.title = <span class="string">"视频"</span></span><br><span class="line">addChildViewController(video)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="FMDB"><a href="#FMDB" class="headerlink" title="FMDB"></a>FMDB</h1><p>不能用cocoa pod导入<br>先从github下好拖进工程里<br>再创建一个桥接文件 swift-brige<br>在设置中添加sqlite3 库<br>在build settings中搜索Bridging Header<br>添加桥接文件的路径（在本工程内的路径）<br>使用FMDatabaseQueue相比FMDatabase是数据安全的，并且不需要打开数据库的流程</p>
-<h1 id="masonry"><a href="#masonry" class="headerlink" title="masonry"></a>masonry</h1><p>实现方便的代码实现autolayout<br>使用方法<br>   有make remake update三种方法 传进去的参数要加mas_前缀 mas_equalTo 会对参数进行包装 equalTo 不会对参数进行包装</p>
-<pre><code>  //尺寸约束
-  make.size.as_equalTo(CGSizeMake(x,y)); 
-   //位置约束 居中
-make.centerX.mas_equalTo(self.view.centerX);    
-  make.centerY.mas_equalTo(self.view.centerY); 
-   //设置到边的距离      
-    make.right.mas_euqalTo(self.view).offset(20);
-</code></pre><h1 id="Parse-for-iOS"><a href="#Parse-for-iOS" class="headerlink" title="Parse for iOS"></a>Parse for iOS</h1><p>为ios提供后端<br>用法：<a href="http://www.mobile-open.com/2015/41095.html" target="_blank" rel="external">http://www.mobile-open.com/2015/41095.html</a><br>官网：<br><a href="https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061" target="_blank" rel="external">https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061</a></p>
-<h1 id="LeanClound"><a href="#LeanClound" class="headerlink" title="LeanClound"></a>LeanClound</h1><h1 id="Realm"><a href="#Realm" class="headerlink" title="Realm"></a>Realm</h1><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><p>一些常用的SVProgressHUD/AFN/Alamofire/SDWebImage<br>的使用都比较简单我这里就暂时不写了</p>
+<h1 id="masonry"><a href="#masonry" class="headerlink" title="masonry"></a>masonry</h1><p>实现方便的代码实现autolayout<br>使用方法<br>有make remake update三种方法 传进去的参数要加mas_前缀 mas_equalTo 会对参数进行包装 equalTo 不会对参数进行包装</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//尺寸约束</span></span><br><span class="line">make.size.as_equalTo(<span class="type">CGSizeMake</span>(x,y)); </span><br><span class="line"><span class="comment">//位置约束 居中</span></span><br><span class="line">make.centerX.mas_equalTo(<span class="keyword">self</span>.view.centerX);    </span><br><span class="line">make.centerY.mas_equalTo(<span class="keyword">self</span>.view.centerY); </span><br><span class="line"><span class="comment">//设置到边的距离      </span></span><br><span class="line">make.<span class="keyword">right</span>.mas_euqalTo(<span class="keyword">self</span>.view).offset(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+<p>#</p>
+<h1 id="Parse-for-iOS"><a href="#Parse-for-iOS" class="headerlink" title="Parse for iOS"></a>Parse for iOS</h1><p>为ios提供后端<br>用法：<a href="http://www.mobile-open.com/2015/41095.html" target="_blank" rel="external">http://www.mobile-open.com/2015/41095.html</a><br>官网：<br><a href="https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061" target="_blank" rel="external">https://parse.com/docs/cn/ios/guidehttp://zhuanlan.zhihu.com/p/19597061</a></p>
+<h1 id="LeanClound"><a href="#LeanClound" class="headerlink" title="LeanClound"></a>LeanClound</h1><h1 id="Realm"><a href="#Realm" class="headerlink" title="Realm"></a>Realm</h1><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h1 id="SwiftyGif"><a href="#SwiftyGif" class="headerlink" title="SwiftyGif"></a>SwiftyGif</h1><h1 id="JASON"><a href="#JASON" class="headerlink" title="JASON"></a>JASON</h1><p>一些常用的SVProgressHUD/AFN/Alamofire/SDWebImage<br>的使用都比较简单我这里就暂时不写了</p>
 <p>不定时更新</p>
 
       
@@ -591,7 +464,7 @@ make.centerX.mas_equalTo(self.view.centerX);
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SDCycleScrollView"><span class="nav-number">1.</span> <span class="nav-text">SDCycleScrollView</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RxWebViewController"><span class="nav-number">2.</span> <span class="nav-text">RxWebViewController</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#KGFloatingDrawer"><span class="nav-number">3.</span> <span class="nav-text">KGFloatingDrawer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AFSoundManager"><span class="nav-number">4.</span> <span class="nav-text">AFSoundManager</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#YZDisplayViewController"><span class="nav-number">5.</span> <span class="nav-text">YZDisplayViewController</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LLXWaterFlow"><span class="nav-number">6.</span> <span class="nav-text">LLXWaterFlow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FMDB"><span class="nav-number">7.</span> <span class="nav-text">FMDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#masonry"><span class="nav-number">8.</span> <span class="nav-text">masonry</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Parse-for-iOS"><span class="nav-number">9.</span> <span class="nav-text">Parse for iOS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LeanClound"><span class="nav-number">10.</span> <span class="nav-text">LeanClound</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Realm"><span class="nav-number">11.</span> <span class="nav-text">Realm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-number">12.</span> <span class="nav-text">Spring</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SDCycleScrollView"><span class="nav-number">1.</span> <span class="nav-text">SDCycleScrollView</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RxWebViewController"><span class="nav-number">2.</span> <span class="nav-text">RxWebViewController</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#KGFloatingDrawer"><span class="nav-number">3.</span> <span class="nav-text">KGFloatingDrawer</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">1.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">2.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">3.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4"><span class="nav-number">3.0.0.4.</span> <span class="nav-text">4.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5"><span class="nav-number">3.0.0.5.</span> <span class="nav-text">5.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最后将"><span class="nav-number">3.0.0.6.</span> <span class="nav-text">最后将</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在想要弹出的方法里"><span class="nav-number">3.0.0.7.</span> <span class="nav-text">在想要弹出的方法里</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AFSoundManager"><span class="nav-number">4.</span> <span class="nav-text">AFSoundManager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#暂停方法"><span class="nav-number">4.0.1.</span> <span class="nav-text">暂停方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重播方法"><span class="nav-number">4.0.2.</span> <span class="nav-text">重播方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MJRefresh"><span class="nav-number">5.</span> <span class="nav-text">MJRefresh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法中"><span class="nav-number">5.0.0.1.</span> <span class="nav-text">方法中</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#YZDisplayViewController"><span class="nav-number">6.</span> <span class="nav-text">YZDisplayViewController</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FMDB"><span class="nav-number">7.</span> <span class="nav-text">FMDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#masonry"><span class="nav-number">8.</span> <span class="nav-text">masonry</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Parse-for-iOS"><span class="nav-number">9.</span> <span class="nav-text">Parse for iOS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LeanClound"><span class="nav-number">10.</span> <span class="nav-text">LeanClound</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Realm"><span class="nav-number">11.</span> <span class="nav-text">Realm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-number">12.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SwiftyGif"><span class="nav-number">13.</span> <span class="nav-text">SwiftyGif</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JASON"><span class="nav-number">14.</span> <span class="nav-text">JASON</span></a></li></ol></div>
             
           </div>
         </section>
