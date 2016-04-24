@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-24T07:35:06.000Z</updated>
+  <updated>2016-04-24T07:32:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,34 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>实现iOS启动页淡出效果</title>
-    <link href="http://yoursite.com/2016/04/21/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/"/>
-    <id>http://yoursite.com/2016/04/21/实现iOS启动页淡出效果/</id>
-    <published>2016-04-21T14:08:21.000Z</published>
-    <updated>2016-04-24T07:35:06.000Z</updated>
-    
-    <content type="html">&lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;实现：&lt;br&gt;1.在LaunchScreen中将Storyboard ID设置为Launch&lt;br&gt;2.实现方法&lt;/p&gt;
-&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;launchAnimation&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; vc = &lt;span class=&quot;type&quot;&gt;UIStoryboard&lt;/span&gt;(name:&lt;span class=&quot;string&quot;&gt;&quot;LaunchScreen&quot;&lt;/span&gt;, bundle:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;).instantiateViewControllerWithIdentifier(&lt;span class=&quot;string&quot;&gt;&quot;Launch&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; launchview = vc.view&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; delegate = &lt;span class=&quot;type&quot;&gt;UIApplication&lt;/span&gt;.sharedApplication().delegate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; mainWindow = delegate?.window&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   mainWindow!.addSubview(launchview)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.animateWithDuration(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, delay: &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;, options: &lt;span class=&quot;type&quot;&gt;UIViewAnimationOptions&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;BeginFromCurrentState&lt;/span&gt;, animations: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.alpha = &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.layer.transform = &lt;span class=&quot;type&quot;&gt;CATransform3DScale&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;CATransform3DIdentity&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;) &amp;#123; (finished) &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.removeFromSuperview()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;   若是应用使用storyboard中加载的，需要在初始界面的viewcontroller的viewDidAppear方法中调用。&lt;/p&gt;
-&lt;p&gt;若是应用从代码中加载的，需要在AppDelegate中didFinishLaunchingWithOptions方法中调用&lt;br&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="干货" scheme="http://yoursite.com/tags/%E5%B9%B2%E8%B4%A7/"/>
-    
-  </entry>
   
   <entry>
     <title>Swift微信摇一摇的实现</title>
@@ -72,6 +44,34 @@
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>实现iOS启动页淡出效果</title>
+    <link href="http://yoursite.com/2016/04/21/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/"/>
+    <id>http://yoursite.com/2016/04/21/实现iOS启动页淡出效果/</id>
+    <published>2016-04-21T14:08:21.000Z</published>
+    <updated>2016-04-24T07:35:06.000Z</updated>
+    
+    <content type="html">&lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;实现：&lt;br&gt;1.在LaunchScreen中将Storyboard ID设置为Launch&lt;br&gt;2.实现方法&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;launchAnimation&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; vc = &lt;span class=&quot;type&quot;&gt;UIStoryboard&lt;/span&gt;(name:&lt;span class=&quot;string&quot;&gt;&quot;LaunchScreen&quot;&lt;/span&gt;, bundle:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;).instantiateViewControllerWithIdentifier(&lt;span class=&quot;string&quot;&gt;&quot;Launch&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; launchview = vc.view&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; delegate = &lt;span class=&quot;type&quot;&gt;UIApplication&lt;/span&gt;.sharedApplication().delegate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; mainWindow = delegate?.window&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   mainWindow!.addSubview(launchview)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.animateWithDuration(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, delay: &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;, options: &lt;span class=&quot;type&quot;&gt;UIViewAnimationOptions&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;BeginFromCurrentState&lt;/span&gt;, animations: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.alpha = &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.layer.transform = &lt;span class=&quot;type&quot;&gt;CATransform3DScale&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;CATransform3DIdentity&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;) &amp;#123; (finished) &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.removeFromSuperview()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;   若是应用使用storyboard中加载的，需要在初始界面的viewcontroller的viewDidAppear方法中调用。&lt;/p&gt;
+&lt;p&gt;若是应用从代码中加载的，需要在AppDelegate中didFinishLaunchingWithOptions方法中调用&lt;br&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="干货" scheme="http://yoursite.com/tags/%E5%B9%B2%E8%B4%A7/"/>
     
   </entry>
   
@@ -150,7 +150,7 @@ return &amp;quot;StatusID&amp;quot;
     <link href="http://yoursite.com/2016/04/19/ReactiveCocoa%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3-%E8%87%AA%E7%BF%BB/"/>
     <id>http://yoursite.com/2016/04/19/ReactiveCocoa官方文档-自翻/</id>
     <published>2016-04-18T16:00:00.000Z</published>
-    <updated>2016-04-24T08:58:48.000Z</updated>
+    <updated>2016-04-24T09:29:53.000Z</updated>
     
     <content type="html">&lt;p&gt;github官方文档,rac很火,看看顺便翻译一下&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -175,18 +175,31 @@ return &amp;quot;StatusID&amp;quot;
 &lt;li&gt;键值观察&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;因为以上的所有这些不同的机制可以以同样的方式来代表，所以我们很简单的用链式编程以声明方式链将它们结合在一起。有关RAC概念的更多信息，请参见我们的框架概述。&lt;/p&gt;
-&lt;h1 id=&quot;例子：在线搜索&quot;&gt;&lt;a href=&quot;#例子：在线搜索&quot; class=&quot;headerlink&quot; title=&quot;例子：在线搜索&quot;&gt;&lt;/a&gt;例子：在线搜索&lt;/h1&gt;&lt;p&gt;  比方说，你有一个文本字段，用户键入内容，你想要使用网络请求搜索查询。&lt;br&gt;观察文本编辑&lt;/p&gt;
-&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;let searchStrings = textField.rac_textSignal()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.toSignalProducer()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.map &amp;#123; &lt;span class=&quot;built_in&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;! String &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```  第一步是观察编辑文本字段，RAC中扩展的UITextField专门为此而使用,这给了我们一个能够发送字符串类型的信号生产者。&lt;span class=&quot;comment&quot;&gt;## 发送网络请求&lt;/span&gt;  获得了这个字符串之后，我们想要发送一个网络请求，幸运的是，RAC同样提供了一个NSURLSession扩展来实现：&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;let searchResults = searchStrings&lt;br&gt;.flatMap(.Latest) { (query: String) -&amp;gt; SignalProducer&amp;lt;(NSData, NSURLResponse), NSError&amp;gt; in&lt;br&gt;let URLRequest = self.searchRequestWithEscapedQuery(query)&lt;br&gt;return NSURLSession.sharedSession().rac_dataWithRequest(URLRequest)&lt;br&gt;}&lt;br&gt;.map { (data, URLResponse) -&amp;gt; String in&lt;br&gt;let string = String(data: data, encoding: NSUTF8StringEncoding)!&lt;br&gt;return self.parseJSONResultsFromString(string)&lt;br&gt;}&lt;br&gt;.observeOn(UIScheduler())&lt;br&gt;&lt;figure class=&quot;highlight vala&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;  这个过程将会把我们发送的字符串得到的搜索结果转换成接受到的数组，它将在主线程中被执行（得益于主线程调度）。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;另外，flatMap是确保最后的唯一一个搜索被执行的关键。如果用户在搜索中改变了输入字符，它会在取消之前再创建一个新的搜索，想象一下如果我们正常的写这些代码需要多大的工程吧！&lt;span class=&quot;meta&quot;&gt;## 接受结果&lt;/span&gt;上述代码实际上还并没有被执行，因为生产者必须点击开始以获得结果（当结果不需要获得时可以避免运作），这是非常容易实现的：&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;searchResults.startWithNext { results in&lt;br&gt;print(“Search results: (results)”)&lt;br&gt;}&lt;br&gt;&lt;figure class=&quot;highlight autoit&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;  在这里，我们需要观察&lt;span class=&quot;keyword&quot;&gt;Next&lt;/span&gt;这个事件，它包含我们的结果，并将它们输出到控制台，在这个期间我们可以更新一个表视图或者在屏幕上更新一个控件。&lt;span class=&quot;meta&quot;&gt;## 错误处理&lt;/span&gt;在迄今为止的这个例子中，出现任何的网络错误都将产生一个失败事件，它将会终止事件流。不幸的是，这样的话我们接下来的搜索都不会被执行。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;.flatMap(.Latest) { (query: String) -&amp;gt; SignalProducer&amp;lt;(NSData, NSURLResponse), NSError&amp;gt; in&lt;br&gt;let URLRequest = self.searchRequestWithEscapedQuery(query)&lt;/p&gt;
-&lt;p&gt;return NSURLSession.sharedSession()&lt;br&gt;.rac_dataWithRequest(URLRequest)&lt;br&gt;.flatMapError { error in&lt;br&gt;print(“Network error occurred: (error)”)&lt;br&gt;return SignalProducer.empty&lt;br&gt;}&lt;br&gt;}&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;为了解决这个问题，我们需要知道是哪个步骤出了问题。最快的解决方法是在控制台打印它们，然后解决它们。通过这个方法，我们可以有效的解决它们。但是，我们在解决之前可能会重试至少几次。方便的是，有一个重试关键字就是用来方便我们操作的。我们改进过的搜索结果大概看起来是这个样子的：&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;let searchResults = searchStrings&lt;br&gt;.flatMap(.Latest) { (query: String) -&amp;gt; SignalProducer&amp;lt;(NSData, NSURLResponse), NSError&amp;gt; in&lt;br&gt;let URLRequest = self.searchRequestWithEscapedQuery(query)&lt;/p&gt;
-&lt;p&gt;return NSURLSession.sharedSession()&lt;br&gt;.rac_dataWithRequest(URLRequest)&lt;br&gt;.retry(2)&lt;br&gt;.flatMapError { error in&lt;br&gt;print(“Network error occurred: (error)”)&lt;br&gt;return SignalProducer.empty&lt;br&gt;}&lt;br&gt;}&lt;br&gt;.map { (data, URLResponse) -&amp;gt; String in&lt;br&gt;let string = String(data: data, encoding: NSUTF8StringEncoding)!&lt;br&gt;return self.parseJSONResultsFromString(string)&lt;br&gt;}&lt;br&gt;.observeOn(UIScheduler())&lt;br&gt;```&lt;/p&gt;
-&lt;h2 id=&quot;节流请求&quot;&gt;&lt;a href=&quot;#节流请求&quot; class=&quot;headerlink&quot; title=&quot;节流请求&quot;&gt;&lt;/a&gt;节流请求&lt;/h2&gt;&lt;p&gt;  现在，我们假设你想要在只有用户停止输入的时候才发送搜索请求以节省流量。&lt;br&gt;RAC声明了一个节流阀关键字，我们通过它来实现这个操作。&lt;/p&gt;
-&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;let searchStrings = textField.rac_textSignal()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.toSignalProducer()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.map &amp;#123; &lt;span class=&quot;built_in&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;! String &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;.throttle(&lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;, onScheduler: QueueScheduler.mainQueueScheduler)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这样可以防止值被发送不到0.5秒的情况下再次发送，所以我们会搜索用户输入的字符串直到用户停止编辑。如果要通过正常的写代码做到这个，代码将会变得难以阅读！在RAC中，我们在事件流之中只需要使用一个时间关键字。&lt;/p&gt;
-&lt;h1 id=&quot;Objective-C和Swift&quot;&gt;&lt;a href=&quot;#Objective-C和Swift&quot; class=&quot;headerlink&quot; title=&quot;Objective-C和Swift&quot;&gt;&lt;/a&gt;Objective-C和Swift&lt;/h1&gt;&lt;p&gt; 虽然RAC是基于Objective-C的一个框架，我们称之为3.0版本，现在所有主要功能的开发主要集中在swift的API接口中。RAC的Objective-C API接口和Swift API接口是完全分开的，但通过一个桥接文件可以转换。这主要用于一个老版本的使用了RAC项目或者还没有改变到Swift的项目。Objective-C的API接口将会继续存在，在可预见的将来也会继续得到技术支持，但不会得到很多的改进，有关使用此API的更多信息，请查看我们的官方文档。我们强烈建议所有的新项目使用Swift API。&lt;/p&gt;
+&lt;h1 id=&quot;例子：在线搜索&quot;&gt;&lt;a href=&quot;#例子：在线搜索&quot; class=&quot;headerlink&quot; title=&quot;例子：在线搜索&quot;&gt;&lt;/a&gt;例子：在线搜索&lt;/h1&gt;&lt;p&gt;比方说，你有一个文本字段，用户键入内容，你想要使用网络请求搜索查询。&lt;/p&gt;
+&lt;p&gt;观察文本编辑&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let searchStrings = textField.rac_textSignal()
+.toSignalProducer()
+.map { text in text as! String }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  第一步是观察编辑文本字段，RAC中扩展的UITextField专门为此而使用,这给了我们一个能够发送字符串类型的信号生产者。&lt;/p&gt;
+&lt;h2 id=&quot;发送网络请求&quot;&gt;&lt;a href=&quot;#发送网络请求&quot; class=&quot;headerlink&quot; title=&quot;发送网络请求&quot;&gt;&lt;/a&gt;发送网络请求&lt;/h2&gt;&lt;p&gt;  获得了这个字符串之后，我们想要发送一个网络请求，幸运的是，RAC同样提供了一个NSURLSession扩展来实现：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let searchResults = searchStrings
+.flatMap(.Latest) { (query: String) -&amp;gt; SignalProducer&amp;lt;(NSData, NSURLResponse), NSError&amp;gt; in
+let URLRequest = self.searchRequestWithEscapedQuery(query)
+return NSURLSession.sharedSession().rac_dataWithRequest(URLRequest)
+}
+.map { (data, URLResponse) -&amp;gt; String in
+let string = String(data: data, encoding: NSUTF8StringEncoding)!
+return self.parseJSONResultsFromString(string)
+}
+.observeOn(UIScheduler())
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个过程将会把我们发送的字符串得到的搜索结果转换成接受到的数组，它将在主线程中被执行（得益于主线程调度）。&lt;/p&gt;
+&lt;p&gt;另外，flatMap是确保最后的唯一一个搜索被执行的关键。如果用户在搜索中改变了输入字符，它会在取消之前再创建一个新的搜索，想象一下如果我们正常的写这些代码需要多大的工程吧！&lt;/p&gt;
+&lt;h2 id=&quot;接受结果&quot;&gt;&lt;a href=&quot;#接受结果&quot; class=&quot;headerlink&quot; title=&quot;接受结果&quot;&gt;&lt;/a&gt;接受结果&lt;/h2&gt;&lt;p&gt;上述代码实际上还并没有被执行，因为生产者必须点击开始以获得结果（当结果不需要获得时可以避免运作），这是非常容易实现的：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;searchResults.startWithNext { results in
+print(&amp;quot;Search results: \(results)&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在这里，我们需要观察Next这个事件，它包含我们的结果，并将它们输出到控制台，在这个期间我们可以更新一个表视图或者在屏幕上更新一个控件。&lt;/p&gt;
+&lt;h2 id=&quot;错误处理&quot;&gt;&lt;a href=&quot;#错误处理&quot; class=&quot;headerlink&quot; title=&quot;错误处理&quot;&gt;&lt;/a&gt;错误处理&lt;/h2&gt;&lt;h2 id=&quot;节流请求&quot;&gt;&lt;a href=&quot;#节流请求&quot; class=&quot;headerlink&quot; title=&quot;节流请求&quot;&gt;&lt;/a&gt;节流请求&lt;/h2&gt;&lt;h1 id=&quot;Objective-C和Swift&quot;&gt;&lt;a href=&quot;#Objective-C和Swift&quot; class=&quot;headerlink&quot; title=&quot;Objective-C和Swift&quot;&gt;&lt;/a&gt;Objective-C和Swift&lt;/h1&gt;&lt;p&gt; 虽然RAC是基于Objective-C的一个框架，我们称之为3.0版本，现在所有主要功能的开发主要集中在swift的API接口中。RAC的Objective-C API接口和Swift API接口是完全分开的，但通过一个桥接文件可以转换。这主要用于一个老版本的使用了RAC项目或者还没有改变到Swift的项目。Objective-C的API接口将会继续存在，在可预见的将来也会继续得到技术支持，但不会得到很多的改进，有关使用此API的更多信息，请查看我们的官方文档。我们强烈建议所有的新项目使用Swift API。&lt;/p&gt;
 &lt;h1 id=&quot;关于ReactiveCocoa和Rx的关联？&quot;&gt;&lt;a href=&quot;#关于ReactiveCocoa和Rx的关联？&quot; class=&quot;headerlink&quot; title=&quot;关于ReactiveCocoa和Rx的关联？&quot;&gt;&lt;/a&gt;关于ReactiveCocoa和Rx的关联？&lt;/h1&gt;&lt;p&gt;  RAC的灵感，影响于微软的Rx库。Rx有很多接口，包括RxSwift，不过RAC不直接提供接口。&lt;/p&gt;
 &lt;h2 id=&quot;RAC和Rx的不同点在于：&quot;&gt;&lt;a href=&quot;#RAC和Rx的不同点在于：&quot; class=&quot;headerlink&quot; title=&quot;RAC和Rx的不同点在于：&quot;&gt;&lt;/a&gt;RAC和Rx的不同点在于：&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;RAC创建了一个更简单的API接口&lt;/p&gt;
