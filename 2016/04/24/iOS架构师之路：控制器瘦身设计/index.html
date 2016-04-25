@@ -1,0 +1,670 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="AppleCatKay" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="网上看到的一篇关于架构的文章,感觉受益匪浅,要好好消化一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS架构师之路：控制器瘦身设计[转载]">
+<meta property="og:url" content="http://yoursite.com/2016/04/24/iOS架构师之路：控制器瘦身设计/index.html">
+<meta property="og:site_name" content="AppleCatKay">
+<meta property="og:description" content="网上看到的一篇关于架构的文章,感觉受益匪浅,要好好消化一下">
+<meta property="og:updated_time" content="2016-04-25T09:42:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS架构师之路：控制器瘦身设计[转载]">
+<meta name="twitter:description" content="网上看到的一篇关于架构的文章,感觉受益匪浅,要好好消化一下">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> iOS架构师之路：控制器瘦身设计[转载] | AppleCatKay </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">AppleCatKay</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS架构师之路：控制器瘦身设计[转载]
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-24T23:15:18+08:00" content="2016-04-24">
+              2016-04-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>网上看到的一篇关于架构的文章,感觉受益匪浅,要好好消化一下</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　古老的MVC架构是容易被iOS开发者理解和接受的设计模式，因此在项目中也是应用最多。但是由于iOS开发的项目功能越来越庞大，项目代码也随之不断壮大，MVC的模糊定义导致我们的业务开发工程师很容易把大量的代码写到视图控制器中，行业中对这种控制器有个专业词汇Massive ViewControler（臃肿的视图控制器）。代码臃肿导致可读性可维护性差，而且这种不清晰的设计还有许多的副作用，比如代码重用性差。作为架构师需要关注项目的代码质量。指导业务开发工程师写出高质量，高健壮性，高可用的代码也是很重要的工作。因此需要知道一些为控制器瘦身的技巧，并在项目中帮助业务开发工程师合理的运用它们。</p>
+<h1 id="分离数据源-Data-Source-等协议-Protocol"><a href="#分离数据源-Data-Source-等协议-Protocol" class="headerlink" title="分离数据源(Data Source)等协议(Protocol)"></a>分离数据源(Data Source)等协议(Protocol)</h1><p>　　瘦身控制器的有效方法之一就是将实现 UITableViewDataSource 协议相关的代码封装成一个类(比如本文中的 ArraryDataSource )。如果你多用几次这个设计，你就会创建复用性高的封装类。<br>　　举个例子，示例工程中的类 PhotosViewController实现如下数据源方法：
+　　</p>
+<pre><code>　　# pragma mark Private Method
+
+- (Photo*)photoAtIndexPath:(NSIndexPath*)indexPath {
+return photos[(NSUInteger)indexPath.row];
+}
+
+# pragma mark UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView*)tableView
+numberOfRowsInSection:(NSInteger)section {
+return photos.count;
+}
+
+- (UITableViewCell*)tableView:(UITableView*)tableView
+cellForRowAtIndexPath:(NSIndexPath*)indexPath {
+PhotoCell* cell = [tableView dequeueReusableCellWithIdentifier:PhotoCellIdentifier
+                                  forIndexPath:indexPath];
+Photo* photo = [self photoAtIndexPath:indexPath];
+cell.label.text = photo.name;
+return cell;
+}
+</code></pre><p>上面示例的数据源的实现都与 NSArray 有关，还有一个方法的实现与 Photo 有关(Photo 与 Cell 呈一一对应关系)。下面让我们来把与 NSArray 相关的代码从 控制器中抽离出来,并改用 block 来设置 cell 的视图。当然你也可以用代理来实现，取决于你的个人喜好。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@implementation</span> ArrayDataSource</span><br><span class="line"></span><br><span class="line">- (id)<span class="attribute">itemAtIndexPath</span>:(NSIndexPath*)indexPath &#123;</span><br><span class="line">    return items<span class="selector-attr">[(NSUInteger)indexPath.row]</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (NSInteger)<span class="attribute">tableView</span>:(UITableView*)tableView</span><br><span class="line"> <span class="attribute">numberOfRowsInSection</span>:(NSInteger)section &#123;</span><br><span class="line">    return items<span class="selector-class">.count</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (UITableViewCell*)<span class="attribute">tableView</span>:(UITableView*)tableView</span><br><span class="line">        <span class="attribute">cellForRowAtIndexPath</span>:(NSIndexPath*)indexPath &#123;</span><br><span class="line">    id cell = <span class="selector-attr">[tableView dequeueReusableCellWithIdentifier:cellIdentifier</span><br><span class="line">                                              forIndexPath:indexPath]</span>;</span><br><span class="line">    id item = <span class="selector-attr">[self itemAtIndexPath:indexPath]</span>;</span><br><span class="line">    configureCellBlock(cell,item);</span><br><span class="line">    return cell;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
+<p>现在我们可以控制器中的三个数据源代理方法可以干掉，并且把 控制器的 dataSource 设置为 ArrayDataSource 的实例。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void (^configureCell)(PhotoCell*, Photo*) = ^(PhotoCell* cell, Photo* photo) &#123;</span><br><span class="line">cell.label<span class="meta">.text</span> = photo.name<span class="comment">;</span></span><br><span class="line">&#125;<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">photosArrayDataSource = [[ArrayDataSource alloc] initWithItems:photos</span><br><span class="line"><span class="symbol">cellIdentifier:</span>PhotoCellIdentifier</span><br><span class="line"><span class="symbol">configureCellBlock:</span>configureCell]<span class="comment">;</span></span><br><span class="line">self.tableView.dataSource = photosArrayDataSource<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>　　通过上面的方法，你就可以把设置 Cell 视图的工作从 控制器中抽离出来。现在你不需要再关心indexPath如何与 NSArrary 中的元素如何关联，当你需要将数组中的元素在其它 UITableView 中展示时你可以重用以上代码。你也可以在 ArrayDataSource 中实现更多的方法，比如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">　　这样做还能带来额外的好处，我们还可以针对这部分实现编写单独的单元测试。不仅仅针对```NSArray```，我们可以使用这种分离思路处理其他数据容器（比如```NSDictionary```）。</span><br><span class="line">　该技巧同样适用于其他 Protocol ,比如 ```UICollectionViewDataSource``` 。通过该协议，你可以定义出各种各样的```UICollectionViewCell``` 。假如有一天，你需要在代码在使用到 ```UICollectionView```来替代当前的 ```UITableView```，你只需要修改几行 控制器中的代码即可完成替换。你甚至能够让你的 ```DataSource``` 类同时实现 ```UICollectionViewDataSource``` 协议和```UITableViewDataSource```协议。</span><br><span class="line">　</span><br><span class="line"># 把业务逻辑移至 Model</span><br><span class="line">　　下面是一段位于 控制器中的代码，作用是找出针对用户active priority的一个列表。</span><br><span class="line">　　</span><br><span class="line">　　</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>//ViewController.m</p>
+<ul>
+<li><p>(void)loadPriorities {<br>NSDate<em> now = [NSDate date];<br>NSString</em> formatString = @”startDate &lt;= %@ AND endDate &gt;= %@”;<br>NSPredicate<em> predicate = [NSPredicate predicateWithFormat:formatString, now, now];<br>NSSet</em> priorities = [self.user.priorities filteredSetUsingPredicate:predicate];<br>self.priorities = [priorities allObjects];<br>}</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">　　然而，假如你把代码实现移至 <span class="keyword">User</span> <span class="title">的 Category</span> 中，控制器中的代码将会更简洁、更清晰。</span><br><span class="line"></span><br><span class="line">将以上代码移到User+Extension.m中</span><br></pre></td></tr></table></figure>
+<p>//User+Extension.m</p>
+<ul>
+<li><p>(NSArray*)currentPriorities {</p>
+<p>NSDate* now = [NSDate date];</p>
+<p>NSString* formatString = @”startDate &lt;= %@ AND endDate &gt;= %@”;</p>
+<p>NSPredicate* predicate = [NSPredicate predicateWithFormat:formatString, now, now];</p>
+<p>return [[self.priorities filteredSetUsingPredicate:predicate] allObjects];<br>}</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>````</p>
+<p>　　ViewController.m 中的代码可以改成这个鬼样子，是不是明显要简洁许多，可读性强很多呢。
+　　</p>
+<pre><code>//ViewController.m
+ - (void)loadPriorities {
+
+    self.priorities = [self.user currentPriorities];
+}
+</code></pre><p>　　实际开发中，有些代码很难移至 model 对象中，但是很明显这些代码与 model 对象有关。针对这种情况，我们可以创建一个 store 类，并把相关代码迁移进去。</p>
+<p>创建Store类<br>　　在这个示例项目工程中，我们有一段用于从本地文件加载数据并解析的代码:</p>
+<p>　　</p>
+<pre><code>- (void)readArchive {
+NSBundle* bundle = [NSBundle bundleForClass:[self class]];
+NSURL *archiveURL = [bundle URLForResource:@&quot;photodata&quot;
+withExtension:@&quot;bin&quot;];
+
+NSAssert(archiveURL != nil, @&quot;Unable to find archive in bundle.&quot;);
+
+NSData *data = [NSData dataWithContentsOfURL:archiveURL
+options:0
+error:NULL];
+
+NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+
+_users = [unarchiver decodeObjectOfClass:[NSArray class] forKey:@&quot;users&quot;];
+
+_photos = [unarchiver decodeObjectOfClass:[NSArray class] forKey:@&quot;photos&quot;];
+
+[unarchiver finishDecoding];
+</code></pre><p>　　控制器不应该负责以上的工作，控制器只要负责数据调度就可以了，数据获取的工作我们完全可以交给 store 对象来负责。通过将这些代码从 控制器中抽离出来，我们可以更容易复用、测试这些方法、同时让控制器变得更轻巧( Store 对象一般负责数据的加载、缓存、持久化。Store 对象也经常被称作 Service Layer 对象，或者 Repository 对象)。</p>
+<h1 id="将网络通信（Web-Service）逻辑移至Model层"><a href="#将网络通信（Web-Service）逻辑移至Model层" class="headerlink" title="将网络通信（Web Service）逻辑移至Model层"></a>将网络通信（Web Service）逻辑移至Model层</h1><p>　　这与上一个主题非常相似：别把 Web Service 相关的代码写在 控制器中，应该把这部分代码抽离出来。并通过方法的回调对数据进行处理。</p>
+<p>　　不仅如此，你还可以把处理异常情况的工作也转交给 Store 对象负责。</p>
+<h1 id="把视图相关的代码移至View层"><a href="#把视图相关的代码移至View层" class="headerlink" title="把视图相关的代码移至View层"></a>把视图相关的代码移至View层</h1><p>同样构建视图（尤其是复杂视图）的代码也不应该写在 View Controller （关我毛事啊，我只负责调度和通信啊）中。要么使用Interface Builder ，要么封装一个 Vew 的子类来完成这部分工作。假设现在需要实现自定义一个日期选择器。我们应该新建一个 DatePickerView 的子类来完成构建视图的工作，而不是把这部分工作放在 View Controller中完成。同样的，这将是你的代码更简洁，复用性更强。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/21/实现iOS启动页淡出效果/" rel="next" title="实现iOS启动页淡出效果">
+                <i class="fa fa-chevron-left"></i> 实现iOS启动页淡出效果
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/16464148?v=3&s=460"
+               alt="LuLiangXiao" />
+          <p class="site-author-name" itemprop="name">LuLiangXiao</p>
+          <p class="site-description motion-element" itemprop="description">iOS Coder</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/w11p3333" target="_blank" title="github">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/w535921901/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lu-liang-xiao-72" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-zhihu"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/89aa04642c48/latest_articles" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-zhihu"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number"></span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分离数据源-Data-Source-等协议-Protocol"><span class="nav-number"></span> <span class="nav-text">分离数据源(Data Source)等协议(Protocol)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将网络通信（Web-Service）逻辑移至Model层"><span class="nav-number"></span> <span class="nav-text">将网络通信（Web Service）逻辑移至Model层</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#把视图相关的代码移至View层"><span class="nav-number"></span> <span class="nav-text">把视图相关的代码移至View层</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LuLiangXiao</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
