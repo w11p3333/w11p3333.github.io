@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-02T15:09:47.000Z</updated>
+  <updated>2016-05-02T15:46:57.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2016/05/02/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8F%92%E4%BB%B6%E7%AF%87/"/>
     <id>http://yoursite.com/2016/05/02/iOS开发中常用的插件篇/</id>
     <published>2016-05-02T14:57:39.000Z</published>
-    <updated>2016-05-02T15:09:47.000Z</updated>
+    <updated>2016-05-02T15:46:57.000Z</updated>
     
-    <content type="html">&lt;p&gt;介绍些开发中好用的XCode插件&lt;/p&gt;
+    <content type="html">&lt;p&gt;介绍些开发中好用的XCode插件&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;Alcatraz&quot;&gt;&lt;a href=&quot;#Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;Alcatraz&quot;&gt;&lt;/a&gt;Alcatraz&lt;/h1&gt;&lt;p&gt;Alcatraz除了是一个优秀的插件管理，还可以更换主题，更赞的是支持预览，快捷方便。&lt;/p&gt;
 &lt;h1 id=&quot;AMMethod2Implement&quot;&gt;&lt;a href=&quot;#AMMethod2Implement&quot; class=&quot;headerlink&quot; title=&quot;AMMethod2Implement&quot;&gt;&lt;/a&gt;AMMethod2Implement&lt;/h1&gt;&lt;p&gt;简介：&lt;br&gt;可以自动的将.h或者.m .mm里边需要写入的方法自动填充进来。可以选择要导入的方法，然后按 Ctrl+A 或者 Edit &amp;gt; AMMethod2Implement &amp;gt; Implement Method.就会自动填充方法.也可以自行设置快捷键。&lt;br&gt;目前版本支持h文件声明方法自动生成实现，m或者mm文件已写好的方法生成方法声明到h文件， extern NSString * const， @select(method:) 和 [self methodName] 实现代码生成。&lt;/p&gt;
 &lt;h1 id=&quot;AMAppExportToIPA&quot;&gt;&lt;a href=&quot;#AMAppExportToIPA&quot; class=&quot;headerlink&quot; title=&quot;AMAppExportToIPA&quot;&gt;&lt;/a&gt;AMAppExportToIPA&lt;/h1&gt;&lt;p&gt;简介：&lt;br&gt;AMAppExportToIPA 是一款可以让你在Xcode的project navigator界面中直接右键点击xxx.app -&amp;gt; Export IPA就可以生成对应的IPA文件的Xcode插件。&lt;/p&gt;
@@ -35,8 +35,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;介绍些开发中好用的XCode插件&lt;/p&gt;
-&lt;h1 id=&quot;Alcatraz&quot;&gt;&lt;a href=&quot;#Alcatraz&quot; class=&quot;headerlink&quot; title=&quot;Alcatraz&quot;&gt;&lt;/a&gt;Alcatraz&lt;/h1&gt;&lt;p&gt;Alcatraz除了是一个优秀的插件管理，还
+      &lt;p&gt;介绍些开发中好用的XCode插件&lt;br&gt;
     
     </summary>
     
@@ -141,34 +140,6 @@ _photos = [unarchiver decodeObjectOfClass:[NSArray class] forKey:@&amp;quot;phot
   </entry>
   
   <entry>
-    <title>实现iOS启动页淡出效果</title>
-    <link href="http://yoursite.com/2016/04/21/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/"/>
-    <id>http://yoursite.com/2016/04/21/实现iOS启动页淡出效果/</id>
-    <published>2016-04-21T14:08:21.000Z</published>
-    <updated>2016-04-24T07:35:06.000Z</updated>
-    
-    <content type="html">&lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;实现：&lt;br&gt;1.在LaunchScreen中将Storyboard ID设置为Launch&lt;br&gt;2.实现方法&lt;/p&gt;
-&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;launchAnimation&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; vc = &lt;span class=&quot;type&quot;&gt;UIStoryboard&lt;/span&gt;(name:&lt;span class=&quot;string&quot;&gt;&quot;LaunchScreen&quot;&lt;/span&gt;, bundle:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;).instantiateViewControllerWithIdentifier(&lt;span class=&quot;string&quot;&gt;&quot;Launch&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; launchview = vc.view&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; delegate = &lt;span class=&quot;type&quot;&gt;UIApplication&lt;/span&gt;.sharedApplication().delegate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; mainWindow = delegate?.window&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   mainWindow!.addSubview(launchview)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.animateWithDuration(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, delay: &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;, options: &lt;span class=&quot;type&quot;&gt;UIViewAnimationOptions&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;BeginFromCurrentState&lt;/span&gt;, animations: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.alpha = &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.layer.transform = &lt;span class=&quot;type&quot;&gt;CATransform3DScale&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;CATransform3DIdentity&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;) &amp;#123; (finished) &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.removeFromSuperview()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;   若是应用使用storyboard中加载的，需要在初始界面的viewcontroller的viewDidAppear方法中调用。&lt;/p&gt;
-&lt;p&gt;若是应用从代码中加载的，需要在AppDelegate中didFinishLaunchingWithOptions方法中调用&lt;br&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="干货" scheme="http://yoursite.com/tags/%E5%B9%B2%E8%B4%A7/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Swift微信摇一摇的实现</title>
     <link href="http://yoursite.com/2016/04/21/Swift%E5%BE%AE%E4%BF%A1%E6%91%87%E4%B8%80%E6%91%87%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
     <id>http://yoursite.com/2016/04/21/Swift微信摇一摇的实现/</id>
@@ -197,6 +168,34 @@ _photos = [unarchiver decodeObjectOfClass:[NSArray class] forKey:@&amp;quot;phot
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>实现iOS启动页淡出效果</title>
+    <link href="http://yoursite.com/2016/04/21/%E5%AE%9E%E7%8E%B0iOS%E5%90%AF%E5%8A%A8%E9%A1%B5%E6%B7%A1%E5%87%BA%E6%95%88%E6%9E%9C/"/>
+    <id>http://yoursite.com/2016/04/21/实现iOS启动页淡出效果/</id>
+    <published>2016-04-21T14:08:21.000Z</published>
+    <updated>2016-04-24T07:35:06.000Z</updated>
+    
+    <content type="html">&lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;实现：&lt;br&gt;1.在LaunchScreen中将Storyboard ID设置为Launch&lt;br&gt;2.实现方法&lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;launchAnimation&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; vc = &lt;span class=&quot;type&quot;&gt;UIStoryboard&lt;/span&gt;(name:&lt;span class=&quot;string&quot;&gt;&quot;LaunchScreen&quot;&lt;/span&gt;, bundle:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;).instantiateViewControllerWithIdentifier(&lt;span class=&quot;string&quot;&gt;&quot;Launch&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; launchview = vc.view&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; delegate = &lt;span class=&quot;type&quot;&gt;UIApplication&lt;/span&gt;.sharedApplication().delegate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; mainWindow = delegate?.window&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   mainWindow!.addSubview(launchview)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.animateWithDuration(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, delay: &lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;, options: &lt;span class=&quot;type&quot;&gt;UIViewAnimationOptions&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;BeginFromCurrentState&lt;/span&gt;, animations: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.alpha = &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.layer.transform = &lt;span class=&quot;type&quot;&gt;CATransform3DScale&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;CATransform3DIdentity&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;) &amp;#123; (finished) &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   launchview.removeFromSuperview()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;   若是应用使用storyboard中加载的，需要在初始界面的viewcontroller的viewDidAppear方法中调用。&lt;/p&gt;
+&lt;p&gt;若是应用从代码中加载的，需要在AppDelegate中didFinishLaunchingWithOptions方法中调用&lt;br&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;先上Demo：&lt;a href=&quot;https://github.com/w11p3333/LaunchDemo&quot;&gt;https://github.com/w11p3333/LaunchDemo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;思路：将launchScreen作为window的一个addsubview&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="干货" scheme="http://yoursite.com/tags/%E5%B9%B2%E8%B4%A7/"/>
     
   </entry>
   
