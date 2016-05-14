@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="干货," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -82,19 +82,16 @@
 
 
 
-<meta name="description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview">
+<meta name="description" content="iOS Coder">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实现iOS启动页淡出效果">
-<meta property="og:url" content="http://yoursite.com/2016/04/21/实现iOS启动页淡出效果/index.html">
+<meta property="og:title" content="ReactiveCocoa学习">
+<meta property="og:url" content="http://yoursite.com/2016/05/14/ReactiveCocoa学习/index.html">
 <meta property="og:site_name" content="AppleCatKay">
-<meta property="og:description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview">
-<meta property="og:updated_time" content="2016-04-24T07:35:06.000Z">
+<meta property="og:description" content="iOS Coder">
+<meta property="og:updated_time" content="2016-05-14T15:52:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实现iOS启动页淡出效果">
-<meta name="twitter:description" content="先上Demo：https://github.com/w11p3333/LaunchDemo
-思路：将launchScreen作为window的一个addsubview">
+<meta name="twitter:title" content="ReactiveCocoa学习">
+<meta name="twitter:description" content="iOS Coder">
 
 
 
@@ -112,7 +109,7 @@
   };
 </script>
 
-  <title> 实现iOS启动页淡出效果 | AppleCatKay </title>
+  <title> ReactiveCocoa学习 | AppleCatKay </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -242,7 +239,7 @@
             
             
               
-                实现iOS启动页淡出效果
+                ReactiveCocoa学习
               
             
           </h1>
@@ -254,8 +251,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-04-21T22:08:21+08:00" content="2016-04-21">
-              2016-04-21
+            <time itemprop="dateCreated" datetime="2016-05-14T23:52:29+08:00" content="2016-05-14">
+              2016-05-14
             </time>
           </span>
 
@@ -282,14 +279,7 @@
       
 
       
-        <p>先上Demo：<a href="https://github.com/w11p3333/LaunchDemo" target="_blank" rel="external">https://github.com/w11p3333/LaunchDemo</a></p>
-<p>思路：将launchScreen作为window的一个addsubview</p>
-<a id="more"></a>
-<p>实现：<br>1.在LaunchScreen中将Storyboard ID设置为Launch<br>2.实现方法</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">launchAnimation</span><span class="params">()</span></span></span><br><span class="line">   &#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">let</span> vc = <span class="type">UIStoryboard</span>(name:<span class="string">"LaunchScreen"</span>, bundle:<span class="literal">nil</span>).instantiateViewControllerWithIdentifier(<span class="string">"Launch"</span>)</span><br><span class="line">   <span class="keyword">let</span> launchview = vc.view</span><br><span class="line">   <span class="keyword">let</span> delegate = <span class="type">UIApplication</span>.sharedApplication().delegate</span><br><span class="line">   <span class="keyword">let</span> mainWindow = delegate?.window</span><br><span class="line">   mainWindow!.addSubview(launchview)</span><br><span class="line">   <span class="type">UIView</span>.animateWithDuration(<span class="number">1</span>, delay: <span class="number">0.5</span>, options: <span class="type">UIViewAnimationOptions</span>.<span class="type">BeginFromCurrentState</span>, animations: &#123;</span><br><span class="line">   launchview.alpha = <span class="number">0.0</span></span><br><span class="line">   launchview.layer.transform = <span class="type">CATransform3DScale</span>(<span class="type">CATransform3DIdentity</span>, <span class="number">1.5</span>, <span class="number">1.5</span>, <span class="number">1.0</span>)</span><br><span class="line">   &#125;) &#123; (finished) <span class="keyword">in</span></span><br><span class="line">   launchview.removeFromSuperview()</span><br><span class="line">   &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-<p>   若是应用使用storyboard中加载的，需要在初始界面的viewcontroller的viewDidAppear方法中调用。</p>
-<p>若是应用从代码中加载的，需要在AppDelegate中didFinishLaunchingWithOptions方法中调用<br></p>
-
+        
       
     </div>
     
@@ -307,28 +297,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/干货/" rel="tag">#干货</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/20/Swift集成高德地图-修复官方文档错误/" rel="next" title="Swift集成高德地图-修复官方文档错误">
-                <i class="fa fa-chevron-left"></i> Swift集成高德地图-修复官方文档错误
+              <a href="/2016/05/08/关于离屏渲染优化的思考/" rel="next" title="关于离屏渲染优化的思考">
+                <i class="fa fa-chevron-left"></i> 关于离屏渲染优化的思考
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/21/Swift微信摇一摇的实现/" rel="prev" title="Swift微信摇一摇的实现">
-                Swift微信摇一摇的实现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
