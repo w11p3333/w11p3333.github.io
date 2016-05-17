@@ -241,6 +241,100 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/17/iOS判断网络环境缓存的思路/" itemprop="url">
+                  iOS判断网络环境缓存的思路
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-17T23:28:59+08:00" content="2016-05-17">
+              2016-05-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>伪代码思路：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">- setItem:(CustomItem *)item</span><br><span class="line">&#123;</span><br><span class="line">_item = item;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (缓存中有原图) </span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">self</span>.imageView.image = 原图;</span><br><span class="line">&#125; <span class="keyword">else</span> </span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (Wifi环境) </span><br><span class="line">&#123;</span><br><span class="line">下载显示原图</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (手机自带网络) </span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (<span class="number">3</span>G\<span class="number">4</span>G环境下仍然下载原图) </span><br><span class="line">&#123;</span><br><span class="line">    下载显示原图</span><br><span class="line">&#125; <span class="keyword">else</span> </span><br><span class="line">&#123;</span><br><span class="line">    下载显示小图</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> </span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (缓存中有小图) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span>.imageView.image = 小图;</span><br><span class="line">&#125; <span class="keyword">else</span>  <span class="comment">// 处理离线状态</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span>.imageView.image = 占位图片;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">    </span><br><span class="line">使用AFN和SDWebimage的完整代码</span><br><span class="line"></span><br><span class="line">```objc</span><br><span class="line">- setItem:(CustomItem *)item</span><br><span class="line">&#123;</span><br><span class="line">_item = item;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 占位图片</span></span><br><span class="line"><span class="built_in">UIImage</span> *placeholder = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"placeholderImage"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从内存\沙盒缓存中获得原图</span></span><br><span class="line"><span class="built_in">UIImage</span> *originalImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:item.originalImage];</span><br><span class="line"><span class="keyword">if</span> (originalImage) &#123; <span class="comment">// 如果内存\沙盒缓存有原图，那么就直接显示原图（不管现在是什么网络状态）</span></span><br><span class="line">[<span class="keyword">self</span>.imageView sd_setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:item.originalImage] placeholderImage:placeholder];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// 内存\沙盒缓存没有原图</span></span><br><span class="line">AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];</span><br><span class="line"><span class="keyword">if</span> (mgr.isReachableViaWiFi) &#123; <span class="comment">// 在使用Wifi, 下载原图</span></span><br><span class="line">[<span class="keyword">self</span>.imageView sd_setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:item.originalImage] placeholderImage:placeholder];</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (mgr.isReachableViaWWAN) &#123; <span class="comment">// 在使用手机自带网络</span></span><br><span class="line"><span class="comment">//     用户的配置项假设利用NSUserDefaults存储到了沙盒中</span></span><br><span class="line"><span class="comment">//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"alwaysDownloadOriginalImage"];</span></span><br><span class="line"><span class="comment">//    [[NSUserDefaults standardUserDefaults] synchronize];</span></span><br><span class="line"><span class="meta">#warning 从沙盒中读取用户的配置项：在3G\4G环境是否仍然下载原图</span></span><br><span class="line"><span class="built_in">BOOL</span> alwaysDownloadOriginalImage = [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] boolForKey:<span class="string">@"alwaysDownloadOriginalImage"</span>];</span><br><span class="line"><span class="keyword">if</span> (alwaysDownloadOriginalImage) &#123; <span class="comment">// 下载原图</span></span><br><span class="line">    [<span class="keyword">self</span>.imageView sd_setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:item.originalImage] placeholderImage:placeholder];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// 下载小图</span></span><br><span class="line">    [<span class="keyword">self</span>.imageView sd_setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:item.thumbnailImage] placeholderImage:placeholder];</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// 没有网络</span></span><br><span class="line"><span class="built_in">UIImage</span> *thumbnailImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:item.thumbnailImage];</span><br><span class="line"><span class="keyword">if</span> (thumbnailImage) &#123; <span class="comment">// 内存\沙盒缓存中有小图</span></span><br><span class="line">    [<span class="keyword">self</span>.imageView sd_setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:item.thumbnailImage] placeholderImage:placeholder];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    [<span class="keyword">self</span>.imageView sd_setImageWithURL:<span class="literal">nil</span> placeholderImage:placeholder];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/14/ReactiveCocoa学习/" itemprop="url">
                   ReactiveCocoa学习
                 </a>
@@ -719,8 +813,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/21/Swift微信摇一摇的实现/" itemprop="url">
-                  Swift微信摇一摇的实现
+                <a class="post-title-link" href="/2016/04/21/实现iOS启动页淡出效果/" itemprop="url">
+                  实现iOS启动页淡出效果
                 </a>
               
             
@@ -762,9 +856,10 @@
 
       
         
-          <h2 id=""><a href="#" class="headerlink" title=""></a>
+          <p>先上Demo：<a href="https://github.com/w11p3333/LaunchDemo">https://github.com/w11p3333/LaunchDemo</a></p>
+<p>思路：将launchScreen作为window的一个addsubview</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/21/Swift微信摇一摇的实现/#more" rel="contents">
+            <a class="btn" href="/2016/04/21/实现iOS启动页淡出效果/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -815,8 +910,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/21/实现iOS启动页淡出效果/" itemprop="url">
-                  实现iOS启动页淡出效果
+                <a class="post-title-link" href="/2016/04/21/Swift微信摇一摇的实现/" itemprop="url">
+                  Swift微信摇一摇的实现
                 </a>
               
             
@@ -858,10 +953,9 @@
 
       
         
-          <p>先上Demo：<a href="https://github.com/w11p3333/LaunchDemo">https://github.com/w11p3333/LaunchDemo</a></p>
-<p>思路：将launchScreen作为window的一个addsubview</p>
+          <h2 id=""><a href="#" class="headerlink" title=""></a>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/21/实现iOS启动页淡出效果/#more" rel="contents">
+            <a class="btn" href="/2016/04/21/Swift微信摇一摇的实现/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1084,102 +1178,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/19/ReactiveCocoa官方文档-自翻/" itemprop="url">
-                  ReactiveCocoa官方文档-自翻
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-04-19T00:00:00+08:00" content="2016-04-19">
-              2016-04-19
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>github官方文档,rac很火,看看顺便翻译一下</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/19/ReactiveCocoa官方文档-自翻/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1225,7 +1223,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

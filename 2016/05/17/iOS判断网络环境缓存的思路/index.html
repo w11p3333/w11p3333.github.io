@@ -82,18 +82,19 @@
 
 
 
-<meta name="description" content="先上Demo：https://github.com/w11p3333/LLXAnimateTableview">
+<meta name="description" content="伪代码思路：
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374- setItem:(CustomItem *)item&amp;#123;_item = item;if (缓存中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实现流动效果划出的Tableview">
-<meta property="og:url" content="http://yoursite.com/2016/04/15/实现流动效果划出的Tableview/index.html">
+<meta property="og:title" content="iOS判断网络环境缓存的思路">
+<meta property="og:url" content="http://yoursite.com/2016/05/17/iOS判断网络环境缓存的思路/index.html">
 <meta property="og:site_name" content="AppleCatKay">
-<meta property="og:description" content="先上Demo：https://github.com/w11p3333/LLXAnimateTableview">
-<meta property="og:image" content="http://7xtc17.com2.z0.glb.clouddn.com/flowTableView.gif">
-<meta property="og:updated_time" content="2016-04-24T12:03:50.000Z">
+<meta property="og:description" content="伪代码思路：
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374- setItem:(CustomItem *)item&amp;#123;_item = item;if (缓存中">
+<meta property="og:updated_time" content="2016-05-17T15:29:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实现流动效果划出的Tableview">
-<meta name="twitter:description" content="先上Demo：https://github.com/w11p3333/LLXAnimateTableview">
-<meta name="twitter:image" content="http://7xtc17.com2.z0.glb.clouddn.com/flowTableView.gif">
+<meta name="twitter:title" content="iOS判断网络环境缓存的思路">
+<meta name="twitter:description" content="伪代码思路：
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374- setItem:(CustomItem *)item&amp;#123;_item = item;if (缓存中">
 
 
 
@@ -111,7 +112,7 @@
   };
 </script>
 
-  <title> 实现流动效果划出的Tableview | AppleCatKay </title>
+  <title> iOS判断网络环境缓存的思路 | AppleCatKay </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -241,7 +242,7 @@
             
             
               
-                实现流动效果划出的Tableview
+                iOS判断网络环境缓存的思路
               
             
           </h1>
@@ -253,8 +254,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-04-15T00:00:00+08:00" content="2016-04-15">
-              2016-04-15
+            <time itemprop="dateCreated" datetime="2016-05-17T23:28:59+08:00" content="2016-05-17">
+              2016-05-17
             </time>
           </span>
 
@@ -281,10 +282,8 @@
       
 
       
-        <p>  <img src="http://7xtc17.com2.z0.glb.clouddn.com/flowTableView.gif" alt="动画效果"><br>  先上Demo：<a href="https://github.com/w11p3333/LLXAnimateTableview" target="_blank" rel="external">https://github.com/w11p3333/LLXAnimateTableview</a><br><a id="more"></a></p>
-<p>主要实现：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">animationTable</span><span class="params">()</span></span> &#123;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">self</span>.tableView.reloadData()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">let</span> cells = tableView.visibleCells</span><br><span class="line"><span class="keyword">let</span> tableHeight: <span class="type">CGFloat</span> = tableView.bounds.size.height</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> cells &#123;</span><br><span class="line"><span class="keyword">let</span> cell: <span class="type">UITableViewCell</span> = i <span class="keyword">as</span> <span class="type">UITableViewCell</span></span><br><span class="line">cell.transform = <span class="type">CGAffineTransformMakeTranslation</span>(<span class="number">0</span>, tableHeight)</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> index = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> cells &#123;</span><br><span class="line"><span class="keyword">let</span> cell: <span class="type">UITableViewCell</span> = a <span class="keyword">as</span> <span class="type">UITableViewCell</span></span><br><span class="line"><span class="type">UIView</span>.animateWithDuration(<span class="number">1.0</span>, delay: <span class="number">0.05</span> * <span class="type">Double</span>(index), usingSpringWithDamping: <span class="number">0.8</span>, initialSpringVelocity: <span class="number">0</span>, options: [], animations: &#123;</span><br><span class="line">cell.transform = <span class="type">CGAffineTransformMakeTranslation</span>(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;, completion: <span class="literal">nil</span>)</span><br><span class="line">    </span><br><span class="line">index += <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后在viewWillAppear中调用它</p>
-
+        <p>伪代码思路：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">- setItem:(CustomItem *)item</span><br><span class="line">&#123;</span><br><span class="line">_item = item;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (缓存中有原图) </span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">self</span>.imageView.image = 原图;</span><br><span class="line">&#125; <span class="keyword">else</span> </span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (Wifi环境) </span><br><span class="line">&#123;</span><br><span class="line">下载显示原图</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (手机自带网络) </span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (<span class="number">3</span>G\<span class="number">4</span>G环境下仍然下载原图) </span><br><span class="line">&#123;</span><br><span class="line">    下载显示原图</span><br><span class="line">&#125; <span class="keyword">else</span> </span><br><span class="line">&#123;</span><br><span class="line">    下载显示小图</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> </span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (缓存中有小图) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span>.imageView.image = 小图;</span><br><span class="line">&#125; <span class="keyword">else</span>  <span class="comment">// 处理离线状态</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span>.imageView.image = 占位图片;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">    </span><br><span class="line">使用AFN和SDWebimage的完整代码</span><br><span class="line"></span><br><span class="line">```objc</span><br><span class="line">- setItem:(CustomItem *)item</span><br><span class="line">&#123;</span><br><span class="line">_item = item;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 占位图片</span></span><br><span class="line"><span class="built_in">UIImage</span> *placeholder = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"placeholderImage"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从内存\沙盒缓存中获得原图</span></span><br><span class="line"><span class="built_in">UIImage</span> *originalImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:item.originalImage];</span><br><span class="line"><span class="keyword">if</span> (originalImage) &#123; <span class="comment">// 如果内存\沙盒缓存有原图，那么就直接显示原图（不管现在是什么网络状态）</span></span><br><span class="line">[<span class="keyword">self</span>.imageView sd_setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:item.originalImage] placeholderImage:placeholder];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// 内存\沙盒缓存没有原图</span></span><br><span class="line">AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];</span><br><span class="line"><span class="keyword">if</span> (mgr.isReachableViaWiFi) &#123; <span class="comment">// 在使用Wifi, 下载原图</span></span><br><span class="line">[<span class="keyword">self</span>.imageView sd_setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:item.originalImage] placeholderImage:placeholder];</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (mgr.isReachableViaWWAN) &#123; <span class="comment">// 在使用手机自带网络</span></span><br><span class="line"><span class="comment">//     用户的配置项假设利用NSUserDefaults存储到了沙盒中</span></span><br><span class="line"><span class="comment">//    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"alwaysDownloadOriginalImage"];</span></span><br><span class="line"><span class="comment">//    [[NSUserDefaults standardUserDefaults] synchronize];</span></span><br><span class="line"><span class="meta">#warning 从沙盒中读取用户的配置项：在3G\4G环境是否仍然下载原图</span></span><br><span class="line"><span class="built_in">BOOL</span> alwaysDownloadOriginalImage = [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] boolForKey:<span class="string">@"alwaysDownloadOriginalImage"</span>];</span><br><span class="line"><span class="keyword">if</span> (alwaysDownloadOriginalImage) &#123; <span class="comment">// 下载原图</span></span><br><span class="line">    [<span class="keyword">self</span>.imageView sd_setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:item.originalImage] placeholderImage:placeholder];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// 下载小图</span></span><br><span class="line">    [<span class="keyword">self</span>.imageView sd_setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:item.thumbnailImage] placeholderImage:placeholder];</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123; <span class="comment">// 没有网络</span></span><br><span class="line"><span class="built_in">UIImage</span> *thumbnailImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:item.thumbnailImage];</span><br><span class="line"><span class="keyword">if</span> (thumbnailImage) &#123; <span class="comment">// 内存\沙盒缓存中有小图</span></span><br><span class="line">    [<span class="keyword">self</span>.imageView sd_setImageWithURL:[<span class="built_in">NSURL</span> URLWithString:item.thumbnailImage] placeholderImage:placeholder];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    [<span class="keyword">self</span>.imageView sd_setImageWithURL:<span class="literal">nil</span> placeholderImage:placeholder];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -307,17 +306,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/11/iOS框架使用/" rel="next" title="iOS中实用框架的使用">
-                <i class="fa fa-chevron-left"></i> iOS中实用框架的使用
+              <a href="/2016/05/14/ReactiveCocoa学习/" rel="next" title="ReactiveCocoa学习">
+                <i class="fa fa-chevron-left"></i> ReactiveCocoa学习
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/16/hello-world/" rel="prev" title="CocoaPods及Carthage的使用">
-                CocoaPods及Carthage的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
