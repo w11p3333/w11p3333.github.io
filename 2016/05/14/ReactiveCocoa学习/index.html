@@ -82,19 +82,16 @@
 
 
 
-<meta name="description" content="代替代理1234//代替代理  [[_bgView rac_signalForSelector:@selector(btnClick:)] subscribeNext:^(id x) &amp;#123;      NSLog(@&quot;点击了btn&quot;);  &amp;#125;];
-代替KVO12345678//第一种写法[RACObserve(scrolView, contentOffset) subscribe">
+<meta name="description" content="最近在学 慢慢整理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ReactiveCocoa学习">
+<meta property="og:title" content="ReactiveCocoa">
 <meta property="og:url" content="http://yoursite.com/2016/05/14/ReactiveCocoa学习/index.html">
 <meta property="og:site_name" content="AppleCatKay">
-<meta property="og:description" content="代替代理1234//代替代理  [[_bgView rac_signalForSelector:@selector(btnClick:)] subscribeNext:^(id x) &amp;#123;      NSLog(@&quot;点击了btn&quot;);  &amp;#125;];
-代替KVO12345678//第一种写法[RACObserve(scrolView, contentOffset) subscribe">
-<meta property="og:updated_time" content="2016-05-18T15:03:35.000Z">
+<meta property="og:description" content="最近在学 慢慢整理">
+<meta property="og:updated_time" content="2016-05-19T00:49:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ReactiveCocoa学习">
-<meta name="twitter:description" content="代替代理1234//代替代理  [[_bgView rac_signalForSelector:@selector(btnClick:)] subscribeNext:^(id x) &amp;#123;      NSLog(@&quot;点击了btn&quot;);  &amp;#125;];
-代替KVO12345678//第一种写法[RACObserve(scrolView, contentOffset) subscribe">
+<meta name="twitter:title" content="ReactiveCocoa">
+<meta name="twitter:description" content="最近在学 慢慢整理">
 
 
 
@@ -112,7 +109,7 @@
   };
 </script>
 
-  <title> ReactiveCocoa学习 | AppleCatKay </title>
+  <title> ReactiveCocoa | AppleCatKay </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -242,7 +239,7 @@
             
             
               
-                ReactiveCocoa学习
+                ReactiveCocoa
               
             
           </h1>
@@ -282,7 +279,7 @@
       
 
       
-        <a id="more"></a>
+        <p>最近在学 慢慢整理<br><a id="more"></a></p>
 <h2 id="代替代理"><a href="#代替代理" class="headerlink" title="代替代理"></a>代替代理</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//代替代理</span></span><br><span class="line">  [[_bgView <span class="string">rac_signalForSelector:</span><span class="meta">@selector</span>(<span class="string">btnClick:</span>)] <span class="string">subscribeNext:</span>^(id x) &#123;</span><br><span class="line">      NSLog(@<span class="string">"点击了btn"</span>);</span><br><span class="line">  &#125;];</span><br></pre></td></tr></table></figure>
 <h2 id="代替KVO"><a href="#代替KVO" class="headerlink" title="代替KVO"></a>代替KVO</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种写法</span></span><br><span class="line">[RACObserve(scrolView, contentOffset) subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"滚动"</span>);</span><br><span class="line">&#125;];</span><br><span class="line"><span class="comment">//第二种写法</span></span><br><span class="line">    [[_bgView rac_valuesAndChangesForKeyPath:<span class="string">@"center"</span> options:<span class="built_in">NSKeyValueObservingOptionNew</span> observer:<span class="literal">nil</span>] subscribeNext:^(<span class="keyword">id</span> x) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"发生改变%@"</span>,x);</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
 <h2 id="代替通知"><a href="#代替通知" class="headerlink" title="代替通知"></a>代替通知</h2><p>通知不需要remove</p>
