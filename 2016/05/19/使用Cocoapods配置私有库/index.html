@@ -1,0 +1,609 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="AppleCatKay" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="在团队开发中,经常会抽出内部框架以便团队复用,使用Cocoapods制作一个私有的框架,其它同事导入就可以使用了,可以大大提升开发效率。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Cocoapods配置私有库">
+<meta property="og:url" content="http://yoursite.com/2016/05/19/使用Cocoapods配置私有库/index.html">
+<meta property="og:site_name" content="AppleCatKay">
+<meta property="og:description" content="在团队开发中,经常会抽出内部框架以便团队复用,使用Cocoapods制作一个私有的框架,其它同事导入就可以使用了,可以大大提升开发效率。">
+<meta property="og:updated_time" content="2016-05-19T14:59:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Cocoapods配置私有库">
+<meta name="twitter:description" content="在团队开发中,经常会抽出内部框架以便团队复用,使用Cocoapods制作一个私有的框架,其它同事导入就可以使用了,可以大大提升开发效率。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 使用Cocoapods配置私有库 | AppleCatKay </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">AppleCatKay</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                使用Cocoapods配置私有库
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-19T22:24:19+08:00" content="2016-05-19">
+              2016-05-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在团队开发中,经常会抽出内部框架以便团队复用,使用Cocoapods制作一个私有的框架,其它同事导入就可以使用了,可以大大提升开发效率。</p>
+<a id="more"></a>
+<h1 id="一、创建两个git仓库"><a href="#一、创建两个git仓库" class="headerlink" title="一、创建两个git仓库"></a>一、创建两个git仓库</h1><p>一个用来做私有的Spec Repo在此命名为KAYREPO，一个作为公共仓库在此命名为KAYGIT</p>
+<h1 id="二、添加私有Repo到Cocoapods"><a href="#二、添加私有Repo到Cocoapods" class="headerlink" title="二、添加私有Repo到Cocoapods"></a>二、添加私有Repo到Cocoapods</h1><p>主要命令是pod repo add REPO_NAME SOURCE_URL。其中，REPO_NAME是私有repo的名字也就是KAYREPO，取一个容易记住的名字，后面还会用到，以后公司内部的组件对应的podspec都可以推送到这个repo中；SOURCE_URL就是刚刚我们创建的公共仓库链接。</p>
+<h1 id="三、制作podspec"><a href="#三、制作podspec" class="headerlink" title="三、制作podspec"></a>三、制作podspec</h1><p>在开发中完成了一个框架测试通过发布release版本后，便可以制作podspec。制作方法很多，可以通过XCode中Cocoapods插件的create/edit spec选项来生成，也可以使用命令行:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="keyword">spec</span> create PODSPECNAME</span><br></pre></td></tr></table></figure>
+<h1 id="四、编写podspec"><a href="#四、编写podspec" class="headerlink" title="四、编写podspec"></a>四、编写podspec</h1><p>这一步我踩了很多坑，测试一直通不过，最终试验成功如下：</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Pod::Spec.<span class="keyword">new</span> <span class="keyword">do</span> |s|</span><br><span class="line"><span class="meta"># 库的名称，也就是pod 'NAME' 中的名字</span></span><br><span class="line">  s.name     = <span class="string">'CIAccountLib'</span></span><br><span class="line"><span class="meta"># 版本号 注意一定要与仓库中相同 否则测试无法通过</span></span><br><span class="line">  s.version  = <span class="string">'2.0'</span></span><br><span class="line"><span class="meta"># 协议 不用管</span></span><br><span class="line">  s.license  = <span class="string">'MIT'</span></span><br><span class="line"><span class="meta"># 简介 随便写</span></span><br><span class="line">  s.summary  = <span class="string">'CIAccountLib is a request util based on AFNetworking and Reachability'</span></span><br><span class="line"><span class="meta"># 项目主页</span></span><br><span class="line">  s.homepage = <span class="string">'http://git.nibaguai.com/nbg_service/AccountClientiOS'</span></span><br><span class="line"><span class="meta"># 作者名与邮箱</span></span><br><span class="line">  s.author   = &#123; <span class="string">'luliangxiao'</span> =&gt; <span class="string">'luliangxiao@corp-ci.com'</span> &#125;</span><br><span class="line"><span class="meta"># 库的地址,也就是从这个地址下载</span></span><br><span class="line">  s.source   = &#123; :git =&gt; <span class="string">'http://git.nibaguai.com/nbg_service/AccountClientiOS.git'</span>, :tag =&gt; <span class="string">'2.0'</span> &#125;</span><br><span class="line"><span class="meta"># 平台</span></span><br><span class="line">  s.platform     = :ios, <span class="string">'7.0'</span></span><br><span class="line"><span class="meta"># 注意:就是这点容易掉坑 CIAccountLib代表当前目录，/*表示包含目录中的所有文件,二三级目录也要写出来 .&#123;h,m&#125;表示只筛选h、m文件</span></span><br><span class="line">  s.source_files = <span class="string">'CIAccountLib/**/*.&#123;h,m&#125;'</span></span><br><span class="line"><span class="meta"># 依赖的静态库</span></span><br><span class="line">  s.framework = <span class="string">'UIKit'</span></span><br><span class="line"><span class="meta"># 支持arc</span></span><br><span class="line">  s.requires_arc = <span class="literal">true</span>  </span><br><span class="line"><span class="meta"># 依赖的其它三方框架 系统会自动同时导入</span></span><br><span class="line">  s.dependency <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 2.6.3'</span></span><br><span class="line">  s.dependency <span class="string">'Reachability'</span>, <span class="string">'~&gt; 3.2'</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h1 id="五、测试"><a href="#五、测试" class="headerlink" title="五、测试"></a>五、测试</h1><p>推送到服务器前必须要测试通过,cd到与spec文件同级目录,命令行敲上以下命令:</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="class"><span class="keyword">lib</span> <span class="title">lint</span></span></span><br></pre></td></tr></table></figure>
+<p>执行此过程会调用xcode命令行自动编译,只有编译通过才能进入下一步</p>
+<p>使用<figure class="highlight plain"><figcaption><span>```来显示具体错误</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">若提示警告可以使用```--allow-warnings```忽视 </span><br><span class="line">无错误则为测试通过</span><br><span class="line"></span><br><span class="line"># 六、推送到服务器</span><br><span class="line"></span><br><span class="line">推送命令如下:</span><br></pre></td></tr></table></figure></p>
+<p>pod repo push REPO_NAME SPEC_NAME.podspec<br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">REPO_NAME就是建立的私有repo，也就是KAYREPO </span><br><span class="line">同样使用```--allow-warnings```忽视警告  </span><br><span class="line">无错误则为推送成功</span><br><span class="line"></span><br><span class="line">使用```pod search NAME```测试是否能够搜索到</span><br><span class="line"></span><br><span class="line"><span class="symbol">若成功类似如下:</span></span><br></pre></td></tr></table></figure></p>
+<p>$ pod search KAYUTIL<br>-&gt; KAYUTIL (0.1.2)<br>   KAYUTIL is a request util based on AFNetworking<br>   pod ‘BGNetwork’, ‘~&gt; 0.1.2’<br>   Homepage: <a href="https://github.com/luliangxiao/KAYUTIL" target="_blank" rel="external">https://github.com/luliangxiao/KAYUTIL</a><br>   Source:   <a href="https://github.com/luliangxiao/KAYUTIL.git" target="_blank" rel="external">https://github.com/luliangxiao/KAYUTIL.git</a><br>   Versions: 0.1.1, 0.1.0 [luliangxiao repo] - 0.1.2, 0.1.1 [master repo]<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">同时将sepc文件<span class="keyword">PUSH</span>到远程KAYGIT仓库中,以后版本更新就<span class="keyword">PUSH</span>新的sepc文件到KAYGIT</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta"># 七、导入</span></span><br><span class="line"></span><br><span class="line">若要在项目中导入上传的私有库，需要在Podfile文件中添加本地私有源。如果没有添加本地私有源，它默认是用官方的repo，这样找不到本地的Pod；如果只是设置了本地私有源，就不会再去官方源中查找。在podfile中配置如下:</span><br></pre></td></tr></table></figure></p>
+<p> #官方Cocoapods的源<br>   source ‘<a href="https://github.com/CocoaPods/Specs.git" target="_blank" rel="external">https://github.com/CocoaPods/Specs.git</a>‘</p>
+<p>   #本地私有源<br>   source ‘<a href="https://github.com/luliangxiao/first.git" target="_blank" rel="external">https://github.com/luliangxiao/first.git</a>‘<br>   platform :ios, ‘7.0’<br>   pod ‘KAYUTIL’, ‘~&gt; 0.1.1’</p>
+<p>```<br>执行pod install. KO</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/17/iOS判断网络环境缓存的思路/" rel="next" title="iOS判断网络环境缓存的思路">
+                <i class="fa fa-chevron-left"></i> iOS判断网络环境缓存的思路
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/16464148?v=3&s=460"
+               alt="LuLiangXiao" />
+          <p class="site-author-name" itemprop="name">LuLiangXiao</p>
+          <p class="site-description motion-element" itemprop="description">iOS Coder</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/w11p3333" target="_blank" title="github">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/w535921901/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lu-liang-xiao-72" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-zhihu"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/89aa04642c48/latest_articles" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-zhihu"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、创建两个git仓库"><span class="nav-number">1.</span> <span class="nav-text">一、创建两个git仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、添加私有Repo到Cocoapods"><span class="nav-number">2.</span> <span class="nav-text">二、添加私有Repo到Cocoapods</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、制作podspec"><span class="nav-number">3.</span> <span class="nav-text">三、制作podspec</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、编写podspec"><span class="nav-number">4.</span> <span class="nav-text">四、编写podspec</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、测试"><span class="nav-number">5.</span> <span class="nav-text">五、测试</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LuLiangXiao</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
