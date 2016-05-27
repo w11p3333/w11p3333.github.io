@@ -1,0 +1,639 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="AppleCatKay" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="QQ、微信、微博接入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS第三方登录大全(上)">
+<meta property="og:url" content="http://yoursite.com/2016/05/27/iOS第三方登录大全/index.html">
+<meta property="og:site_name" content="AppleCatKay">
+<meta property="og:description" content="QQ、微信、微博接入">
+<meta property="og:image" content="http://7xtc17.com1.z0.glb.clouddn.com/Snip20160527_12.png">
+<meta property="og:image" content="http://7xtc17.com1.z0.glb.clouddn.com/Snip20160527_13.png">
+<meta property="og:updated_time" content="2016-05-27T09:03:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS第三方登录大全(上)">
+<meta name="twitter:description" content="QQ、微信、微博接入">
+<meta name="twitter:image" content="http://7xtc17.com1.z0.glb.clouddn.com/Snip20160527_12.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> iOS第三方登录大全(上) | AppleCatKay </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">AppleCatKay</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS第三方登录大全(上)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-05-27T16:23:12+08:00" content="2016-05-27">
+              2016-05-27
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>QQ、微信、微博接入</p>
+<a id="more"></a>
+<h1 id="通用说明"><a href="#通用说明" class="headerlink" title="通用说明"></a>通用说明</h1><p>所有第三方登录都需遵循以下步骤：</p>
+<ul>
+<li>注册第三方应用的AppID、Key、Secret</li>
+<li>添加第三方SDK及其所需系统依赖库,各文档内有详细说明,若依旧编译错误请参考下图加入所有库:<br><img src="http://7xtc17.com1.z0.glb.clouddn.com/Snip20160527_12.png" alt=""><br><img src="http://7xtc17.com1.z0.glb.clouddn.com/Snip20160527_13.png" alt=""></li>
+<li>在Targets-&gt;Info-&gt;URL Types添加各自的URL Schemes</li>
+<li>在info.plist添加LSApplicationQueriesSchemes字段并添加白名单</li>
+<li>在AppDelegate中初始化，各自回调，实现代理</li>
+<li>具体请看下文</li>
+</ul>
+<h1 id="QQ接入"><a href="#QQ接入" class="headerlink" title="QQ接入"></a>QQ接入</h1><h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><p><a href="http://wiki.connect.qq.com/%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E6%8E%A5%E5%85%A5%E6%A6%82%E8%BF%B0" target="_blank" rel="external">移动应用接入概述</a></p>
+<p><a href="http://wiki.connect.qq.com/sdk%E4%B8%8B%E8%BD%BD" target="_blank" rel="external">SDK下载地址</a></p>
+<p><a href="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/iOS_SDK_huanjingdajian.doc" target="_blank" rel="external">SDK环境搭建</a></p>
+<p><a href="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/IOS_SDK_API_V2.9.5InstructionManual.doc" target="_blank" rel="external">API使用说明</a></p>
+<h4 id="2-1-配置QQ需要的静态库，分别是"><a href="#2-1-配置QQ需要的静态库，分别是" class="headerlink" title="2.1 配置QQ需要的静态库，分别是"></a>2.1 配置QQ需要的静态库，分别是</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">”<span class="selector-tag">Security</span><span class="selector-class">.framework</span>”, “<span class="selector-tag">libiconv</span><span class="selector-class">.dylib</span>”,“<span class="selector-tag">SystemConfiguration</span><span class="selector-class">.framework</span>”,  </span><br><span class="line">“<span class="selector-tag">CoreGraphics</span><span class="selector-class">.Framework</span>”,“<span class="selector-tag">libsqlite3</span><span class="selector-class">.dylib</span>”,“<span class="selector-tag">CoreTelephony</span><span class="selector-class">.framework</span>”,  </span><br><span class="line">“<span class="selector-tag">libstdc</span>++<span class="selector-class">.dylib</span>”,“<span class="selector-tag">libz</span><span class="selector-class">.dylib</span>”</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-在配置文件Info-plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转"><a href="#2-2-在配置文件Info-plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转" class="headerlink" title="2.2 在配置文件Info.plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转"></a>2.2 在配置文件Info.plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">   <span class="tag">&lt;<span class="name">key</span>&gt;</span>LSApplicationQueriesSchemes<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqqapi<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqq<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqqOpensdkSSoLogin<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqqconnect<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqqopensdkdataline<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqqopensdkgrouptribeshare<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqqopensdkfriend<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqqopensdkapi<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqqopensdkapiV2<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqqopensdkapiV3<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqzoneopensdk<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>wtloginmqq<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>wtloginmqq2<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqqwpa<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqzone<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqzonev2<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqzoneshare<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>wtloginqzone<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqzonewx<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqzoneopensdkapiV2<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqzoneopensdkapi19<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqzoneopensdkapi<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mqqbrowser<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">string</span>&gt;</span>mttbrowser<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-3-点击XCode项目名，选择Info，添加腾讯的URL-Types"><a href="#2-3-点击XCode项目名，选择Info，添加腾讯的URL-Types" class="headerlink" title="2.3 点击XCode项目名，选择Info，添加腾讯的URL Types"></a>2.3 点击XCode项目名，选择Info，添加腾讯的URL Types</h4><p>identifier填tencent  URL Schemes:tencent前缀后+QQ App ID（用户自己申请的账号）</p>
+<h4 id="2-4-在AppDelegate中配置"><a href="#2-4-在AppDelegate中配置" class="headerlink" title="2.4 在AppDelegate中配置"></a>2.4 在AppDelegate中配置</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="selector-tag">-</span> (BOOL)<span class="selector-tag">application</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span> <span class="selector-tag">openURL</span><span class="selector-pseudo">:(NSURL</span> *)<span class="selector-tag">url</span> <span class="selector-tag">sourceApplication</span><span class="selector-pseudo">:(NSString</span> *)<span class="selector-tag">sourceApplication</span> <span class="selector-tag">annotation</span><span class="selector-pseudo">:(id)annotation</span>&#123;</span><br><span class="line">    return  <span class="selector-attr">[TencentOAuth HandleOpenURL:url]</span>;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="selector-tag">-</span> (BOOL)<span class="selector-tag">application</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span> <span class="selector-tag">handleOpenURL</span><span class="selector-pseudo">:(NSURL</span> *)<span class="selector-tag">url</span>&#123;</span><br><span class="line">    return <span class="selector-attr">[TencentOAuth HandleOpenURL:url]</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-5-构建单例工具类"><a href="#2-5-构建单例工具类" class="headerlink" title="2.5 构建单例工具类"></a>2.5 构建单例工具类</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">CIAccountThirdLoginUtil</span> *thirdLogin;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CIAccountThirdLoginUtil</span>()&lt;<span class="title">TencentSessionDelegate</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> TencentOAuth *tencentOAuth;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>)<span class="keyword">void</span> (^thirdLoginSuccess)(<span class="built_in">NSDictionary</span> *);</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>)<span class="keyword">void</span> (^thirdLoginFailure)(<span class="built_in">NSError</span> *);</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">CIAccountThirdLoginUtil</span></span></span><br><span class="line"><span class="comment">//获取单例</span></span><br><span class="line">+ (<span class="built_in">CIAccountThirdLoginUtil</span> *)getInstance&#123;</span><br><span class="line">    <span class="keyword">if</span> (!thirdLogin) &#123;</span><br><span class="line">        thirdLogin = [[<span class="built_in">CIAccountThirdLoginUtil</span> alloc] init];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> thirdLogin;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-6-在工具类中构建登录QQ方法"><a href="#2-6-在工具类中构建登录QQ方法" class="headerlink" title="2.6 在工具类中构建登录QQ方法"></a>2.6 在工具类中构建登录QQ方法</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)<span class="string">loginQQSuccess:</span>(<span class="keyword">void</span> (^)(id response))successBlock <span class="string">failure:</span>(<span class="keyword">void</span> (^)(NSError *error))failureBlock&#123;</span><br><span class="line">    _thirdLoginSuccess = successBlock;</span><br><span class="line">    _thirdLoginFailure = failureBlock;</span><br><span class="line">    </span><br><span class="line">    _tencentOAuth = [[TencentOAuth alloc] <span class="string">initWithAppId:</span>QQ_APP_ID <span class="string">andDelegate:</span>self];</span><br><span class="line">    NSArray *permissions= [NSArray <span class="string">arrayWithObjects:</span>@<span class="string">"get_user_info"</span>,@<span class="string">"get_simple_userinfo"</span>,@<span class="string">"add_t"</span>,nil];</span><br><span class="line">    [_tencentOAuth <span class="string">authorize:</span>permissions <span class="string">inSafari:</span>NO];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-7-实现QQ代理方法"><a href="#2-7-实现QQ代理方法" class="headerlink" title="2.7 实现QQ代理方法"></a>2.7 实现QQ代理方法</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark - TencentSessionDelegate</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//登录成功回调</span></span><br><span class="line">- (<span class="keyword">void</span>)tencentDidLogin&#123;</span><br><span class="line">    <span class="keyword">if</span> (_tencentOAuth.accessToken &amp;&amp; <span class="number">0</span> != [_tencentOAuth.accessToken length])&#123;</span><br><span class="line">        [_tencentOAuth getUserInfo];</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">NSError</span> *error = [<span class="built_in">CIAccountError</span> createError:ErrorThirdLoginFailure];</span><br><span class="line">        _thirdLoginFailure(error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//登录失败回调</span></span><br><span class="line">- (<span class="keyword">void</span>)tencentDidNotLogin:(<span class="built_in">BOOL</span>)cancelled&#123;</span><br><span class="line">    <span class="keyword">if</span> (cancelled) &#123;</span><br><span class="line">        <span class="built_in">NSError</span> *error = [<span class="built_in">CIAccountError</span> createError:ErrorThirdLoginCancel];</span><br><span class="line">        _thirdLoginFailure(error);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">NSError</span> *error = [<span class="built_in">CIAccountError</span> createError:ErrorThirdLoginFailure];</span><br><span class="line">        _thirdLoginFailure(error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//没有网络</span></span><br><span class="line">- (<span class="keyword">void</span>)tencentDidNotNetWork&#123;</span><br><span class="line">    <span class="built_in">NSError</span> *error = [<span class="built_in">CIAccountError</span> createError:ErrorNetNone];</span><br><span class="line">    _thirdLoginFailure(error);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//获取回调的用户信息</span></span><br><span class="line">- (<span class="keyword">void</span>)getUserInfoResponse:(APIResponse *)response&#123;</span><br><span class="line">    <span class="built_in">NSDictionary</span> *result = @&#123;<span class="string">@"openid"</span>:_tencentOAuth.openId,</span><br><span class="line">                             <span class="string">@"nickname"</span>:response.jsonResponse[<span class="string">@"nickname"</span>],</span><br><span class="line">                             <span class="string">@"account_type"</span>:<span class="string">@"qq"</span>,</span><br><span class="line">                             <span class="string">@"access_token"</span>:_tencentOAuth.accessToken,</span><br><span class="line">                             <span class="string">@"third_appid"</span>:QQ_APP_ID&#125;;</span><br><span class="line">    _thirdLoginSuccess(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-8-登录时调用工具类的loginQQ方法"><a href="#2-8-登录时调用工具类的loginQQ方法" class="headerlink" title="2.8 登录时调用工具类的loginQQ方法"></a>2.8 登录时调用工具类的loginQQ方法</h4><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[thirdLoginUtil loginQQSuccess:^(<span class="name">id</span> response) &#123;</span><br><span class="line">                [self thirdLogin:response]<span class="comment">;</span></span><br><span class="line">          //拿到返回的数据进行客户端自身登录       </span><br><span class="line">            &#125; failure:^(<span class="name">NSError</span> *error) &#123;</span><br><span class="line">            &#125;]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h1 id="微信接入"><a href="#微信接入" class="headerlink" title="微信接入"></a>微信接入</h1><h4 id="官方文档-1"><a href="#官方文档-1" class="headerlink" title="官方文档"></a>官方文档</h4><p><a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=1417694084&amp;token=&amp;lang=zh_CN" target="_blank" rel="external">iOS接入指南</a></p>
+<p><a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419319164&amp;token=&amp;lang=zh_CN" target="_blank" rel="external">SDK下载地址</a></p>
+<p><a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419317851&amp;token=&amp;lang=zh_CN" target="_blank" rel="external">微信登录功能</a></p>
+<h4 id="2-1-配置微信需要的静态库-分别是"><a href="#2-1-配置微信需要的静态库-分别是" class="headerlink" title="2.1 配置微信需要的静态库,分别是"></a>2.1 配置微信需要的静态库,分别是</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"<span class="selector-tag">SystemConfiguration</span><span class="selector-class">.framework</span>","<span class="selector-tag">libz</span><span class="selector-class">.dylib</span>","<span class="selector-tag">libsqlite3</span><span class="selector-class">.0</span><span class="selector-class">.dylib</span>","<span class="selector-tag">libc</span>++<span class="selector-class">.dylib</span>"</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-在配置文件Info-plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转-1"><a href="#2-2-在配置文件Info-plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转-1" class="headerlink" title="2.2 在配置文件Info.plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转"></a>2.2 在配置文件Info.plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>LSApplicationQueriesSchemes<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span>&gt;</span>wechat<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span>&gt;</span>weixin<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-3-点击XCode项目名，选择Info，添加微信的URL-Types"><a href="#2-3-点击XCode项目名，选择Info，添加微信的URL-Types" class="headerlink" title="2.3 点击XCode项目名，选择Info，添加微信的URL Types"></a>2.3 点击XCode项目名，选择Info，添加微信的URL Types</h4><p>identifier:weixin URL Schemes:weixin前缀后+QQ App ID（用户自己申请的账号）</p>
+<h4 id="2-4-在AppDelegate中配置-1"><a href="#2-4-在AppDelegate中配置-1" class="headerlink" title="2.4 在AppDelegate中配置"></a>2.4 在AppDelegate中配置</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="selector-tag">-</span> (BOOL)<span class="selector-tag">application</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span> <span class="selector-tag">didFinishLaunchingWithOptions</span><span class="selector-pseudo">:(NSDictionary</span> *)<span class="selector-tag">launchOptions</span> &#123;</span><br><span class="line"> <span class="comment">//微信注册</span></span><br><span class="line">    <span class="selector-attr">[WXApi registerApp:WX_APP_ID]</span>;</span><br><span class="line">      return YES;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="selector-tag">-</span> (BOOL)<span class="selector-tag">application</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span> <span class="selector-tag">openURL</span><span class="selector-pseudo">:(NSURL</span> *)<span class="selector-tag">url</span> <span class="selector-tag">sourceApplication</span><span class="selector-pseudo">:(NSString</span> *)<span class="selector-tag">sourceApplication</span> <span class="selector-tag">annotation</span><span class="selector-pseudo">:(id)annotation</span>&#123;</span><br><span class="line">    return   <span class="selector-attr">[WXApi handleOpenURL:url delegate:self]</span>;   </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="selector-tag">-</span> (BOOL)<span class="selector-tag">application</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span> <span class="selector-tag">handleOpenURL</span><span class="selector-pseudo">:(NSURL</span> *)<span class="selector-tag">url</span>&#123;</span><br><span class="line">    return  <span class="selector-attr">[WXApi handleOpenURL:url delegate:self]</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#pragma</span> <span class="selector-tag">mark</span> <span class="selector-tag">-</span> <span class="selector-tag">WXApiDelegate</span></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">onReq</span><span class="selector-pseudo">:(BaseReq</span>*)<span class="selector-tag">req</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">onResp</span><span class="selector-pseudo">:(BaseResp</span>*)<span class="selector-tag">resp</span> &#123;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//获取用户信息</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-5-为微信创建一个另外的单例工具类-实现如下方法"><a href="#2-5-为微信创建一个另外的单例工具类-实现如下方法" class="headerlink" title="2.5 为微信创建一个另外的单例工具类 实现如下方法"></a>2.5 为微信创建一个另外的单例工具类 实现如下方法</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)<span class="string">loginWxAuthWithBlock:</span>(<span class="keyword">void</span> (^)(NSDictionary *userInfo))block &#123;</span><br><span class="line">    <span class="comment">//先判断有无安装微信</span></span><br><span class="line">    <span class="keyword">if</span> (![WXApi isWXAppInstalled]) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    SendAuthReq* req = [[SendAuthReq alloc] init];</span><br><span class="line">    req.scope = @<span class="string">"snsapi_userinfo"</span>;</span><br><span class="line">    req.state = @<span class="string">"CIAccount"</span>;</span><br><span class="line">    req.openID = WX_APP_ID;</span><br><span class="line">    </span><br><span class="line">    [WXApi <span class="string">sendReq:</span>req];</span><br><span class="line">    _blockGetUserInfoSuccess = block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)<span class="string">getWxAuthUserInfo:</span>(BaseResp*)resp &#123;</span><br><span class="line">    </span><br><span class="line">    NSMutableDictionary *results = [[NSMutableDictionary alloc] init];</span><br><span class="line">    [results <span class="string">setObject:</span>@<span class="string">"ret"</span> <span class="string">forKey:</span>@<span class="string">"0"</span>];<span class="comment">//获取失败</span></span><br><span class="line">    SendAuthResp *temp = (SendAuthResp*)resp;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (![temp.state <span class="string">isEqualToString:</span>@<span class="string">"CIAccount"</span>]) &#123;</span><br><span class="line">        [self <span class="string">results:</span>nil <span class="string">withRet:</span>@<span class="string">"-1"</span>];<span class="comment">//state(QQID 不匹配)</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (temp.errCode == <span class="number">0</span>) &#123;<span class="comment">//用户同意</span></span><br><span class="line">        NSString *wxAuthUrlString = @<span class="string">"https://api.weixin.qq.com/sns/oauth2/access_token"</span>;</span><br><span class="line">        NSDictionary *authParams = @&#123;</span><br><span class="line">                                     @<span class="string">"appid"</span>:WX_APP_ID,</span><br><span class="line">                                     @<span class="string">"secret"</span>:WX_APP_SECRET,</span><br><span class="line">                                     @<span class="string">"code"</span>:[NSString <span class="string">stringWithFormat:</span>@<span class="string">"%@"</span>, temp.code],</span><br><span class="line">                                     @<span class="string">"grant_type"</span>:@<span class="string">"authorization_code"</span></span><br><span class="line">                                     &#125;;</span><br><span class="line">                            WS(weakSelf);</span><br><span class="line">    [CINetworkUtils <span class="string">getWithUrl:</span>wxAuthUrlString <span class="string">withParameters:</span>authParams <span class="string">success:</span>^(id responseObject) &#123;</span><br><span class="line">        __strong typeof (weakSelf) StrongSelf = weakSelf;</span><br><span class="line">        <span class="keyword">if</span> (!StrongSelf) &#123;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!responseObject) &#123;</span><br><span class="line">            <span class="comment">//返回值为空 code没有通过验证</span></span><br><span class="line">            [StrongSelf <span class="string">results:</span>nil <span class="string">withRet:</span>@<span class="string">"-6"</span>];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            StrongSelf.authInfo = responseObject;</span><br><span class="line">            [StrongSelf getUserInfo];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="string">failure:</span>^(NSError *error) &#123;</span><br><span class="line">        __strong typeof (weakSelf) strongSelf = weakSelf;</span><br><span class="line">        <span class="keyword">if</span> (!strongSelf) &#123;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//code没有通过验证 发送错误码</span></span><br><span class="line">        [strongSelf <span class="string">results:</span>nil <span class="string">withRet:</span>@<span class="string">"-7"</span>];</span><br><span class="line">    &#125;];</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (temp.errCode == <span class="number">-2</span>) &#123;<span class="comment">//用户取消授权</span></span><br><span class="line">        [self <span class="string">results:</span>nil <span class="string">withRet:</span>@<span class="string">"-2"</span>];</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> (temp.errCode == <span class="number">-4</span> )&#123;<span class="comment">//用户拒绝授权</span></span><br><span class="line">        [self <span class="string">results:</span>nil <span class="string">withRet:</span>@<span class="string">"-4"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)getUserInfo &#123;</span><br><span class="line">    </span><br><span class="line">    WS(weakSelf);</span><br><span class="line">    NSString *wxUserInfoUrlString = @<span class="string">"https://api.weixin.qq.com/sns/userinfo"</span>;</span><br><span class="line">    NSDictionary *authParams = @&#123;</span><br><span class="line">                                 @<span class="string">"access_token"</span>:_authInfo[@<span class="string">"access_token"</span>],</span><br><span class="line">                                 @<span class="string">"openid"</span>:_authInfo[@<span class="string">"openid"</span>]</span><br><span class="line">                                 &#125;;</span><br><span class="line">    [CINetworkUtils <span class="string">getWithUrl:</span>wxUserInfoUrlString <span class="string">withParameters:</span>authParams <span class="string">success:</span>^(id responseObject) &#123;</span><br><span class="line">        </span><br><span class="line">        __strong typeof (weakSelf) strongSelf = weakSelf;</span><br><span class="line">            <span class="keyword">if</span> (!strongSelf) &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            strongSelf.userInfo = responseObject;</span><br><span class="line">            <span class="keyword">if</span> (strongSelf.blockGetUserInfoSuccess) &#123;</span><br><span class="line">            <span class="keyword">if</span> (strongSelf.userInfo) &#123;</span><br><span class="line">            <span class="comment">//成功</span></span><br><span class="line">                [strongSelf <span class="string">results:</span>responseObject <span class="string">withRet:</span>@<span class="string">"1"</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            [strongSelf <span class="string">results:</span>nil <span class="string">withRet:</span>@<span class="string">"-8"</span>];<span class="comment">//没有获取到用户信息</span></span><br><span class="line">            &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="string">failure:</span>^(NSError *error) &#123;</span><br><span class="line">        __strong typeof (weakSelf) strongSelf = weakSelf;</span><br><span class="line">        <span class="keyword">if</span> (!strongSelf) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//请求出错，没有获取到用户信息</span></span><br><span class="line">        [strongSelf <span class="string">results:</span>nil <span class="string">withRet:</span>@<span class="string">"-9"</span>];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)<span class="string">results:</span>(NSDictionary *)results <span class="string">withRet:</span>(NSString *)type&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (!results) &#123;</span><br><span class="line">        _blockGetUserInfoSuccess(@&#123;@<span class="string">"ret"</span>:type&#125;);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    NSMutableDictionary *dic = [[NSMutableDictionary alloc] <span class="string">initWithDictionary:</span>results];</span><br><span class="line">    [dic <span class="string">setObject:</span>@<span class="string">"1"</span> <span class="string">forKey:</span>@<span class="string">"ret"</span>];</span><br><span class="line">    [dic <span class="string">setObject:</span>_authInfo[@<span class="string">"access_token"</span>] <span class="string">forKey:</span>@<span class="string">"access_token"</span>];</span><br><span class="line">    _blockGetUserInfoSuccess(dic);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-6-在工具类中构造loginWX方法"><a href="#2-6-在工具类中构造loginWX方法" class="headerlink" title="2.6 在工具类中构造loginWX方法"></a>2.6 在工具类中构造loginWX方法</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)loginWXSuccess:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> response))successBlock failure:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span> *error))failureBlock&#123;</span><br><span class="line"><span class="comment">//调用微信工具类的方法</span></span><br><span class="line">    [[<span class="built_in">CIAccountWXUtil</span> sharedManager] loginWxAuthWithBlock:^(<span class="built_in">NSDictionary</span> *userInfo) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,userInfo);</span><br><span class="line">    <span class="keyword">if</span> (userInfo &amp;&amp; userInfo[<span class="string">@"ret"</span>]) &#123;</span><br><span class="line">    <span class="built_in">NSString</span> *ret = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@"</span>, userInfo[<span class="string">@"ret"</span>]];</span><br><span class="line">    <span class="keyword">if</span> ([ret isEqualToString:<span class="string">@"1"</span>]) &#123;</span><br><span class="line">    <span class="built_in">NSDictionary</span> *param = @&#123;<span class="string">@"account_type"</span>:<span class="string">@"weixin"</span>,</span><br><span class="line">                                                <span class="string">@"openid"</span>:userInfo[<span class="string">@"openid"</span>],</span><br><span class="line">                                                <span class="string">@"nickname"</span>:userInfo[<span class="string">@"nickname"</span>],</span><br><span class="line">                                                <span class="string">@"access_token"</span>:userInfo[<span class="string">@"access_token"</span>],</span><br><span class="line">                                                <span class="string">@"third_appid"</span>:WX_APP_ID,<span class="string">@"unionid"</span>:userInfo[<span class="string">@"unionid"</span>]&#125;;</span><br><span class="line">        successBlock(param);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">NSError</span> *error = [<span class="built_in">CIAccountError</span> createError:ErrorThirdLoginFailure];</span><br><span class="line">            </span><br><span class="line">    failureBlock(error);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;];    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-7-登录时调用工具类的loginWX方法"><a href="#2-7-登录时调用工具类的loginWX方法" class="headerlink" title="2.7 登录时调用工具类的loginWX方法"></a>2.7 登录时调用工具类的loginWX方法</h4><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[thirdLoginUtil loginWXSuccess:^(<span class="name">id</span> response) &#123;</span><br><span class="line"> //获取数据实现客户端登录</span><br><span class="line">        &#125; failure:^(<span class="name">NSError</span> *error) &#123;</span><br><span class="line">            [self ShowExclaHud:error.localizedDescription]<span class="comment">;</span></span><br><span class="line">        &#125;]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-8-tips"><a href="#2-8-tips" class="headerlink" title="2.8 tips"></a>2.8 tips</h4><ul>
+<li>开发者接入微信登录时，先检测用户手机是否已安装微信客户端（使用sdk中isWXAppInstalled函数 ），对未安装的用户隐藏微信登录按钮，只提供其他登录方式<ul>
+<li>微信自身有一个bug，如果未登录微信返回后没有回调接口，无法判断到回调</li>
+</ul>
+</li>
+</ul>
+<h1 id="微博接入"><a href="#微博接入" class="headerlink" title="微博接入"></a>微博接入</h1><h4 id="官方文档-2"><a href="#官方文档-2" class="headerlink" title="官方文档"></a>官方文档</h4><p><a href="https://github.com/sinaweibosdk/weibo_ios_sdk" target="_blank" rel="external">接入文档&amp;SDK</a><br><a href="http://open.weibo.com/wiki/%E5%BE%AE%E5%8D%9AAPI" target="_blank" rel="external">API列表</a><br><a href="https://github.com/sinaweibosdk/weibo_ios_sdk/blob/master/FAQ.md" target="_blank" rel="external">常见错误</a></p>
+<h4 id="2-1-在配置文件Info-plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转"><a href="#2-1-在配置文件Info-plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转" class="headerlink" title="2.1 在配置文件Info.plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转"></a>2.1 在配置文件Info.plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>LSApplicationQueriesSchemes<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span>&gt;</span>sinaweibohd<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span>&gt;</span>sinaweibo<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span>&gt;</span>sinaweibosso<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span>&gt;</span>weibosdk<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string</span>&gt;</span>weibosdk2.5<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-2-点击XCode项目名，选择Info，添加微博的URL-Types"><a href="#2-2-点击XCode项目名，选择Info，添加微博的URL-Types" class="headerlink" title="2.2 点击XCode项目名，选择Info，添加微博的URL Types"></a>2.2 点击XCode项目名，选择Info，添加微博的URL Types</h4><p>identifier:wb URL Schemes:wb前缀后+Weibo App ID（用户自己申请的账号） </p>
+<h4 id="2-3-在AppDelegate中配置"><a href="#2-3-在AppDelegate中配置" class="headerlink" title="2.3 在AppDelegate中配置"></a>2.3 在AppDelegate中配置</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">// 1</span></span><br><span class="line"><span class="selector-tag">-</span> (BOOL)<span class="selector-tag">application</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span> <span class="selector-tag">didFinishLaunchingWithOptions</span><span class="selector-pseudo">:(NSDictionary</span> *)<span class="selector-tag">launchOptions</span> &#123;</span><br><span class="line">  <span class="comment">//微博注册</span></span><br><span class="line">    <span class="selector-attr">[WeiboSDK enableDebugMode:YES]</span>;</span><br><span class="line">    <span class="selector-attr">[WeiboSDK registerApp:WeiBo_APP_ID]</span>;</span><br><span class="line">      return YES;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="comment">//2</span></span><br><span class="line"> <span class="selector-tag">-</span> (BOOL)<span class="selector-tag">application</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span> <span class="selector-tag">openURL</span><span class="selector-pseudo">:(NSURL</span> *)<span class="selector-tag">url</span> <span class="selector-tag">sourceApplication</span><span class="selector-pseudo">:(NSString</span> *)<span class="selector-tag">sourceApplication</span> <span class="selector-tag">annotation</span><span class="selector-pseudo">:(id)annotation</span>&#123;</span><br><span class="line">    return   <span class="selector-attr">[WeiboSDK handleOpenURL:url delegate:self]</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="selector-tag">-</span> (BOOL)<span class="selector-tag">application</span><span class="selector-pseudo">:(UIApplication</span> *)<span class="selector-tag">application</span> <span class="selector-tag">handleOpenURL</span><span class="selector-pseudo">:(NSURL</span> *)<span class="selector-tag">url</span>&#123;</span><br><span class="line">    return <span class="selector-attr">[WeiboSDK handleOpenURL:url delegate:self]</span>;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="selector-id">#pragma</span> <span class="selector-tag">mark</span> <span class="selector-tag">-</span> <span class="selector-tag">WeiBoDelegate</span></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">didReceiveWeiboRequest</span><span class="selector-pseudo">:(WBBaseRequest</span> *)<span class="selector-tag">request</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">didReceiveWeiboResponse</span><span class="selector-pseudo">:(WBBaseResponse</span> *)<span class="selector-tag">response</span>&#123;</span><br><span class="line"> <span class="comment">//获取用户信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-4-工具类中构造loginWB方法"><a href="#2-4-工具类中构造loginWB方法" class="headerlink" title="2.4 工具类中构造loginWB方法"></a>2.4 工具类中构造loginWB方法</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)loginWeiBoSuccess:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> response))successBlock failure:(<span class="keyword">void</span> (^)(<span class="built_in">NSError</span> *error))failureBlock&#123;</span><br><span class="line">    _thirdLoginSuccess = successBlock;</span><br><span class="line">    _thirdLoginFailure = failureBlock;</span><br><span class="line">    </span><br><span class="line">    WBAuthorizeRequest *request = [WBAuthorizeRequest request];</span><br><span class="line">    request.redirectURI = WeiBo_RedirectURI;</span><br><span class="line">    request.scope = <span class="string">@"all"</span>;</span><br><span class="line">    request.userInfo = @&#123;<span class="string">@"myKey"</span>: <span class="string">@"myValue"</span>&#125;;</span><br><span class="line">    [WeiboSDK sendRequest:request];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - 微博登录在appdelegate回调</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)getWeiboUserInfo:(WBBaseResponse *)response&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *weiboOpenId = [(WBAuthorizeResponse *)response userID];</span><br><span class="line">    <span class="keyword">if</span> (weiboOpenId) &#123;</span><br><span class="line">        <span class="comment">//获取用户信息，昵称</span></span><br><span class="line">        <span class="built_in">NSString</span> *weiboUrl = <span class="string">@"https://api.weibo.com/2/users/show.json"</span>;</span><br><span class="line">        <span class="built_in">NSDictionary</span> *weiboParam = @&#123;<span class="string">@"access_token"</span>:[(WBAuthorizeResponse *)response accessToken],</span><br><span class="line">                                     <span class="string">@"uid"</span>:weiboOpenId&#125;;</span><br><span class="line">        [<span class="built_in">CINetworkUtils</span> getWithUrl:weiboUrl withParameters:weiboParam success:^(<span class="keyword">id</span> responseObject) &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *weiboNickName = responseObject[<span class="string">@"name"</span>];</span><br><span class="line">            <span class="built_in">NSDictionary</span> *param = @&#123;<span class="string">@"openid"</span>:weiboOpenId,</span><br><span class="line">                                                <span class="string">@"nickname"</span>:weiboNickName,</span><br><span class="line">                                                <span class="string">@"account_type"</span>:<span class="string">@"weibo"</span>,</span><br><span class="line">                                                <span class="string">@"access_token"</span>:[(WBAuthorizeResponse *)response accessToken],</span><br><span class="line">                                                <span class="string">@"third_appid"</span>:WeiBo_APP_ID&#125;;</span><br><span class="line">            _thirdLoginSuccess(param);</span><br><span class="line">        &#125; failure:^(<span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">            <span class="built_in">NSError</span> *createError = [<span class="built_in">CIAccountError</span> createError:ErrorThirdLoginFailure];</span><br><span class="line">            _thirdLoginFailure(createError);</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">NSError</span> *error = [<span class="built_in">CIAccountError</span> createError:ErrorThirdLoginFailure];</span><br><span class="line">        _thirdLoginFailure(error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-5-登录时调用loginWB方法"><a href="#2-5-登录时调用loginWB方法" class="headerlink" title="2.5 登录时调用loginWB方法"></a>2.5 登录时调用loginWB方法</h4><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[thirdLoginUtil loginWeiBoSuccess:^(<span class="name">id</span> response) &#123;</span><br><span class="line">        //获取数据实现客户端登录</span><br><span class="line">            &#125; failure:^(<span class="name">NSError</span> *error) &#123;</span><br><span class="line">                [self ShowExclaHud:error.localizedDescription]<span class="comment">;</span></span><br><span class="line">            &#125;]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/19/使用Cocoapods配置私有库/" rel="next" title="使用Cocoapods配置私有库">
+                <i class="fa fa-chevron-left"></i> 使用Cocoapods配置私有库
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/16464148?v=3&s=460"
+               alt="LuLiangXiao" />
+          <p class="site-author-name" itemprop="name">LuLiangXiao</p>
+          <p class="site-description motion-element" itemprop="description">iOS Coder</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/w11p3333" target="_blank" title="github">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/w535921901/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lu-liang-xiao-72" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-zhihu"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/89aa04642c48/latest_articles" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-zhihu"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#通用说明"><span class="nav-number">1.</span> <span class="nav-text">通用说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#QQ接入"><span class="nav-number">2.</span> <span class="nav-text">QQ接入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#官方文档"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">官方文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-配置QQ需要的静态库，分别是"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2.1 配置QQ需要的静态库，分别是</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-在配置文件Info-plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">2.2 在配置文件Info.plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-点击XCode项目名，选择Info，添加腾讯的URL-Types"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">2.3 点击XCode项目名，选择Info，添加腾讯的URL Types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-在AppDelegate中配置"><span class="nav-number">2.0.0.5.</span> <span class="nav-text">2.4 在AppDelegate中配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-构建单例工具类"><span class="nav-number">2.0.0.6.</span> <span class="nav-text">2.5 构建单例工具类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-在工具类中构建登录QQ方法"><span class="nav-number">2.0.0.7.</span> <span class="nav-text">2.6 在工具类中构建登录QQ方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-实现QQ代理方法"><span class="nav-number">2.0.0.8.</span> <span class="nav-text">2.7 实现QQ代理方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-登录时调用工具类的loginQQ方法"><span class="nav-number">2.0.0.9.</span> <span class="nav-text">2.8 登录时调用工具类的loginQQ方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#微信接入"><span class="nav-number">3.</span> <span class="nav-text">微信接入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#官方文档-1"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">官方文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-配置微信需要的静态库-分别是"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">2.1 配置微信需要的静态库,分别是</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-在配置文件Info-plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转-1"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">2.2 在配置文件Info.plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-点击XCode项目名，选择Info，添加微信的URL-Types"><span class="nav-number">3.0.0.4.</span> <span class="nav-text">2.3 点击XCode项目名，选择Info，添加微信的URL Types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-在AppDelegate中配置-1"><span class="nav-number">3.0.0.5.</span> <span class="nav-text">2.4 在AppDelegate中配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-为微信创建一个另外的单例工具类-实现如下方法"><span class="nav-number">3.0.0.6.</span> <span class="nav-text">2.5 为微信创建一个另外的单例工具类 实现如下方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-在工具类中构造loginWX方法"><span class="nav-number">3.0.0.7.</span> <span class="nav-text">2.6 在工具类中构造loginWX方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-登录时调用工具类的loginWX方法"><span class="nav-number">3.0.0.8.</span> <span class="nav-text">2.7 登录时调用工具类的loginWX方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-tips"><span class="nav-number">3.0.0.9.</span> <span class="nav-text">2.8 tips</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#微博接入"><span class="nav-number">4.</span> <span class="nav-text">微博接入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#官方文档-2"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">官方文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-在配置文件Info-plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">2.1 在配置文件Info.plist中配置应用白名单，必须添加以下所有字段，否则可能无法跳转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-点击XCode项目名，选择Info，添加微博的URL-Types"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">2.2 点击XCode项目名，选择Info，添加微博的URL Types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-在AppDelegate中配置"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">2.3 在AppDelegate中配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-工具类中构造loginWB方法"><span class="nav-number">4.0.0.5.</span> <span class="nav-text">2.4 工具类中构造loginWB方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-登录时调用loginWB方法"><span class="nav-number">4.0.0.6.</span> <span class="nav-text">2.5 登录时调用loginWB方法</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LuLiangXiao</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
