@@ -241,103 +241,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/21/记-编写高质量iOS代码的52个有效方法/" itemprop="url">
-                  记 编写高质量iOS代码的52个有效方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-21T21:41:34+08:00" content="2016-06-21">
-              2016-06-21
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-在类的头文件中尽量少引入其他头文件"><a href="#1-在类的头文件中尽量少引入其他头文件" class="headerlink" title="1.在类的头文件中尽量少引入其他头文件"></a>1.在类的头文件中尽量少引入其他头文件</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在.<span class="keyword">h</span>文件中@<span class="keyword">class</span> <span class="keyword">test</span>,.<span class="keyword">m</span>中import <span class="string">"test.h"</span> </span><br><span class="line">代替直接import <span class="string">"test.h"</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-多用字面量语法"><a href="#2-多用字面量语法" class="headerlink" title="2.多用字面量语法"></a>2.多用字面量语法</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">多使用类似</span><br><span class="line">NSString *str = @<span class="string">"test"</span><span class="comment">;</span></span><br><span class="line">NSDictionary *<span class="keyword">dict </span>= @&#123;@<span class="string">"key"</span>:@<span class="string">"value"</span>&#125;<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-多用类型常量，少用-define"><a href="#3-多用类型常量，少用-define" class="headerlink" title="3.多用类型常量，少用#define"></a>3.多用类型常量，少用#define</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">使用</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="built_in">NSTimeInterval</span> ANIMATION_DURATION = <span class="number">0.3</span></span><br><span class="line">代替</span><br><span class="line"><span class="meta">#define ANIMATION_DURATION 0.3</span></span><br><span class="line">全局常量使用</span><br><span class="line"><span class="keyword">extern</span> <span class="built_in">NSTimeInterval</span> *ANIMATION_DURATION = <span class="number">0.3</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-读取实例变量时直接访问，设置实例变量时通过属性"><a href="#4-读取实例变量时直接访问，设置实例变量时通过属性" class="headerlink" title="4.读取实例变量时直接访问，设置实例变量时通过属性"></a>4.读取实例变量时直接访问，设置实例变量时通过属性</h3><p>使用懒加载时一定要通过属性（使用self.）</p>
-<h3 id="5-使用euqalto方法而不是"><a href="#5-使用euqalto方法而不是" class="headerlink" title="5.使用euqalto方法而不是=="></a>5.使用euqalto方法而不是==</h3>
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/05/27/iOS第三方登录大全(下)/" itemprop="url">
                   iOS第三方登录大全(下)
                 </a>
@@ -1182,6 +1085,103 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/21/实现iOS启动页淡出效果/" itemprop="url">
+                  实现iOS启动页淡出效果
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-21T22:08:21+08:00" content="2016-04-21">
+              2016-04-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>先上Demo：<a href="https://github.com/w11p3333/LaunchDemo">https://github.com/w11p3333/LaunchDemo</a></p>
+<p>思路：将launchScreen作为window的一个addsubview</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/21/实现iOS启动页淡出效果/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1227,7 +1227,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
