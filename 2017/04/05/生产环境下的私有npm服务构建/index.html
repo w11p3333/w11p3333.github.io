@@ -1,0 +1,608 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="AppleCatKay" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="生产环境下的私有npm服务构建私有npm的优势
+内网服务器安装依赖 妈妈再也不用担心GFW(
+库代码的权限控制
+与其它npm库相同的依赖方式, 减少学习成本. 无需使用123456789101112131415161718194. 通过类似[npm官网](https://www.npmjs.com/)的网站一目了然公司使用的全部模块/版本## 技术方案[sinopia](https://githu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AppleCatKay">
+<meta property="og:url" content="http://yoursite.com/2017/04/05/生产环境下的私有npm服务构建/index.html">
+<meta property="og:site_name" content="AppleCatKay">
+<meta property="og:description" content="生产环境下的私有npm服务构建私有npm的优势
+内网服务器安装依赖 妈妈再也不用担心GFW(
+库代码的权限控制
+与其它npm库相同的依赖方式, 减少学习成本. 无需使用123456789101112131415161718194. 通过类似[npm官网](https://www.npmjs.com/)的网站一目了然公司使用的全部模块/版本## 技术方案[sinopia](https://githu">
+<meta property="og:updated_time" content="2017-05-14T15:54:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AppleCatKay">
+<meta name="twitter:description" content="生产环境下的私有npm服务构建私有npm的优势
+内网服务器安装依赖 妈妈再也不用担心GFW(
+库代码的权限控制
+与其它npm库相同的依赖方式, 减少学习成本. 无需使用123456789101112131415161718194. 通过类似[npm官网](https://www.npmjs.com/)的网站一目了然公司使用的全部模块/版本## 技术方案[sinopia](https://githu">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title>  | AppleCatKay </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">AppleCatKay</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2017-04-05T11:00:58+08:00" content="2017-04-05">
+              2017-04-05
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="生产环境下的私有npm服务构建"><a href="#生产环境下的私有npm服务构建" class="headerlink" title="生产环境下的私有npm服务构建"></a>生产环境下的私有npm服务构建</h1><h2 id="私有npm的优势"><a href="#私有npm的优势" class="headerlink" title="私有npm的优势"></a>私有npm的优势</h2><ol>
+<li>内网服务器安装依赖 妈妈再也不用担心GFW(</li>
+<li>库代码的权限控制</li>
+<li>与其它npm库相同的依赖方式, 减少学习成本. 无需使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">4. 通过类似[npm官网](https://www.npmjs.com/)的网站一目了然公司使用的全部模块/版本</span><br><span class="line"></span><br><span class="line">## 技术方案</span><br><span class="line"></span><br><span class="line">[sinopia](https://github.com/rlidwka/sinopia): 搭建私有的npm服务, 它可以做到以下事情</span><br><span class="line"></span><br><span class="line">- 上传/下载私有的npm库</span><br><span class="line">- proxy机制, 非全量同步,本地未找到依赖自动去指定源下载, 然后缓存至```sinopia/storage```(可修改)</span><br><span class="line">- 覆盖公有库, 方便的修改开源项目</span><br><span class="line">- 自带前端管理网站</span><br><span class="line"></span><br><span class="line">[pm2](https://github.com/Unitech/pm2): 强大的node.js命令行部署/托管工具</span><br><span class="line"></span><br><span class="line">[nrm](https://github.com/Pana/nrm): 方便的切换npm源的CLI工具</span><br><span class="line"></span><br><span class="line">## 安装依赖</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">npm install -g sinopia pm2 nrm</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="开启sinopia"><a href="#开启sinopia" class="headerlink" title="开启sinopia"></a>开启sinopia</h2><p>输入<figure class="highlight plain"><figcaption><span>start sinopia```开启服务</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">访问http://localhost:4873</span><br><span class="line">![](http://upload-images.jianshu.io/upload_images/1449048-fcd06d215523402c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)看到这个页面即为搭建成功</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 配置sinopia</span><br><span class="line"></span><br><span class="line">**sinopia的目录位于你第一次执行开启命令的目录**</span><br><span class="line"></span><br><span class="line">- storage: 私有库存放地址</span><br><span class="line">- htpasswd: 用户管理</span><br><span class="line">- config.yaml: 配置文件</span><br><span class="line"></span><br><span class="line">```yaml</span><br><span class="line">storage: ./storage  # npm包存放的路径</span><br><span class="line"></span><br><span class="line">auth:</span><br><span class="line">  htpasswd:</span><br><span class="line">    file: ./htpasswd   # 保存用户的账号密码等信息</span><br><span class="line">    max_users: -1  # 最大允许的用户数量，-1则为禁止注册</span><br><span class="line"></span><br><span class="line">uplinks:</span><br><span class="line">  npmjs:</span><br><span class="line">    url: registry.npm.taobao.org  # npm地址 当在本地服务找不到依赖时则会拉取这个源的npm库 </span><br><span class="line">    </span><br><span class="line">packages:  # 配置权限管理 所有用户有权限拉取项目 但是没有权限更新项目</span><br><span class="line">  &apos;@*/*&apos;:</span><br><span class="line">    # scoped packages</span><br><span class="line">    access: $all</span><br><span class="line">    publish: $authenticated</span><br><span class="line"></span><br><span class="line">  &apos;*&apos;:</span><br><span class="line">    access: $all</span><br><span class="line">    publish: $authenticated</span><br><span class="line">    proxy: npmjs</span><br><span class="line"></span><br><span class="line"># log settings</span><br><span class="line">logs:</span><br><span class="line">  - &#123;type: stdout, format: pretty, level: http&#125;</span><br><span class="line"></span><br><span class="line">listen: 0.0.0.0:4873  # 默认没有，只能在本机访问，添加后可以通过外网访问。</span><br></pre></td></tr></table></figure></p>
+<h2 id="生产环境中的使用"><a href="#生产环境中的使用" class="headerlink" title="生产环境中的使用"></a>生产环境中的使用</h2><h3 id="容器部署"><a href="#容器部署" class="headerlink" title="容器部署"></a>容器部署</h3><p>最佳实践是将sinopia作为单独服务部署在<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">在此我制作了一个可以直接使用的[docker image](https://github.com/w11p3333/sinopia_service_docker_image)  启动容器则自动开启服务, ```pm2```将会守护```sinopia```进程 </span><br><span class="line"></span><br><span class="line">### 版本控制</span><br><span class="line"></span><br><span class="line">将```sinopia```作为公司内部npm库还存在几个问题  </span><br><span class="line">- 使用```npm publish```上传的流程无法统一管理, 也就是无法持续集成/code review</span><br><span class="line">- 每个版本的更新信息完全依靠文档, 无法通过```code diff```追溯</span><br><span class="line"></span><br><span class="line">以gitlab为例, 我的做法是  </span><br><span class="line">- 将```ci runner```的服务器切换至私有源, 使用```npm adduser```注册一个root用户</span><br><span class="line">- 在sinopia服务器上将```sinopia/config.yaml```中的```max-users```设置为-1, 禁止注册与私自更新版本</span><br><span class="line">- 将node库源代码在gitlab中创建项目 提交代码走PR流程</span><br><span class="line">- ```ci.yml```中, ```build```环境处理```lint```, ```unit test```, ```production build```等流程,```tag```环境```npm publish```提交版本, 保持gitlab与npm版本一致</span><br><span class="line">- 邮件通知各组成员 库版本更新信息</span><br><span class="line"></span><br><span class="line">### 团队使用</span><br><span class="line"></span><br><span class="line">团队所有成员切换npm至私有库 </span><br><span class="line">前面提到nrm库 可以方便的切换npm源</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">nrm add private http://localhost:4873 # 添加源管理</span><br><span class="line">nrm ls # 查看源列表</span><br><span class="line">nrm use private # 切换至该源</span><br><span class="line">npm install @scope/package-name@version --save-dev # 其它操作与npm公用库相同</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/27/iOS第三方登录大全(下)/" rel="next" title="iOS第三方登录大全(下)">
+                <i class="fa fa-chevron-left"></i> iOS第三方登录大全(下)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/16464148?v=3&s=460"
+               alt="LuLiangXiao" />
+          <p class="site-author-name" itemprop="name">LuLiangXiao</p>
+          <p class="site-description motion-element" itemprop="description">iOS Coder</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/w11p3333" target="_blank" title="github">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/w535921901/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/lu-liang-xiao-72" target="_blank" title="zhihu">
+                  
+                    <i class="fa fa-zhihu"></i>
+                  
+                  zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/89aa04642c48/latest_articles" target="_blank" title="jianshu">
+                  
+                    <i class="fa fa-zhihu"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#生产环境下的私有npm服务构建"><span class="nav-number">1.</span> <span class="nav-text">生产环境下的私有npm服务构建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#私有npm的优势"><span class="nav-number">1.1.</span> <span class="nav-text">私有npm的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启sinopia"><span class="nav-number">1.2.</span> <span class="nav-text">开启sinopia</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生产环境中的使用"><span class="nav-number">1.3.</span> <span class="nav-text">生产环境中的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#容器部署"><span class="nav-number">1.3.1.</span> <span class="nav-text">容器部署</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LuLiangXiao</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
