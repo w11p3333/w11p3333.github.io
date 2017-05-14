@@ -241,8 +241,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/05/生产环境下的私有npm服务构建/" itemprop="url">
-                  Untitled
+                <a class="post-title-link" href="/2017/05/15/生产环境下的私有npm服务构建/" itemprop="url">
+                  生产环境下的私有npm服务构建
                 </a>
               
             
@@ -255,8 +255,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-04-05T11:00:58+08:00" content="2017-04-05">
-              2017-04-05
+            <time itemprop="dateCreated" datetime="2017-05-15T17:23:12+08:00" content="2017-05-15">
+              2017-05-15
             </time>
           </span>
 
@@ -285,7 +285,7 @@
       
         
           
-            <h1 id="生产环境下的私有npm服务构建"><a href="#生产环境下的私有npm服务构建" class="headerlink" title="生产环境下的私有npm服务构建"></a>生产环境下的私有npm服务构建</h1><h2 id="私有npm的优势"><a href="#私有npm的优势" class="headerlink" title="私有npm的优势"></a>私有npm的优势</h2><ol>
+            <h2 id="私有npm的优势"><a href="#私有npm的优势" class="headerlink" title="私有npm的优势"></a>私有npm的优势</h2><ol>
 <li>内网服务器安装依赖 妈妈再也不用担心GFW(</li>
 <li>库代码的权限控制</li>
 <li>与其它npm库相同的依赖方式, 减少学习成本. 无需使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">4. 通过类似[npm官网](https://www.npmjs.com/)的网站一目了然公司使用的全部模块/版本</span><br><span class="line"></span><br><span class="line">## 技术方案</span><br><span class="line"></span><br><span class="line">[sinopia](https://github.com/rlidwka/sinopia): 搭建私有的npm服务, 它可以做到以下事情</span><br><span class="line"></span><br><span class="line">- 上传/下载私有的npm库</span><br><span class="line">- proxy机制, 非全量同步,本地未找到依赖自动去指定源下载, 然后缓存至```sinopia/storage```(可修改)</span><br><span class="line">- 覆盖公有库, 方便的修改开源项目</span><br><span class="line">- 自带前端管理网站</span><br><span class="line"></span><br><span class="line">[pm2](https://github.com/Unitech/pm2): 强大的node.js命令行部署/托管工具</span><br><span class="line"></span><br><span class="line">[nrm](https://github.com/Pana/nrm): 方便的切换npm源的CLI工具</span><br><span class="line"></span><br><span class="line">## 安装依赖</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">npm install -g sinopia pm2 nrm</span><br></pre></td></tr></table></figure></li>
